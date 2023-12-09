@@ -1,22 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PrismModel : MonoBehaviour
 {
-	private Prism prism;
+	public Prism Prism;
+	public Color PrimaryColor = Color.white;
+	public Color SecondaryColor = Color.gray;
+    public BaseBoard Board;
 
-	// Use this for initialization
-	void Start()
-	{
-		this.prism = new Prism();
-	}
+    void Start()
+    {
+        var board = GameObject.FindGameObjectWithTag("Grid");
+        Board = board.GetComponent<BaseBoard>();
+
+        this.Prism = new Prism();
+        var cubeRenderer = gameObject.GetComponent<SpriteRenderer>();
+        cubeRenderer.material.SetColor("_Color", PrimaryColor);
+    }
+
+    internal void ClearSelectedGrid()
+    {
+        Debug.Log("TODO: PrismModel.ClearSelectedGrid");
+    }
+
+    internal void ShowSelectedGrid()
+    {
+        var origin = new Vector2(transform.position.x, transform.position.y);
+        var tilemap = Board.GetTilemap();
+
+        var asdf = "";
+        //var hits = Physics2D.RaycastAll(origin, Vector2.zero, 0f);
+        //var hits = Physics2D.RaycastAll(origin, Vector2.one, 4);
+        //var tilemap = hits
+    }
 
 
 	// Update is called once per frame
 	void Update()
 	{
-		//prism.Tick();
-		// Do the update interactions for the Prism class
-	}
+       
+    }
 }
 

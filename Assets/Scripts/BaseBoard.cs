@@ -20,6 +20,8 @@ public class BaseBoard : MonoBehaviour
     private Vector3Int previousTileCoordinate;
     private Tilemap tilemap; // Reference to your Tilemap
 
+    public Tilemap GetTilemap() { return tilemap; }
+
     private void Awake()
     {
         tilemap = GetComponent<Tilemap>();
