@@ -1,5 +1,6 @@
 # SOLAR CONQUEST
 Imagine Rimworld with FTL mechanics in the Star Wars post WW3 universe
+Aliens including Humans are part of the solar
 
 ## Inspiration
 - PrismStats
@@ -43,6 +44,3 @@ Faction Races:
     - Mu: Klyntians
 
 
-
-## Data Registry
-RimWorld and FTL use data driven development 
