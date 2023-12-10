@@ -17,13 +17,13 @@ public enum CombatRank
     Corporal = 1,
     Lance = 2,
     Sergeant = 3,
-    Lieutenant = 4,
-    Commander = 5,
-    Captain = 6,
-    Colonel = 7,
-    Major = 8,
-    Arch = 9,
-    Prime = 10,
+    Ensign = 4,
+    Lieutenant = 5,
+    Commander = 6,
+    Captain = 7,
+    Colonel = 8,
+    Major = 9,
+    Arch = 10,
     Admin = 11
 }
 

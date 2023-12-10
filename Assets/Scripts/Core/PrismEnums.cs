@@ -5,6 +5,45 @@
     Arms = 2,
     Legs = 3
 }
+// Think about RIMWORLD
+/*
+
+So it's detailed like femur fingers and shit so lets do it
+
+- Head
+    - Mussel
+        - Eyes => Crafting
+            - LeftEye
+            - RightEye
+        - Nose => Cooking and Hunting
+        - Mouth => Socializing and Breeding
+            - Teeth
+            - Tounge
+    - Skull
+        - Brain => Living and Research
+- Torso
+    - TorsoMussel
+    - RibCage
+        - Heart => Living
+        - Lungs => Living
+        - Kidneys => Alchol
+        - Stomach => Hunger
+- 2 Arms
+    - Arm
+        - ArmMussels
+        - ArmBones
+        - Hand
+            - 5 MusselFingers
+            - 5 BoneFingers
+- 2 Legs
+    - Leg
+        - LegMussels
+        - LegBones
+        - Foot
+            - 5 MusselToes
+            - 5 BoneToes
+ 
+*/
 
 public enum PrismID
 {
