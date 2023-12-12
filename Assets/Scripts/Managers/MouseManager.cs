@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using SolarConquest;
 
 public class MouseManager : MonoBehaviour
 {
-    private List<PrismID> SelectedPrismIDs = new();
+    private List<Particle> SelectedPrismIDs = new();
 
     // Start is called before the first frame update
     void Start()

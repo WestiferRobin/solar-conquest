@@ -45,7 +45,7 @@ So it's detailed like femur fingers and shit so lets do it
  
 */
 
-public enum PrismID
+public enum Particle
 {
     Delta = 0xFFF,
     Theta = 0x0FF,
@@ -63,7 +63,7 @@ public enum PrismID
     Omega = 0x000
 }
 
-public enum PrismGender
+public enum Gender
 {
     Female = 0,
     Male = 1
@@ -83,16 +83,6 @@ public enum Horoscope
     Libra = 9,
     Scorpio = 10,
     Sagittarius = 11
-}
-
-public enum FamilyName
-{
-    Admin = 0,
-    Quazar = 1,
-    Photon = 2,
-    Electron = 3,
-    Neutron = 4,
-    Proton = 5
 }
 
 public enum PrismSkillID

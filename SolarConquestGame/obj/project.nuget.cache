@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "bYHZer5lwE6Z/0LwgGh6dxSn0VqFb4xb6Um7JruCogETBz+5gSsCJxphWN1sqzsSUQJen0pzzHIUHs/xzccfCw==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\solar-conquest\\SolarConquestGame\\SolarConquest.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

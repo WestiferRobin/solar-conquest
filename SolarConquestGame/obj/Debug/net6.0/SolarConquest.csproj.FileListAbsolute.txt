@@ -1,0 +1,15 @@
+C:\Dev\ClassLibrary1\obj\Debug\net6.0\SolarConquest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\ClassLibrary1\obj\Debug\net6.0\SolarConquest.AssemblyInfoInputs.cache
+C:\Dev\ClassLibrary1\obj\Debug\net6.0\SolarConquest.AssemblyInfo.cs
+C:\Dev\ClassLibrary1\obj\Debug\net6.0\SolarConquest.csproj.CoreCompileInputs.cache
+C:\Dev\solar-conquest\SolarConquestGame\bin\Debug\net6.0\SolarConquest.deps.json
+C:\Dev\solar-conquest\SolarConquestGame\bin\Debug\net6.0\SolarConquest.dll
+C:\Dev\solar-conquest\SolarConquestGame\bin\Debug\net6.0\SolarConquest.pdb
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.AssemblyInfoInputs.cache
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.AssemblyInfo.cs
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.csproj.CoreCompileInputs.cache
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.dll
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\refint\SolarConquest.dll
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\SolarConquest.pdb
+C:\Dev\solar-conquest\SolarConquestGame\obj\Debug\net6.0\ref\SolarConquest.dll

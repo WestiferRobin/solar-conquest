@@ -14,10 +14,15 @@ Aliens including Humans are part of the solar
     - Ship Interactions
     - Ship Conditions
 - Conquesting Algro => Inspired by => If RimWorld this is the story "developer"
-    - BF2: Galatic Conquest
-    - Empire at War
-    - Red Alert 2
-    - Age of Empires 2
+    - Overview
+        - BF2: Galatic Conquest 
+        - Empire at War
+    - Colonies
+        - Red Alert 2
+        - Age of Empires 2
+    - Sims 4 => Controlling Prisms and Hedrons
+        - SpaceView
+        - LandView
 
 ## Factions and Races
 Note How Time Works:
