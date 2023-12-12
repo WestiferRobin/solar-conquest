@@ -2,6 +2,7 @@
 
 
 ## TODOS:
+0. Get Unit tests and Playground working for mac and pc
 1. Make full galaxy grid without factions
 2. Add factions into the grid
     - Per PlayerFaction
@@ -32,11 +33,30 @@
         - ShipVsSpaceCraftSquadron
         - SpaceCraftSquadronVsLandCraftSquadron
     - FleetVsFleet
+        - Types: [AdminEliteFleet, ArchEliteFleet, HeavyFleet, StandardFleet, LightFleet]
+        - ShipVsShip
+            - 1 v 1
+            - 2 v 1
+            - 1 v 2
+            - 3 v 1
+            - 1 v 3
+            - 2 v 2
+            - 2 v 3
+            - 3 v 2
+            - 3 v 3
     - PlanetVsPlanet
     - SolarVsSolar
     - FactionVsFaction
+        - FactionSolarVsFactionSolar
 4. Build and Apply into Unity
 5. Make the Genisis V story in FotF into SolarConquest
+    - Hyperspace: Wes in Terrian Freighter
+    - FleetVsPlanet
+        - Space
+        - FleetVsFleet
+        - Space: ShipVsShip
+    - Land: SpaceCraftSquadronVsLandCraftSquadron
+    - 
 
 
 
