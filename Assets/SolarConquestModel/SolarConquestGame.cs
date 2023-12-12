@@ -13,7 +13,7 @@ namespace SolarConquest
         public FederationFaction Federation { get; set; }
         public EmpireFaction Empire { get; set; }
 
-        public GalaxyGrid GameBoard { get; set; }
+        public IGridUpdater GameBoard { get; set; }
 
 
         public SolarConquestGame(UserPlayer allyPlayer, UserPlayer enemyPlayer)
@@ -34,7 +34,7 @@ namespace SolarConquest
         {
             while (Federation.IsAlive() && Empire.IsAlive())
             {
-                this.GameBoard.Tick();
+                this.GameBoard.Update();
             }
         }
     }

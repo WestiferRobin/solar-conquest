@@ -23,6 +23,8 @@ namespace SolarConquest
                     solarItem.Update();
                 }
             }
+            EnemyFaction.FactionTurn();
+            AllyFaction.FactionTurn();
         }
 
         public GalaxyGrid(FederationFaction federationFaction, EmpireFaction empireFaction)
@@ -58,146 +60,141 @@ namespace SolarConquest
             }
             this.galaxyMatrix.Add(enemySolarGrids);
 
-
-            //galaxyGrid = new SolarGrid[5,5];
-            //foreach (var gridLine in galaxyGrid)
-            //{
-            //    foreach (var lineElement in gridLine)
-            //    {
-
-            //    }
-            //}
-
-            // FactionSolarGrid => SolConfiguration
-            // Faction gets 4 ArchFactionSolarGrid and 1 AdminFactionSolarGrid
-            // mapping is arch, arch, admin, arch, arch
-            // map colony to system
-            /*
-            ex.)
-                Admin Faction is Created:
-                    - AdminCouncil
-                        - ArchCouncil
-                        - GuardianOrder
-                    - Colonies
-                        - Citadel
-                        - City
-                        - Town
-                        - Outpost
-                    - Fleets
-                        - Elite Fleet
-                        - Heavy Fleet
-                        - Standard Fleet
-                        - Scout Fleet
-                    - Squadrons => Per Arch and Admin Faction
-                    - Families => Per Arch and Admin Faction and name
-                    - Prisms => Per Arch and Admin Faction
-                Arch Faction is Created:
-                    - Colonies
-                        - CitadelCity
-                        - City
-                        - Town
-                        - Outpost
-                    - Fleets
-                        - Elite Fleet
-                        - Heavy Fleet
-                        - Standard Fleet
-                        - Scout Fleet
-                    - Squadrons
-                    - Families
-                    - Prisms
-            */
-
-
-
-            /*
-                GalaxyGridMatrix:
-                    c d e   d e a   e a b   a b c   b c d
-                    0 0 0   0 0 0   0 A 0   0 0 0   0 0 0
-                    b 0 a   c 0 b   d 0 c   e 0 d   a 0 e
-
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-                    0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
-
-                    y 0 z   x 0 y   w 0 x   v 0 w   z 0 v
-                    0 0 0   0 0 0   0 A 0   0 0 0   0 0 0
-                    x w v   w v z   v z y   z y x   y x w
-
-                SolarMatrix: Sol[v e m j s n]
-                    v0 e1 m2
-                    j1 j2 j3
-                    s1 s2 n1
-
-                Then:
-                    GalaxyGrid: 5x5 SolarGrid, GalaxyMatrix
-                    SolarGrid: InnerPlanets, OuterPlanets, SolarMatrix
-                        - InnerPlanets
-                            - 1-3 LifePlanets
-                                - with 0-2 DeadMoon
-                        - OutterPlanets
-                            - 1-3 GasGiants
-                                - with 0-2 DeadOutterPlanetMoons
-                                - with 1-3 LifeOutterPlanetMoons
-
-                    FactionGrid:
-                        - InnerPlanets: 
-                            - LifePlanet Venus-0 DeadInnerPlanetMoons
-                            - LifePlanet Terra-1 DeadInnerPlanetMoon
-                            - LifePlanet Mars-2 DeadInnerPlanetMoons
-                        - OutterPlanets:
-                            - GasGiant Jupiter-5 Moons
-                                - 2 DeadOutterPlanetMoon
-                                - 3 LifeOutterPlanetMoon
-                            - GasGiant Saturn-3 Moons
-                                - 1 DeadOutterPlanetMoon
-                                - 2 LifeOutterPlanetMoon
-                            - GasGiant Neptune-1 Moons
-                                - 1 LifeOutterPlanetMoon
-                            
-                    
-                    for loaded events:
-                        0: Empty Life Planet
-                        Passive Events:
-                            -1: Empty Life Planet with Survivers
-                            Exchange Event:
-                                -2: Merchant Outpost
-                                -4: Merchant Town
-                                -6: Merchant City
-                                -8: Exchange CitadelCity
-                            Passive Native Event:
-                                2: Mediveal Town
-                                4: Industrial City
-                                6: Primal Outpost
-                                8: Urban City
-
-                        Aggressive Events:
-                            1: Empty Dead Planet with gravyard of ships and colonies
-                            Exchange Event:
-                                2: Slaver Town
-                                4: Slaver City
-                                6: Hunters Outpost
-                                8: Hunters City
-                            Aggressive Native Event:
-                                3: Raiders Outpost
-                                5: Raiders Town
-                                7: Pirate Town
-                                9: Pirate City
-
-                Then
-                            
-
-            */
         }
     }
 }
+//galaxyGrid = new SolarGrid[5,5];
+//foreach (var gridLine in galaxyGrid)
+//{
+//    foreach (var lineElement in gridLine)
+//    {
+
+//    }
+//}
+
+// FactionSolarGrid => SolConfiguration
+// Faction gets 4 ArchFactionSolarGrid and 1 AdminFactionSolarGrid
+// mapping is arch, arch, admin, arch, arch
+// map colony to system
+/*
+ex.)
+    Admin Faction is Created:
+        - AdminCouncil
+            - ArchCouncil
+            - GuardianOrder
+        - Colonies
+            - Citadel
+            - City
+            - Town
+            - Outpost
+        - Fleets
+            - Elite Fleet
+            - Heavy Fleet
+            - Standard Fleet
+            - Scout Fleet
+        - Squadrons => Per Arch and Admin Faction
+        - Families => Per Arch and Admin Faction and name
+        - Prisms => Per Arch and Admin Faction
+    Arch Faction is Created:
+        - Colonies
+            - CitadelCity
+            - City
+            - Town
+            - Outpost
+        - Fleets
+            - Elite Fleet
+            - Heavy Fleet
+            - Standard Fleet
+            - Scout Fleet
+        - Squadrons
+        - Families
+        - Prisms
+*/
+
+
+
+/*
+    GalaxyGridMatrix:
+        c d e   d e a   e a b   a b c   b c d
+        0 0 0   0 0 0   0 A 0   0 0 0   0 0 0
+        b 0 a   c 0 b   d 0 c   e 0 d   a 0 e
+
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+        0 0 0   0 0 0   0 0 0   0 0 0   0 0 0
+
+        y 0 z   x 0 y   w 0 x   v 0 w   z 0 v
+        0 0 0   0 0 0   0 A 0   0 0 0   0 0 0
+        x w v   w v z   v z y   z y x   y x w
+
+    SolarMatrix: Sol[v e m j s n]
+        v0 e1 m2
+        j1 j2 j3
+        s1 s2 n1
+
+    Then:
+        GalaxyGrid: 5x5 SolarGrid, GalaxyMatrix
+        SolarGrid: InnerPlanets, OuterPlanets, SolarMatrix
+            - InnerPlanets
+                - 1-3 LifePlanets
+                    - with 0-2 DeadMoon
+            - OutterPlanets
+                - 1-3 GasGiants
+                    - with 0-2 DeadOutterPlanetMoons
+                    - with 1-3 LifeOutterPlanetMoons
+
+        FactionGrid:
+            - InnerPlanets: 
+                - LifePlanet Venus-0 DeadInnerPlanetMoons
+                - LifePlanet Terra-1 DeadInnerPlanetMoon
+                - LifePlanet Mars-2 DeadInnerPlanetMoons
+            - OutterPlanets:
+                - GasGiant Jupiter-5 Moons
+                    - 2 DeadOutterPlanetMoon
+                    - 3 LifeOutterPlanetMoon
+                - GasGiant Saturn-3 Moons
+                    - 1 DeadOutterPlanetMoon
+                    - 2 LifeOutterPlanetMoon
+                - GasGiant Neptune-1 Moons
+                    - 1 LifeOutterPlanetMoon
+
+
+        for loaded events:
+            0: Empty Life Planet
+            Passive Events:
+                -1: Empty Life Planet with Survivers
+                Exchange Event:
+                    -2: Merchant Outpost
+                    -4: Merchant Town
+                    -6: Merchant City
+                    -8: Exchange CitadelCity
+                Passive Native Event:
+                    2: Mediveal Town
+                    4: Industrial City
+                    6: Primal Outpost
+                    8: Urban City
+
+            Aggressive Events:
+                1: Empty Dead Planet with gravyard of ships and colonies
+                Exchange Event:
+                    2: Slaver Town
+                    4: Slaver City
+                    6: Hunters Outpost
+                    8: Hunters City
+                Aggressive Native Event:
+                    3: Raiders Outpost
+                    5: Raiders Town
+                    7: Pirate Town
+                    9: Pirate City
+*/
 /*
  ASCII Galaxy Grid:
                 a b c d e

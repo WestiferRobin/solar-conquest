@@ -9,6 +9,7 @@ namespace SolarConquest
     public interface IFaction
     {
         Prism GetAvatar();
+        
         Hedron GetAvatarHedron();
 
         List<Particle> GetFactionFlags();
@@ -19,5 +20,6 @@ namespace SolarConquest
         Dictionary<FamilyName, Dictionary<string, List<Family>>> GetArchFamilyRegistry();
         Dictionary<FamilyName, Dictionary<string, List<Hedron>>> GetArchArmyRegistry();
 
+        void FactionTurn();
     }
 }

@@ -1,54 +1,43 @@
 # SOLAR CONQUEST
-Imagine Rimworld with FTL mechanics in the Star Wars post WW3 universe
-Aliens including Humans are part of the solar
 
-## Inspiration
-- PrismStats
-    - Sims 4
-    - XCOM 2
-    - Valorant
-    - Heroscape
-- RimWorld => Land and interaction
-- FTL => Space mechanics 
-    - Space Battle
-    - Ship Interactions
-    - Ship Conditions
-- Conquesting Algro => Inspired by => If RimWorld this is the story "developer"
-    - Overview
-        - BF2: Galatic Conquest 
-        - Empire at War
-    - Colonies
-        - Red Alert 2
-        - Age of Empires 2
-    - Sims 4 => Controlling Prisms and Hedrons
-        - SpaceView
-        - LandView
 
-## Factions and Races
-Note How Time Works:
-- Prism Year Max is 125: so 4 Generations unless Guardians cause imortal
-- Cycles where hedron is located creates time dialation per ship and planet
+## TODOS:
+1. Make full galaxy grid without factions
+2. Add factions into the grid
+    - Per PlayerFaction
+        - Per RaceFaction
+            - Planet
+                - CityColony
+                - HeavyFleet
+            - Planet
+                - ArchCityColony
+                - EliteFleet
+            - Planet
+                - TownColony
+                - StandardFleet
+            - Planet
+                - OutpostColony
+                - Light Fleet
+            - Planet
+                - OutpostColony
+                - Light Fleet
+3. Write BattleViews => Unit Tests and Integration Tests
+    - SquadronVsSquadron
+        - PrismVsPrism
+        - HedronVsHedron
+    - VehicleVsVehicle
+        - ShipVsShip
+        - SpaceCraftSquadronVsSpaceCraftSquadron
+        - LandCraftSquadronVsLandCraftSquadron
+        - ShipVsSpaceCraftSquadron
+        - SpaceCraftSquadronVsLandCraftSquadron
+    - FleetVsFleet
+    - PlanetVsPlanet
+    - SolarVsSolar
+    - FactionVsFaction
+4. Build and Apply into Unity
+5. Make the Genisis V story in FotF into SolarConquest
 
-- PlanetCycles => Epoch is years with prism birthdate matched
-    - 4 Seasons => 12 Weeks per Epoch based on sun position and rotation
-        - Spring => 3 Weeks
-        - Summer => 3 Weeks
-        - Fall => 3 Weeks
-        - Winter => 3 Weeks
-
-- PrismAge: AgeTag
-    ColonyAge:
-        - Baby: 0-2
-        - Toddler: 3-5
-        - Child: 6-12
-    ShipAge:
-        - Teen: 13-17
-        - YoungAdult: 18-25
-        - MidAdult: 26-49
-    LeaderAge:
-        - LateAdult: 50-65
-        - SeniorAdult: 65-85
-        - ElderAdult: 85-125
 
 
 ### Total Factions and races
@@ -213,43 +202,7 @@ Faction Races:
     - Alpha: Martians => Invinsible Maritans/Orcs
     - Gamma: Venatoians => Quarians/Twlicks
     - Beta: Neptonians => Chiss/Blue Elves
-#### The Etheral Empire
-Faction Races:
-    - Omega: Ethereals => Black Kuthulu Warlock race
-    - Psi: Dathomorien => Demons/Red Elves/Viltrumites
-    - Theta: Aquareans => Mon Kalimari but Dolphin
-    - Phi: Zetan => Greys but from XCOM 2
-    - Sigma: Reptonians => Lizard People of Olmecs
-#### The Salarean Hutt Exchange
-Faction Races:
-    - Epsilon: Salterrians
-#### The Mantis Klyngon Pirates
-Faction Races:
-    - Mu: Klyntians
 
-#### Prism Races that can Natural Breed
-Note that all breeding will be done with science
-
-##### Mammal:
-Atlantians
-Terrians
-Martians
-Venatoians
-Neptonians
-Dathomorien
-Ethereals 
-
-##### Reptile:
-Aquareans
-Zetan
-Reptonians
-Salterrians
-Klyntians
-
-##### Other:
-Robots
-Cyborgs
-Mutants
 
 
 
