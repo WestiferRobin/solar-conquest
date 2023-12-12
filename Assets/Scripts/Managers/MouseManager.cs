@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-using SolarConquest;
 
 public class MouseManager : MonoBehaviour
 {
-    private List<Particle> SelectedPrismIDs = new();
+    //private List<Particle> SelectedPrismIDs = new();
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +20,20 @@ public class MouseManager : MonoBehaviour
         SpriteRenderer cubeRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         PrismModel prismModel = gameObject.GetComponent<PrismModel>();
-        Prism prism = prismModel.Prism;
+        //Prism prism = prismModel.Prism;
 
-        if (!SelectedPrismIDs.Contains(prism.Pid))
-        {
-            SelectedPrismIDs.Add(prism.Pid);
-            cubeRenderer.material.SetColor("_Color", prismModel.SecondaryColor);
-            prismModel.ShowSelectedGrid();
-        }
-        else
-        {
-            SelectedPrismIDs.Remove(prism.Pid);
-            cubeRenderer.material.SetColor("_Color", prismModel.PrimaryColor);
-            prismModel.ClearSelectedGrid();
-        }
+        //if (!SelectedPrismIDs.Contains(prism.Pid))
+        //{
+        //    SelectedPrismIDs.Add(prism.Pid);
+        //    cubeRenderer.material.SetColor("_Color", prismModel.SecondaryColor);
+        //    prismModel.ShowSelectedGrid();
+        //}
+        //else
+        //{
+        //    SelectedPrismIDs.Remove(prism.Pid);
+        //    cubeRenderer.material.SetColor("_Color", prismModel.PrimaryColor);
+        //    prismModel.ClearSelectedGrid();
+        //}
     }
 
     bool IsTag(RaycastHit2D hit, string tag)
