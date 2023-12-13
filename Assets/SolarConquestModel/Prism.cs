@@ -65,7 +65,7 @@ namespace SolarConquest
         public bool IsAlive()
         {
             //return Body[PrismBodyPartOld.Head] > 0 && Body[PrismBodyPartOld.Torso] > 0;
-            return false;
+            return true;
         }
 
         public Prism Breed(Prism partner, bool isRandom=true)

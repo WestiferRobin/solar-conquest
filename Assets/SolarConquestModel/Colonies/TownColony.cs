@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace SolarConquest
+﻿namespace SolarConquest
 {
-    public class TownColony : IColony
+    public class TownColony
     {
         public TownColony()
         {
+
         }
     }
 }
-

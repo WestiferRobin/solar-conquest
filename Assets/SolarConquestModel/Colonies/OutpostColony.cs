@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SolarConquest
+﻿namespace SolarConquest
 {
-    public class OutpostColony : IColony
+    public class OutpostColony
     {
         public OutpostColony()
         {
+
         }
     }
 }

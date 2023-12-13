@@ -1,8 +1,10 @@
-﻿using System;
-public class NewClass
+﻿namespace SolarConquest
 {
-	public NewClass()
-	{
-	}
-}
+    public class SpaceBomber
+    {
+        public SpaceBomber()
+        {
 
+        }
+    }
+}
