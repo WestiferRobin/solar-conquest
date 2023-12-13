@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SolarConquest
 {
-    public class StandardFleet
+    public class StandardFleet: IFleet
     {
     }
 }

@@ -43,7 +43,7 @@ namespace SolarConquest
             }
             foreach (var fleet in this.Orbit)
             {
-                fleet.Update();
+                //fleet.Update();
             }
             foreach (var moon in this.Moons)
             {

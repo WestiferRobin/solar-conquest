@@ -14,7 +14,6 @@ public class PrismModel : MonoBehaviour
     {
         var board = GameObject.FindGameObjectWithTag("Grid");
         Board = board.GetComponent<BaseBoard>();
-        var asdf = new Class1();
         //this.Prism = new Prism();
         var cubeRenderer = gameObject.GetComponent<SpriteRenderer>();
         cubeRenderer.material.SetColor("_Color", PrimaryColor);

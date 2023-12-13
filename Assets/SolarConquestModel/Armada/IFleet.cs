@@ -8,9 +8,9 @@ namespace SolarConquest
 {
     public interface IFleet
     {
-        public IShip GetLeaderShip();
-        public IShip GetPrimarySupportShip();
-        public IShip GetSecondarySupportShip();
-        void Update();
+        //public IShip GetLeaderShip();
+        //public IShip GetPrimarySupportShip();
+        //public IShip GetSecondarySupportShip();
+        //void Update();
     }
 }

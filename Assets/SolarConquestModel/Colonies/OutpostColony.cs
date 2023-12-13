@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SolarConquest
 {
-    public interface IColoney
+    public class OutpostColony : IColony
     {
+        public OutpostColony()
+        {
+        }
     }
 }
