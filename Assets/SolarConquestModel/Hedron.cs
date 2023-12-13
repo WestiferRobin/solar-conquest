@@ -87,5 +87,10 @@ namespace SolarConquest
             }
             return isAlive;
         }
+
+        internal Prism GetPrism(Particle delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,8 +10,8 @@ namespace SolarConquest
 {
     public class GalaxyGrid: IGridUpdater
     {
-        public IFaction AllyFaction { get; set; }
-        public IFaction EnemyFaction { get; set; }
+        public Government AllyFaction { get; set; }
+        public Government EnemyFaction { get; set; }
         private List<List<SolarGrid>> galaxyMatrix {  get; set; }
 
         public void Update()
@@ -23,43 +23,114 @@ namespace SolarConquest
                     solarItem.Update();
                 }
             }
-            EnemyFaction.FactionTurn();
-            AllyFaction.FactionTurn();
+            EnemyFaction.GovernmentTurn();
+            AllyFaction.GovernmentTurn();
         }
 
-        public GalaxyGrid(FederationFaction federationFaction, EmpireFaction empireFaction)
+        public GalaxyGrid(Federation allyFaction, Empire enemyFaction)
         {
-            this.AllyFaction = federationFaction;
-            this.EnemyFaction = empireFaction;
+            var allyLine = InitAllyFaction(allyFaction);
+            var enemyLine = InitEnemyFaction(enemyFaction);
+
+            InitGrid();
+        }
+
+        private List<SolarGrid> buildGalaxyFactionLine(Government faction)
+        {
+            var galaxyLine = new List<SolarGrid>();
+            foreach (var flag in faction.GetFlags())
+            {
+                var solar = new FactionSolarGrid();
+                if (flag == faction.AdminFlag)
+                {
+
+                }
+                galaxyLine.Add(solar);
+            }
+            return galaxyLine;
+        }
+
+        private List<SolarGrid> InitAllyFaction(Government faction)
+        {
+            this.AllyFaction = faction;
+            return buildGalaxyFactionLine(this.AllyFaction);
+            /*
+
+            SolarLine
+
+            243 354 415 521 132
+            000 000 0A0 000 000
+            501 102 203 304 405
+
+            So Admin SolarSystem for 1 and A
+            then Arch SolarSystems for 2-5
+
+            */
+
+            //var lifePlanets = new List<LifePlanet>();
+            //var lifeMoons = new List<LifeMoon>();
+            //foreach (var allySolar in allyLine)
+            //{
+            //    foreach (var innerPlanet in allySolar.InnerPlanets)
+            //    {
+            //        if (innerPlanet is LifePlanet)
+            //        {
+            //            lifePlanets.Add(innerPlanet as LifePlanet);
+            //        }
+            //    }
+            //    foreach (var outerPlanet in allySolar.OuterPlanets)
+            //    {
+            //        if (outerPlanet is GasPlanet)
+            //        {
+            //            foreach (var outerMoon in outerPlanet.Moons)
+            //            {
+            //                if (outerMoon is LifeMoon)
+            //                {
+            //                    lifeMoons.Add(outerMoon as LifeMoon);
+            //                }
+            //            }
+            //        }
+            //    }
+            //    var asdf = ":)";
+            //}
+        }
+
+        private List<SolarGrid> InitEnemyFaction(Government faction)
+        {
+            this.EnemyFaction = faction;
+            return buildGalaxyFactionLine(this.EnemyFaction);
+        }
+
+        private void InitGrid()
+        {
             this.galaxyMatrix = new List<List<SolarGrid>>();
 
-            var allySolarGrids = new List<SolarGrid>();
-            foreach (var allyFlag  in this.AllyFaction.GetFactionFlags())
-            {
-                var solarGrid = new FactionSolarGrid();
-                allySolarGrids.Add( solarGrid );
-            }
-            this.galaxyMatrix.Add( allySolarGrids );
-
-            for ( int i = 0; i < 3; i++)
-            {
-                var solarLine = new List<SolarGrid>();
-                for (int j = 0; j < 5; j++)
-                {
-                    var solarGrid = new SolarGrid();
-                    solarLine.Add( solarGrid );
-                }
-                this.galaxyMatrix.Add(solarLine );
-            }
-
             var enemySolarGrids = new List<SolarGrid>();
-            foreach (var enemyFlag in this.EnemyFaction.GetFactionFlags())
+            for (int _ = 0; _ < 5; _++)
             {
                 var solarGrid = new FactionSolarGrid();
                 enemySolarGrids.Add(solarGrid);
             }
             this.galaxyMatrix.Add(enemySolarGrids);
 
+            for (int i = 0; i < 3; i++)
+            {
+                var solarLine = new List<SolarGrid>();
+                for (int j = 0; j < 5; j++)
+                {
+                    var solarGrid = new SolarGrid();
+                    solarLine.Add(solarGrid);
+                }
+                this.galaxyMatrix.Add(solarLine);
+            }
+
+            var allyFactionGridLine = new List<SolarGrid>();
+            for (int _ = 0; _ < 5; _++)
+            {
+                var solarGrid = new FactionSolarGrid();
+                allyFactionGridLine.Add(solarGrid);
+            }
+            this.galaxyMatrix.Add(allyFactionGridLine);
         }
     }
 }

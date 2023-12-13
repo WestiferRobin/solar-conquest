@@ -10,20 +10,18 @@ namespace SolarConquest
     public class SolarConquestGame
     {
 
-        public FederationFaction Federation { get; set; }
-        public EmpireFaction Empire { get; set; }
+        public Federation Federation { get; set; }
+        public Empire Empire { get; set; }
 
         public IGridUpdater GameBoard { get; set; }
 
 
         public SolarConquestGame(UserPlayer allyPlayer, UserPlayer enemyPlayer)
         {
-            this.Federation = new FederationFaction(
-                allyPlayer.GetAvatar(),
+            this.Federation = new Federation(
                 allyPlayer.GetAvatarHedron()
             );
-            this.Empire = new EmpireFaction(
-                enemyPlayer.GetAvatar(),
+            this.Empire = new Empire(
                 enemyPlayer.GetAvatarHedron()
             );
 
@@ -32,7 +30,7 @@ namespace SolarConquest
 
         public void Start()
         {
-            while (Federation.IsAlive() && Empire.IsAlive())
+            while (Federation.IsOperational() && Empire.IsOperational())
             {
                 this.GameBoard.Update();
             }
