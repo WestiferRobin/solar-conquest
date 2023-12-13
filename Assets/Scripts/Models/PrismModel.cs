@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+
 public class PrismModel : MonoBehaviour
 {
 	//public Prism Prism;
@@ -13,7 +14,7 @@ public class PrismModel : MonoBehaviour
     {
         var board = GameObject.FindGameObjectWithTag("Grid");
         Board = board.GetComponent<BaseBoard>();
-
+        var asdf = new Class1();
         //this.Prism = new Prism();
         var cubeRenderer = gameObject.GetComponent<SpriteRenderer>();
         cubeRenderer.material.SetColor("_Color", PrimaryColor);

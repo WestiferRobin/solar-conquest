@@ -88,5 +88,10 @@ namespace SolarConquest
         {
             throw new NotImplementedException();
         }
+
+        public void FactionTurn()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
