@@ -16,13 +16,13 @@ namespace SolarConquest
         public IGridUpdater GameBoard { get; set; }
 
 
-        public SolarConquestGame(UserPlayer allyPlayer, UserPlayer enemyPlayer)
+        public SolarConquestGame(IPlayer allyPlayer, IPlayer enemyPlayer)
         {
             this.Federation = new Federation(
-                allyPlayer.GetAvatarHedron()
+                allyPlayer.AvatarHedron
             );
             this.Empire = new Empire(
-                enemyPlayer.GetAvatarHedron()
+                enemyPlayer.AvatarHedron
             );
 
             this.GameBoard = new GalaxyGrid(this.Federation, this.Empire);

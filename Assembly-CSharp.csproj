@@ -67,6 +67,7 @@
     <Compile Include="Assets\SolarConquestModel\Armada\IFleet.cs" />
     <Compile Include="Assets\SolarConquestModel\Factions\EmpireFaction.cs" />
     <Compile Include="Assets\Scripts\Managers\MouseManager.cs" />
+    <Compile Include="Assets\SolarConquestModel\SolarConquestAIGame.cs" />
     <Compile Include="Assets\SolarConquestModel\Hedron.cs" />
     <Compile Include="Assets\SolarConquestModel\Players\UserPlayer.cs" />
     <Compile Include="Assets\SolarConquestModel\Colonies\CitadelColony.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\Models\PrismModel.cs" />
     <Compile Include="Assets\SolarConquestModel\Enums\CombatEnums.cs" />
     <Compile Include="Assets\SolarConquestModel\Armada\StandardFleet.cs" />
+    <Compile Include="Assets\SolarConquestModel\Players\AIPlayer.cs" />
     <Compile Include="Assets\SolarConquestModel\Grid\Planets\Moons\Moon.cs" />
     <Compile Include="Assets\SolarConquestModel\Colonies\CityColony.cs" />
     <Compile Include="Assets\SolarConquestModel\Vehicle\Craft\Land\LandMecha.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\SolarConquestModel\Vehicle\Ships\CorvetteShip.cs" />
     <Compile Include="Assets\SolarConquestModel\PrismID.cs" />
     <Compile Include="Assets\SolarConquestModel\Armada\LightFleet.cs" />
+    <Compile Include="Assets\SolarConquestModel\Enums\AIEnums.cs" />
     <Compile Include="Assets\Scripts\Managers\KeyboardManager.cs" />
     <Compile Include="Assets\SolarConquestModel\Armada\AdminEliteFleet.cs" />
     <Compile Include="Assets\SolarConquestModel\Governments\Empire.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Assets\SolarConquestModel\Colonies\IColony.cs" />
     <Compile Include="Assets\SolarConquestModel\Grid\GalaxyGrid.cs" />
     <Compile Include="Assets\SolarConquestModel\Grid\Sides\PlanetSide.cs" />
+    <Compile Include="Assets\SolarConquestModel\Players\IPlayer.cs" />
     <Compile Include="Assets\SolarConquestModel\Grid\Planets\Planet.cs" />
     <Compile Include="Assets\SolarConquestModel\Enums\PrismEnums.cs" />
     <Compile Include="Assets\SolarConquestModel\SolarConquestGame.cs" />

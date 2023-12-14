@@ -7,28 +7,17 @@ using System.Threading.Tasks;
 
 namespace SolarConquest
 {
-    public class UserPlayer
+    public class UserPlayer : IPlayer
     {
         public string FirstName { get => Avatar.ID.FirstName; }
         public string LastName { get => Avatar.ID.LastName; }
 
-        private Prism Avatar { get; set; }
-        private Hedron UserHedron { get; set; }
+        public Prism Avatar { get { return this.AvatarHedron.GetPrism(this.AvatarHedron.LeadParticle); } }
+        public Hedron AvatarHedron { get; set; }
 
         public UserPlayer(PrismID pid)
         {
-            Avatar = new Prism(pid);
-            UserHedron = new Hedron(Avatar);
-        }
-
-        public Prism GetAvatar()
-        {
-            return Avatar;
-        }
-
-        public Hedron GetAvatarHedron()
-        {
-            return UserHedron;
+            AvatarHedron = new Hedron(new Prism(Avatar));
         }
     }
 }
