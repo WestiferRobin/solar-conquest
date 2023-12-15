@@ -17,7 +17,7 @@ namespace SolarConquest
 
         public UserPlayer(PrismID pid)
         {
-            AvatarHedron = new Hedron(new Prism(Avatar));
+            AvatarHedron = new SinglePrismHedron(new Prism(pid));
         }
     }
 }

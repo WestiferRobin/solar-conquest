@@ -11,21 +11,21 @@ namespace SolarConquest
     public enum RaceID
     {
         // FEDERATION RACES
-        Atlantian,
-        Terrian,
-        Martian,
-        Venatian,
-        Neptonian,
+        Atlantian = Particle.Delta,
+        Terrian = Particle.Lambda,
+        Martian = Particle.Alpha,
+        Venatian = Particle.Gamma,
+        Neptonian = Particle.Beta,
 
         // EMPIRE RACES
-        Dathomorien,
-        Ethereal,
-        Aquarean,
-        Zetan,
-        Reptonian,
+        Dathomorien = Particle.Omega,
+        Ethereal = Particle.Psi,
+        Aquarean = Particle.Theta,
+        Zetan = Particle.Phi,
+        Reptonian = Particle.Sigma,
 
         // OTHER FACTION RACES
-        Salterrian,
-        Klyntian
+        Salterrian = Particle.Mu,
+        Klyntian = Particle.Epsilon
     }
 }
