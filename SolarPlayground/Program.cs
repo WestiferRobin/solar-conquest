@@ -7,8 +7,19 @@ namespace SolarPlayground
     {
         public static void Main(string[] args)
         {
-            var game = new SolarConquestWesGame();
-            game.Start();
+            SolarConquestGame solarConquest = new SolarConquestWesGame();
+
+            IGame game = solarConquest;
+
+            //ParticleApp particleApp = (ParticleApp)game;
+            //// IF THIS FAR THEN THE API WORKS FOR PARTICLE APPS
+            //ParticleEngine particleEngine = new ParticleEngine();
+
+            // Engine needs to update the App the engine is connected to
+            // Engine is attached to a Ship to Move
+            // so a ParticleEngine is attached to a ParticleShip to Move
+            // thus ParticleGame on a ParticleGameEngine for 
+
         }
     }
 }
