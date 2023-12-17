@@ -1,0 +1,17 @@
+﻿
+LevithanSystem: GameSystem with GameSystemComponents
+    - ParticleEngine: SoverignEngine => GameSystemModel: GameSystemComponent
+        - Start
+        - Pause
+        - Reset
+    - PlayerController: ModelController => GameSystemController: GameSystemComponent, IController
+        - ParticlePlayerController: GameSystemController, IParticle
+            - Particle ID
+        - PrismPlayerController: ParticlePlayerController
+            - Prism Model
+        - UserPlayerController: PrismPlayerController
+            - User Model: Wes Webb => Avatar is Prism
+    - PlayerView => GameSystemView: GameSystemComponent, IView
+        - SolarConquestView: GameView: AppView: ParticleView: ViewModel
+        - PlayerControllerView: HedronView: PrismView: ViewController
+        - GameEngineView: AppEngineView: ParticleView: ViewModel

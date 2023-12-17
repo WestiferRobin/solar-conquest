@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SolarConquestIntegrationTests.BattleTests
+namespace SolarConquestGameModelsIntegrationTests.BattleTests
 {
     internal class PrismBattleTest
     {

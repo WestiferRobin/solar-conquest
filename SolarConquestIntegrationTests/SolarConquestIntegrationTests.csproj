@@ -17,4 +17,12 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GameTests\GameSystemTests\" />
+    <Folder Include="GameTests\GameAppTests\" />
+    <Folder Include="GameTests\SolarConquestGameTests\" />
+    <Folder Include="SystemTests\" />
+    <Folder Include="UnityTests\" />
+  </ItemGroup>
+
 </Project>
