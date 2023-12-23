@@ -7,9 +7,7 @@ using UnityEngine;
 
 public class UnityModelManager : MonoBehaviour
 {
-    public SolarConquestGameManager GameManager;
-
-    public SolarConquestModel UnityModel;
+    private SolarConquestGameManager GameManager;
 
 
     // Start is called before the first frame update
@@ -18,7 +16,7 @@ public class UnityModelManager : MonoBehaviour
         if (gameObject.TryGetComponent<SolarConquestGameManager>(out var manager))
         {
             this.GameManager = manager;
-            this.UnityModel = this.GameManager.UnityModel;
+            //this.UnityModel = this.GameManager.UnityModel;
         }
         else throw new Exception("UNITY MODEL MANAGER IS BROKEN!");
     }

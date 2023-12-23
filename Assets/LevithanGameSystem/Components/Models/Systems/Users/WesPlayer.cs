@@ -34,12 +34,18 @@ namespace SolarConquestGameModels
                     CombatRank.Captain,
                     CombatClass.Commando
                 );
+        public IPrism Avatar { get; }
 
-        public WesPlayer(bool isEvil = false): base(
-            isEvil ? new EmpirePrism(new Prism(evilID)) : new FederationPrism(new Prism(wesID))
-        )
+        public WesPlayer(bool isEvil = false): base(new User("Wes", "Webb"))
         {
-
+            if (isEvil)
+            {
+                this.Avatar = new FederationPrism(wesID);
+            }
+            else
+            {
+                this.Avatar = new EmpirePrism(evilID);
+            }
         }
     }
 

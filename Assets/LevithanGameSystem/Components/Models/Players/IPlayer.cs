@@ -14,4 +14,6 @@ public interface IPlayer
     public IHedron AvatarHedron { get; }
 
     public IPrism AvatarPrism { get; }
+
+    string Name => $"{FirstName} {LastName}";
 }

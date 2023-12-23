@@ -11,6 +11,7 @@ namespace SolarConquestGameModels
     public class FederationPrism : Prism
     {
         public FederationPrism(IPrism prism) : base(prism) { }
+        public FederationPrism(PrismID pid) : base(pid) { }
     }
 
     public class FederationHedron : Hedron

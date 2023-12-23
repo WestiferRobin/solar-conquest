@@ -10,15 +10,33 @@ public class ParticleGameSystem: GameSystem, IParticle
 {
     public Particle ParticleID { get; }
 
-    public ParticleGameSystem(Particle particle, ParticleGame game): base(game)
+    public ParticleGameSystem(Particle pid, UserPlayer owner, GameEngine engine): base(owner, engine)
     {
-        this.ParticleID = particle;
+        this.ParticleID = pid;
+    }
+
+    public ParticleGameSystem(Particle pid, UserPlayer owner): base(owner, new GameEngine(pid))
+    {
+        this.ParticleID = pid;
     }
 }
 
 
 public class LevithanGameSystem: ParticleGameSystem
 {
-    public LevithanGameSystem(): base(Particle.Omega, new SolarConquestWesGame()) { }
-    public LevithanGameSystem(SolarConquestGame game) : base(Particle.Omega, game) { }
+
+
+    public LevithanGameSystem() : base(
+        Particle.Omega,
+        new WesPlayer(),
+        new SoverignEngine()
+    )
+    {
+        this.LoadGame(
+            new SolarConquestGame(
+                this.Owner,
+                new EvilWesPlayer()
+            )
+        );
+    }
 }

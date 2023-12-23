@@ -8,10 +8,8 @@ namespace SolarConquestGameModels
 {
     public class GameBoard : IBoard
     {
-        public IGame Game { get; }
         public List<IBoardLine> Board { get; }
-        public GameBoard(IGame game) { 
-            this.Game = game;
+        public GameBoard() { 
             this.Board = new List<IBoardLine>();
         }
 

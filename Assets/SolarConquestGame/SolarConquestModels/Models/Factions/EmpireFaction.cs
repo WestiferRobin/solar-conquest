@@ -6,6 +6,7 @@ namespace SolarConquestGameModels
     public class EmpirePrism : Prism
     {
         public EmpirePrism(IPrism prism) : base(prism) { }
+        public EmpirePrism(PrismID prismID) : base(prismID) { } 
     }
 
     public class EmpireHedron : Hedron

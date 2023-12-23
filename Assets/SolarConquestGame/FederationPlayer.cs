@@ -1,10 +1,12 @@
-﻿namespace SolarConquestGameModels
+﻿using SoverignParticles;
+
+namespace SolarConquestGameModels
 {
-    public class FederationPlayer: GamePlayer
+    public class FederationPlayer : GamePlayer
     {
-        public FederationPlayer(IPlayer player, SolarConquestGame game): base(player, game)
+        public FederationPlayer(ParticlePlayer player) : base(player.ParticleID)
         {
 
         }
-}
+    }
 }

@@ -26,6 +26,14 @@ namespace SoverignParticles
 
     public interface IParticle
     {
+        public static Particle GetRandom()
+        {
+            var rand = new Random();
+            var particles = Enum.GetValues(typeof(Particle)).Cast<Particle>().ToList();
+            int index = rand.Next(0, particles.Count);
+            return particles[index];
+        }
+
         Particle ParticleID { get; }
         int ParticleIndex { get => (int) ParticleID;  }
     }

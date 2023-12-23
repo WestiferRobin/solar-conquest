@@ -1,22 +1,39 @@
-
-using Assets.SoverignParticles.Components;
 using SolarConquestGameModels;
 using SoverignParticles;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
+public class HedronView: ViewModel
+{
+    public HedronView(Hedron hedron): base(hedron)
+    {
+
+    }
+}
+
+public class HedronController: ModelController
+{
+    public HedronController(Hedron hedron) : base(hedron) 
+    { 
+    
+    }
+}
 
 public class Hedron : IModel, IHedron
 {
-    public Dictionary<Particle, Prism> Registry { get; set; } = new();
+    public Dictionary<Particle, IPrism> Registry { get; set; } = new();
     public Particle LeadParticle { get; set; }
 
-    public ViewModel ModelView => throw new NotImplementedException();
+    public ViewModel ModelView => null;
 
-    public ModelController ModelController => throw new NotImplementedException();
+    public ModelController ModelController => null;
+
+    public List<IPrism> Prisms => Registry.Values.ToList();
 
     public Hedron(IHedron hedron)
     {
-        //this.LeadParticle = hedron.LeadParticle;
+        this.LeadParticle = hedron.LeadParticle;
         this.Registry = hedron.Registry;
     }
 
@@ -29,7 +46,7 @@ public class Hedron : IModel, IHedron
         }
     }
 
-    public Prism AddPrism(Prism prism, Particle pid)
+    public IPrism AddPrism(IPrism prism, Particle pid)
     {
         if (Registry.ContainsKey(pid))
         {
@@ -43,7 +60,7 @@ public class Hedron : IModel, IHedron
         return prism;
     }
 
-    public Prism RemovePrism(Particle pid)
+    public IPrism RemovePrism(Particle pid)
     {
         if (Registry.ContainsKey(pid))
         {
@@ -64,84 +81,69 @@ public class Hedron : IModel, IHedron
         return isAlive;
     }
 
-    internal Prism GetPrism(Particle delta)
+    public IPrism GetPrism(Particle pid)
     {
-        throw new NotImplementedException();
+        if (this.Registry.ContainsKey(pid)) return this.Registry[pid];
+        return null;
     }
 
-    public Prism GetLeadPrism()
+    public IPrism GetLeadPrism()
     {
         return this.GetPrism(this.LeadParticle);
     }
 
-    public IPrism GetPrism(object leadParticle)
+    public IPrism AddPrism(ParticlePrism prism)
     {
-        throw new NotImplementedException();
+        return this.AddPrism(prism, prism.Pid);
     }
 
-    IPrism IHedron.GetLeadPrism()
+    public void Update()
     {
         throw new NotImplementedException();
     }
 }
 
-namespace SolarConquestGameModels
+public class SinglePrismHedron : Hedron
 {
-
-    public class SinglePrismHedron: Hedron
+    public SinglePrismHedron(IPrism prism) : base()
     {
-        public SinglePrismHedron(Prism prism): base()
+        this.LeadParticle = prism.Pid;
+        prism.Hid = this.LeadParticle;
+        this.AddPrism(prism, prism.Pid);
+    }
+}
+
+public class LeaderPrismHedron : Hedron
+{
+    public LeaderPrismHedron(Particle lead, List<Prism> prisms) : base()
+    {
+        this.LeadParticle = lead;
+        var particles = Enum.GetValues(typeof(Particle));
+
+        var avaliablePrisms = new Stack<Prism>();
+        foreach (var prism in prisms)
         {
-            this.LeadParticle = prism.Pid;
-            prism.Hid = this.LeadParticle;
-            this.AddPrism(prism, prism.Pid);
+            avaliablePrisms.Push(prism);
+        }
+
+        var index = 0;
+        var particlesVisted = new List<Particle>();
+        while (avaliablePrisms.Count > 0)
+        {
+            Prism prism = avaliablePrisms.Pop();
+            Particle pid = (Particle)particles.GetValue(index);
+
+            AddPrism(prism, pid);
+
+            particlesVisted.Add(pid);
+
+            index++;
         }
     }
 
-    public class LeaderPrismHedron: Hedron
+    public LeaderPrismHedron(Particle lead, Dictionary<Particle, IPrism> prisms) : base()
     {
-        public LeaderPrismHedron(Particle lead, List<Prism> prisms) : base()
-        {
-            this.LeadParticle = lead;
-            var particles = Enum.GetValues(typeof(Particle));
-
-            var avaliablePrisms = new Stack<Prism>();
-            foreach (var prism in prisms)
-            {
-                avaliablePrisms.Push(prism);
-            }
-
-            var index = 0;
-            var particlesVisted = new List<Particle>();
-            while (avaliablePrisms.Count > 0)
-            {
-                Prism prism = avaliablePrisms.Pop();
-                Particle pid = (Particle)particles.GetValue(index);
-
-                AddPrism(prism, pid);
-
-                particlesVisted.Add(pid);
-
-                index++;
-            }
-        }
-
-        public LeaderPrismHedron(Particle lead, Dictionary<Particle, Prism> prisms) : base()
-        {
-            this.LeadParticle = lead;
-            this.Registry = prisms;
-        }
-    }
-
-    
-    public class AntiHedron: Hedron
-    {
-        public AntiHedron(): base()
-        {
-            this.LeadParticle = Particle.Mu;
-            this.Registry = new() {
-                    {this.LeadParticle, new ParticlePrism(this.LeadParticle, this.LeadParticle) }
-                };
-        }
+        this.LeadParticle = lead;
+        this.Registry = prisms;
     }
 }

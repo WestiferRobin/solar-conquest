@@ -13,8 +13,8 @@ namespace SolarConquestGameModels
 
     public abstract class PlayerFaction: IFaction
     {
-        public Hedron AvatarHedron { get; }
-        public Prism Avatar { get => AvatarHedron.GetPrism(AvatarHedron.LeadParticle); }
+        public IHedron AvatarHedron { get; }
+        public IPrism Avatar { get => AvatarHedron.GetLeadPrism(); }
 
         public readonly Particle AdminFlag;
         public readonly List<Particle> ArchFlags;

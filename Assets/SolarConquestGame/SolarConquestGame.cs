@@ -9,15 +9,14 @@ namespace SolarConquestGameModels
 {
     public class SolarConquestGame: ParticleGame
     {
-        //public GameComponent SolarConquestGameComponent { get; }
-
-        //public FederationPlayer SinglePlayer { get; }
-        //public FederationPrism PlayerAvatar { get => (FederationPrism) SinglePlayer.Avatar; }
-
-        //public EmpirePlayer OpponentPlayer { get; }
-        //public EmpirePrism OpponentAvatar { get => (EmpirePrism) OpponentPlayer.Avatar; }
-
-        public SolarConquestGame(IPlayer federationPlayer, IPlayer empirePlayer) : base(federationPlayer, empirePlayer)
+        public FederationPlayer Federation => base.MainPlayer as FederationPlayer;
+        public EmpirePlayer Empire => base.OpponentPlayer as EmpirePlayer;
+        public SolarConquestGame(ParticlePlayer federationPlayer, ParticlePlayer empirePlayer): base(
+            new FederationPlayer(federationPlayer),
+            new EmpirePlayer(empirePlayer),
+            new GalaxyBoard(),
+            Particle.Delta
+        )
         {
             // BLINK BLINK START HERE
         }

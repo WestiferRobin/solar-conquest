@@ -7,23 +7,10 @@ using System.Threading.Tasks;
 
 namespace SolarConquestGameModels
 {
-    public class ParticleBoard : IBoard
-    {
-        public List<IBoardLine> GetLines()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class GalaxyBoard : ParticleBoard
+    public class GalaxyBoard : GameBoard
     {
         private readonly IPolygon GalaxyMap;
-        public GalaxyBoard()
+        public GalaxyBoard(): base()
         {
             this.GalaxyMap = new ParticlePolygon();
         }
@@ -34,10 +21,6 @@ namespace SolarConquestGameModels
         public SolarConquestBoard(): base() { }
     }
 
-    public class SolarConquestGameBoard: GameBoard
-    {
-        public SolarConquestGameBoard(SolarConquestGame game): base(game) { }
-    }
     //public class GalaxyBoard: GameBoard
     //{
     //    public const int MaxWidth = 5;

@@ -16,24 +16,6 @@ public class ParticleHedron: Hedron, IParticle
     public Particle ParticleID { get; }
 }
 
-public class ParticlePlayer : IPlayer, IParticle
-{
-    public string FirstName { get => AvatarPrism.FirstName; }
-
-    public string LastName { get => AvatarPrism.LastName; }
-
-    public IHedron AvatarHedron { get; }
-
-    public IPrism AvatarPrism => AvatarHedron.GetPrism(ParticleID);
-
-    public Particle ParticleID { get; }
-
-    public ParticlePlayer(Particle pid) { 
-        this.ParticleID = pid;
-        this.AvatarHedron = new ParticleHedron(this.ParticleID);
-    }
-}
-
 public class AIPlayer : IPlayer
 {
     public string FirstName { get => AvatarPrism.FirstName; }
@@ -41,6 +23,8 @@ public class AIPlayer : IPlayer
 
     public IPrism AvatarPrism { get => AvatarHedron.GetLeadPrism(); }
     public IHedron AvatarHedron { get; set; }
+
+    public User UserOwner => throw new NotImplementedException();
 
     public AIPlayer(Particle firstName, Particle lastName)
     {

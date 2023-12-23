@@ -6,18 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Genisis => Exodus => Rev
-public static class HolyScripts
+namespace Levithan
 {
-    public static void IAmTheAlphaAndTheOmega(IGame game, GameSystem gameSystem)
+    public static class HolyScripts
     {
-        gameSystem.LaunchGame(game);
-    }
+        public static void IAmTheAlphaAndTheOmega(IGame game, GameSystem gameSystem)
+        {
+            gameSystem.LaunchGame(game);
+        }
 
-    public static void IAmTheAlphaAndTheOmega()
-    {
-        IAmTheAlphaAndTheOmega(
-            new SolarConquestWesGame(),
-            new LevithanGameSystem()
-        );
+        public static void IAmTheAlphaAndTheOmega()
+        {
+            var system = new LevithanGameSystem();
+            var game = system.EjectGame();
+            system.LaunchGame(game);
+        }
     }
 }

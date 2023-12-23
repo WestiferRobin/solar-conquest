@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8B7E95AB-AD30-D975-88BC-6A37E4A1FAA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -62,85 +63,83 @@
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\MoonSideComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Space\SpaceFighter.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Colonies\CitadelColony.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Game\PlayerComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Armada\LightFleet.cs" />
     <Compile Include="Assets\UnityScripts\BaseBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarSystems\FactionSystems\ArchSolarSystem.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Space\SpaceBomber.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\Dead\DeadPlanet.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Land\LandSpeeder.cs" />
-    <Compile Include="Assets\MuPrism\Players\AIPlayer.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Players\AIPlayer.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Jupiter.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\LandSides\LandChunk.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Ships\FreighterShip.cs" />
+    <Compile Include="Assets\MuPrism\Hedrons\IHedron.cs" />
     <Compile Include="Assets\LevithanGameSystem\LevithanGameSystem.cs" />
-    <Compile Include="Assets\SoverignParticles\Particles.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Colonies\IColony.cs" />
-    <Compile Include="Assets\MuPrism\Players\IPlayer.cs" />
+    <Compile Include="Assets\SoverignParticles\Particles.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Players\IPlayer.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\ComponentParts\IChunk.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\SideComponent.cs" />
+    <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarConquestModel.cs" />
     <Compile Include="Assets\SolarConquestGame\EmpirePlayer.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Ships\CorvetteShip.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Colonies\CityColony.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\Dead\DeadMoon.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\SpaceSideComponents\SpaceSide.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\LandSides\LandSide.cs" />
-    <Compile Include="Assets\MuPrism\IDs\PrismID.cs" />
+    <Compile Include="Assets\MuPrism\PrismID.cs" />
     <Compile Include="Assets\MuPrism\PrismModel.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\EngineComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\Planet.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarSystems\SolarSystem.cs" />
-    <Compile Include="Assets\SolarConquestGame\SolarConquestModels\SolarConquestModel.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\ICraft.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Enums\FamilyEnums.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Bodies\IBody.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\Users\UserPlayer.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\ComponentParts\IArea.cs" />
     <Compile Include="Assets\UnityScripts\UnityManagers\InputManagers\MouseManager.cs" />
-    <Compile Include="Assets\SoverignParticles\Components\ParticleComponent.cs" />
     <Compile Include="Assets\MuPrism\Hedrons\GameHedron.cs" />
     <Compile Include="Assets\SoverignParticles\IPolygon.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\ISide.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarSystems\TerraSolarSystem.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Terra.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\PlayerComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Ships\FrigateShip.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Systems\ISystem.cs" />
-    <Compile Include="Assets\SolarConquestGame\SolarConquestWesGame.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\ISystem.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Armada\ArchEliteFleet.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Core\ParticleComponent.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Core\SystemComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Factions\EmpireFaction.cs" />
     <Compile Include="Assets\MuPrism\Hedrons\Hedron.cs" />
     <Compile Include="Assets\SolarConquestGame\FederationPlayer.cs" />
     <Compile Include="Assets\UnityScripts\UnityModels\PrismModel.cs" />
-    <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\GalaxyBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\PlayerFactionComponets\EmpireComponent.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Systems\GameSystem.cs" />
-    <Compile Include="Assets\SoverignParticles\IHedron.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\GameSystem.cs" />
     <Compile Include="Assets\MuPrism\Prisms\GamePrism.cs" />
     <Compile Include="Assets\SoverignParticles\ParticleApps\ParticleApp.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Enums\PrismEnums.cs" />
-    <Compile Include="Assets\MuPrism\Players\Users\User.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\Users\User.cs" />
     <Compile Include="Assets\MuPrism\HedronModel.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Neptune.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\PlayerFactions\PlayerFaction.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Armada\IFleet.cs" />
-    <Compile Include="Assets\SolarConquestGame\SolarConquestAIGame.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarSystems\FactionSystems\AdminSolarSystem.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\IVehicle.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\PlanetSides\PlanetSide.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Land\LandMecha.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Boards\IBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Families\Family.cs" />
-    <Compile Include="Assets\SoverignParticles\IPrism.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\SolarSystems\RandomSolarSystem.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\BoardSides\BoardSide.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\LandSides\LandTile.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\GasPlanet.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Armada\StandardFleet.cs" />
-    <Compile Include="Assets\MuPrism\Players\Users\UserPlayer.cs" />
     <Compile Include="Assets\SoverignParticles\Models\ParticlePrism.cs" />
     <Compile Include="Assets\MuPrism\Prisms\Prism.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestGame.cs" />
     <Compile Include="Assets\SoverignParticles\ParticleApps\ParticleGame.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\GameComponent.cs" />
+    <Compile Include="Assets\MuPrism\Prisms\IPrism.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Core\GameComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\LandSides\LandTileBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\SolarConquestComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\Moon.cs" />
@@ -148,11 +147,11 @@
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\SpaceSideComponents\SpaceGrid.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\ComponentParts\IGrid.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\LandSideComponent.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\BoardComponent.cs" />
+    <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\GalaxyBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\SpaceSideComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Space\SpaceShuttle.cs" />
-    <Compile Include="Assets\UnityScripts\UnityManagers\UnityModelManager.cs" />
     <Compile Include="Assets\UnityScripts\UnityModels\SolarConquestModel.cs" />
+    <Compile Include="Assets\UnityScripts\UnityManagers\UnityModelManager.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Enums\RaceEnums.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Controllers\IController.cs" />
     <Compile Include="Assets\UnityScripts\UnityManagers\SolarConquestGameManager.cs" />
@@ -160,7 +159,7 @@
     <Compile Include="Assets\LevithanGameSystem\LevithanFace.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\PlayerFactionComponets\FederationComponent.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Controllers\ViewController.cs" />
-    <Compile Include="Assets\MuPrism\Players\GamePlayer.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Players\GamePlayer.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Saturn.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\PlanetSideComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\MoonSides\MoonSide.cs" />
@@ -180,28 +179,31 @@
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Craft\Space\SpaceInterceptor.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\SpaceSideComponents\SpaceArea.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Enums\CombatEnums.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Systems\ParticleEngine.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\ParticleEngine.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Ships\CapitalShip.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Vehicles\Ships\IShip.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Names\PrismNameID.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Colonies\OutpostColony.cs" />
+    <Compile Include="Assets\SoverignParticles\SoverignEngine.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\Users\WesPlayer.cs" />
     <Compile Include="Assets\SoverignParticles\Models\ParticlePrismID.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Mars.cs" />
-    <Compile Include="Assets\MuPrism\Players\Users\WesPlayer.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\Models\Systems\Users\ParticleUser.cs" />
     <Compile Include="Assets\MuPrism\Hedrons\SolarHedron.cs" />
     <Compile Include="Assets\UnityScripts\UnityManagers\InputManagers\KeyboardManager.cs" />
     <Compile Include="Assets\SoverignParticles\Models\ParticlePolygon.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\IComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Planets\TerraPlanets\Venus.cs" />
-    <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\GalaxyComponent.cs" />
     <Compile Include="Assets\LevithanGameSystem\LevithanEngine.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\SideGrid.cs" />
     <Compile Include="Assets\HolyScripts.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Games\IGame.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Controllers\IView.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Game\BoardComponent.cs" />
     <Compile Include="Assets\UnityScripts\UnityModels\UnityModel.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Games\GameBoard.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\PlayerFactions\Federation.cs" />
+    <Compile Include="Assets\LevithanGameSystem\Components\ComponetParts\Core\ModelComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Components\GameBoardComponets\PlanetComponents\SpaceSideComponents\SpaceTile.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\Sides\SideComponents\ComponentParts\ITile.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Factions\IFaction.cs" />
@@ -209,7 +211,6 @@
     <Compile Include="Assets\LevithanGameSystem\Components\Controllers\ModelController.cs" />
     <Compile Include="Assets\LevithanGameSystem\Components\Models\IModel.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\Factions\FederationFaction.cs" />
-    <Compile Include="Assets\LevithanGameSystem\Components\ModelComponent.cs" />
     <Compile Include="Assets\SolarConquestGame\SolarConquestModels\Models\PlayerFactions\Empire.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -971,8 +972,7 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

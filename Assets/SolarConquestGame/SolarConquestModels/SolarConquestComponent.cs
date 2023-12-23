@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoverignParticles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace SolarConquestGameModels
 {
     public class SolarConquestComponent: GameComponent
     {
-        public SolarConquestComponent(SolarConquestGame game): base(game) { 
+        public SolarConquestComponent(SolarConquestGame game): base(game, Particle.Delta) { 
         }
     }
 }

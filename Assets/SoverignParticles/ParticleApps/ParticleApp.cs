@@ -3,11 +3,36 @@ using SoverignParticles;
 using System;
 
 
-public class ParticleApp : ParticleAppComponent, IParticle
+public class ParticleApp : IParticle, IApp
 {
-    public new Particle ParticleID { get; }
-    public ParticleApp(IApp app, Particle particleID = Particle.Omega) : base(app, this) 
+    public Particle ParticleID { get; }
+
+    public ViewModel ModelView => throw new NotImplementedException();
+
+    public ModelController ModelController => throw new NotImplementedException();
+
+    public ParticleApp(Particle particleID)
     {
         this.ParticleID = particleID;
+    }
+
+    public bool IsRunning()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Start()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Stop()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Tick()
+    {
+        throw new NotImplementedException();
     }
 }

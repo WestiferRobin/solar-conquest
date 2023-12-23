@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SoverignParticles;
 
 namespace SolarConquestGameModels
 {
@@ -14,7 +15,7 @@ namespace SolarConquestGameModels
             IGame game, 
             PlayerFaction faction
         ): base(
-            game
+            game, Particle.Delta
         )
         {
             this.Faction = faction;

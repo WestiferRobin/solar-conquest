@@ -10,9 +10,17 @@ namespace SolarConquestGameModels
 
     public class ParticlePrism: Prism
     {
+        public ParticlePrism(): base(
+            new ParticlePrismID()
+        )
+        {
+
+        }
         public ParticlePrism(Particle primary): base(
             new ParticlePrismID(primary)
-        ) { 
+        ) 
+        { 
+        
         }
 
         public ParticlePrism(Particle primary, Particle secondary): base(

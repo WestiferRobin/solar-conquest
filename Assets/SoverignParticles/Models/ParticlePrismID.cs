@@ -9,8 +9,18 @@ namespace SolarConquestGameModels
 {
     public class ParticlePrismID : PrismID
     {
-        public ParticlePrismID(Particle primary, Particle secondary = Particle.Delta) :
+        public ParticlePrismID(Particle primary, Particle secondary) :
             base(primary, secondary)
+        { }
+
+        public ParticlePrismID(Particle primary) :
+            base(primary, IParticle.GetRandom())
+        { }
+
+        public ParticlePrismID(): base(
+            IParticle.GetRandom(),
+            IParticle.GetRandom()
+        )
         { }
     }
 }

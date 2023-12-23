@@ -6,23 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class ParticleAppComponent : ParticleComponent
+public class ParticleAppComponent : AppComponent, IParticle
 {
-    public ParticleApp App { get; }
+    public Particle ParticleID { get; }
 
-    public ParticleAppComponent(IApp app, Particle pid = Particle.Omega)
+    public ParticleAppComponent(IApp app, Particle pid): base(app)
     {
-        this.App = new ParticleApp(app, pid);
+        this.ParticleID = pid;
     }
 
-    public ParticleAppComponent(ParticleApp app) : base(app.ParticleID)
+    public ParticleAppComponent(ParticleApp app): base(app)
     {
-        this.App = app;
+        this.ParticleID = app.ParticleID;
     }
 }
 
 public interface IApp : IComponentModel
 {
+    bool IsRunning();
+    void Start();
+    void Stop();
+    void Tick();
 }
 
 public interface IAppController: IComponentController
@@ -55,4 +59,24 @@ public class AppComponent : IApp, IComponent
     public IComponentView ComponentView => AppView;
 
     public IComponentController ComponentController => AppController;
+
+    public bool IsRunning()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Start()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Stop()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Tick()
+    {
+        throw new NotImplementedException();
+    }
 }

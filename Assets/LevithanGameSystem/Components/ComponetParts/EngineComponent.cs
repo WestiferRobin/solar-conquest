@@ -9,17 +9,33 @@ namespace SolarConquestGameModels
 {
     public interface IEngine: IModel
     {
+        IApp App { get; }
+
         void Tick();
         void Start();
         void Stop();
         bool IsRunning();
+        IApp Eject();
+    }
+
+    public interface IGameEngine: IEngine
+    {
+        IGame Game { get; }
+        IGame EjectGame();
     }
 
     public class EngineModel : ViewModel, IEngine, IComponentModel  
     {
         private readonly IEngine Engine;
+        public IApp App => Engine.App;
+
         public EngineModel(IEngine engine) : base(engine) {
             this.Engine = this.Model as IEngine;
+        }
+
+        public IApp Eject()
+        {
+            return Engine.Eject();
         }
 
         public bool IsRunning()
@@ -51,6 +67,13 @@ namespace SolarConquestGameModels
             this.Engine = this.Model as IEngine;
         }
 
+        public IApp App => this.Engine.App;
+
+        public IApp Eject()
+        {
+            return Engine.Eject();
+        }
+
         public bool IsRunning()
         {
             return Engine.IsRunning();
@@ -76,35 +99,37 @@ namespace SolarConquestGameModels
     public class EngineView: ViewController, IEngine, IComponentView
     {
         private readonly IEngine Engine;
-        public EngineView(IEngine engine) : base(engine.ModelView.View) { }
+        public EngineView(IEngine engine) : base(engine.ModelView.View) { 
+            this.Engine = engine;
+        }
 
-        public ViewModel ModelView => throw new NotImplementedException();
+        public IApp App => this.Engine.App;
 
-        public ModelController ModelController => throw new NotImplementedException();
-
-        public bool IsRunning()
+        public void Tick()
         {
-            throw new NotImplementedException();
+            this.Engine.Tick();
         }
 
         public void Start()
         {
-            throw new NotImplementedException();
+            this.Engine.Start();
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            this.Engine.Stop();
         }
 
-        public void Tick()
+        public bool IsRunning()
         {
-            throw new NotImplementedException();
+            return this.Engine.IsRunning();
+        }
+
+        public IApp Eject()
+        {
+            return Engine.Eject();
         }
     }
-
-
-
 
     public class EngineComponent : IComponent, IEngine
     {
@@ -116,6 +141,8 @@ namespace SolarConquestGameModels
         public ViewModel ModelView => throw new NotImplementedException();
 
         public ModelController ModelController => throw new NotImplementedException();
+
+        public IApp App => Engine.App;
 
         public EngineComponent(IEngine engine)
         {
@@ -143,6 +170,11 @@ namespace SolarConquestGameModels
         public bool IsRunning()
         {
             return this.Engine.IsRunning();
+        }
+
+        public IApp Eject()
+        {
+            return Engine.Eject();
         }
     }
 }

@@ -8,6 +8,6 @@ namespace SolarConquestGameModels
 {
     public class GamePrism: Prism
     {
-        public GamePrism(Prism prism): base(prism) { }
+        public GamePrism(IPrism prism): base(prism) { }
     }
 }

@@ -17,36 +17,11 @@ using System.Threading.Tasks;
 // ParticleGame is a ParticleApp
 // SolarConquestGame is a ParticleGame
 
-public class GameComponent : ParticleGameComponent
+public class GameComponent : ParticleComponent
 {
     public IGame Game { get; set; }
 
     public GameComponent(IGame game, Particle pid) : base(pid) {
         this.Game = game;
-    }
-
-
-    public IComponentModel ComponentModel => throw new NotImplementedException();
-
-    public IComponentView ComponentView => throw new NotImplementedException();
-
-    public IComponentController ComponentController => throw new NotImplementedException();
-}
-
-public class GamePlayerComponent : ParticleGameComponent, IPlayer
-{
-    public IPlayer Player { get; set; }
-
-    public string FirstName => AvatarPrism.FirstName;
-
-    public string LastName => AvatarPrism.LastName;
-
-    public IHedron AvatarHedron => Player.AvatarHedron;
-
-    public IPrism AvatarPrism => AvatarHedron.GetLeadPrism();
-
-    public GamePlayerComponent(GamePlayer player) : base(player.Game)
-    {
-        this.Player = player;
     }
 }
