@@ -27,6 +27,7 @@ public interface IApp : IComponentModel
     void Start();
     void Stop();
     void Tick();
+    void Resume();
 }
 
 public interface IAppController: IComponentController
@@ -76,6 +77,11 @@ public class AppComponent : IApp, IComponent
     }
 
     public void Tick()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Resume()
     {
         throw new NotImplementedException();
     }

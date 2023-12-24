@@ -34,7 +34,7 @@ public class LevithanGameSystem: ParticleGameSystem
     {
         this.LoadGame(
             new SolarConquestGame(
-                this.Owner,
+                this.OwnerPlayer,
                 new EvilWesPlayer()
             )
         );

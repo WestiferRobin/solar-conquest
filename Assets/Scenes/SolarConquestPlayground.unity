@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 171139039}
   m_Layer: 0
   m_Name: MasterGrid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,12 +227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7969bf1b0436b4829a70481129dd097a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTile: {fileID: 0}
-  eventTile: {fileID: 0}
-  grassTile: {fileID: 0}
-  highlightTile: {fileID: 0}
-  wallTile: {fileID: 0}
-  waterTile: {fileID: 0}
+  baseTile: {fileID: 11400000, guid: 5a4e3abee8d5149d6b47c971e2cdc0a7, type: 2}
+  eventTile: {fileID: 11400000, guid: ece3a9f7114914092953dc22a7c5e7d9, type: 2}
+  grassTile: {fileID: 11400000, guid: 05631b5adb3b248f78d8cff487ae6070, type: 2}
+  highlightTile: {fileID: 11400000, guid: 7303e51cf52884e71bdfe35f7920e2dd, type: 2}
+  wallTile: {fileID: 11400000, guid: 5f237c84e16494fd682652bce33a47df, type: 2}
+  waterTile: {fileID: 11400000, guid: 44e59df5cbe6b4cce8f8a521020f1f85, type: 2}
 --- !u!1 &862431289
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.36078432, g: 0.2509804, b: 0.2, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 862431289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2.5, y: 2.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 1122625574}
   m_Layer: 0
   m_Name: MasterTilemap
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

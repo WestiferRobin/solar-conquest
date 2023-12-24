@@ -19,4 +19,5 @@ public interface IHedron
     public IPrism GetPrism(Particle pid);
     public IPrism GetLeadPrism();
     void Update();
+    bool IsAlive();
 }

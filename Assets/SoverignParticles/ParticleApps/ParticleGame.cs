@@ -22,8 +22,14 @@ public class ParticleGame : ParticleApp, IGame
         this.Board = board;
     }
 
+    public override bool IsRunning()
+    {
+        return MainPlayer.AvatarHedron.IsAlive() &&
+            OpponentPlayer.AvatarHedron.IsAlive() &&
+            base.IsRunning();
+    }
 
-    public void Update()
+    public override void Tick()
     {
         this.Board.Update();
 

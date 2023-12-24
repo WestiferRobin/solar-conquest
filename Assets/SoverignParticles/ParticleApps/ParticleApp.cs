@@ -2,37 +2,71 @@
 using SoverignParticles;
 using System;
 
+public class ParticleView : ViewModel
+{
+    public ParticleView(ParticleApp app) : base(app)
+    {
 
-public class ParticleApp : IParticle, IApp
+    }
+}
+
+public class ParticleController: ModelController
+{
+    public ParticleController(ParticleApp app): base(app)
+    {
+
+    }
+}
+
+
+public abstract class ParticleApp : IParticle, IApp
 {
     public Particle ParticleID { get; }
 
-    public ViewModel ModelView => throw new NotImplementedException();
+    public ViewModel ModelView { get; }
+    public ModelController ModelController { get; }
 
-    public ModelController ModelController => throw new NotImplementedException();
+    public ParticleView AppView => ModelView as ParticleView;
+    public ParticleController AppController => ModelController as ParticleController;
+
+    private bool IsAppRunning = false;
 
     public ParticleApp(Particle particleID)
     {
         this.ParticleID = particleID;
+        this.ModelView = new ParticleView(this);
+        this.ModelController = new ParticleController(this);
     }
 
-    public bool IsRunning()
+    public virtual bool IsRunning()
     {
-        throw new NotImplementedException();
+        return IsAppRunning;
     }
 
     public void Start()
     {
-        throw new NotImplementedException();
+        while (IsRunning())
+        {
+            try
+            {
+                Tick();
+            }
+            catch
+            {
+                Stop();
+            }
+        }
     }
 
     public void Stop()
     {
-        throw new NotImplementedException();
+        IsAppRunning = false;
     }
 
-    public void Tick()
+    public void Resume()
     {
-        throw new NotImplementedException();
+        IsAppRunning = true;
     }
+
+    public abstract void Tick();
 }

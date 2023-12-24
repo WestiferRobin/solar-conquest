@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SolarConquestGameModels;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -25,35 +26,63 @@ public class UnityModelManager : MonoBehaviour
         if (gameObject.TryGetComponent<SolarConquestGameManager>(out var manager))
         {
             this.GameManager = manager;
-            this.tilemap = GetComponent<Tilemap>();
-
-            for (int y = 0; y < 5; y++)
-            {
-                for (int x = 0; x < 5; x++)
-                {
-                    this.tilemap.SetTile(
-                        new Vector3Int(x, y),
-                        baseTile
-                    );
-                }
-            }
+            ConfigureTilemap();
         }
         else throw new Exception("UNITY MODEL MANAGER IS BROKEN!");
     }
 
-    void Update()
+    private void ConfigureTilemap()
     {
-
-        var gameBoard = GameManager.SolarConquest.Board;
-
-        foreach (var line in gameBoard.GetLines())
+        var masterGrid = GameObject.FindGameObjectsWithTag("Grid");
+        var map = masterGrid.Where(x => x.GetComponent<Tilemap>()).First();
+        if (map.name == UnityTags.MasterTileMap)
         {
+            this.tilemap = map.GetComponent<Tilemap>();
+            LinkBoardToTilemap(GameManager.SolarConquest.Board);
+        }
+        else throw new Exception("CANT FIND THE MASTER BOARD!");
+
+    }
+
+    private void LinkBoardToTilemap(IBoard board)
+    {
+        Stack<Stack<IBoardItem>> lines = new();
+        foreach (var line in board.GetLines())
+        {
+            var lineItems = new Stack<IBoardItem>();
             foreach (var item in line.GetLineItems())
             {
                 Debug.Log(item);
+                lineItems.Push(item);
             }
+            lines.Push(lineItems);
         }
 
+        int y = 0;
+        while (lines.Any())
+        {
+            var line = lines.Pop();
+
+            int x = 0;
+            while (line.Any())
+            {
+                //var item = line.Pop();
+                this.tilemap.SetTile(
+                    new Vector3Int(x, y),
+                    baseTile
+                );
+                x++;
+            }
+
+            y++;
+        }
+    }
+
+    void Update()
+    {
+        var status = this.GameManager.SolarConquest.IsRunning() ? "ALIVE" : "DEAD";
+        var message = $"Solar Conquest Game is: {status}";
+        Debug.Log(message);
         // Read from the data model of SolarConquest
         // Will need to do this for tiles and other shit
         // Anyways main idea is that Unity visualise our data
