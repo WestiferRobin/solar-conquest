@@ -40,11 +40,11 @@ namespace SolarConquestGameModels
         {
             if (isEvil)
             {
-                this.Avatar = new FederationPrism(wesID);
+                this.Avatar = new EmpirePrism(evilID);
             }
             else
             {
-                this.Avatar = new EmpirePrism(evilID);
+                this.Avatar = new FederationPrism(wesID);
             }
         }
     }

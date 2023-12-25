@@ -29,6 +29,7 @@ public class ParticleHedron : IModel, IHedron
         {
             foreach (Particle pid in Enum.GetValues(typeof(Particle)))
             {
+                if (pid == hid) continue;
                 this.Registry.Add(pid, new ParticlePrism(pid, hid));
             }
         }

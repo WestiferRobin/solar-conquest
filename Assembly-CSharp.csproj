@@ -179,8 +179,8 @@
     <Compile Include="Assets/HolyScripts.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/GalaxyBoard.cs" />
     <Compile Include="Assets/LevithanGameSystem/ParticleSystem/Engines/GameEngine.cs" />
-    <Compile Include="Assets/UnityScripts/UnityModels/UnityModel.cs" />
     <Compile Include="Assets/LevithanGameSystem/ParticleSystem/Users/User.cs" />
+    <Compile Include="Assets/UnityScripts/UnityModels/UnityModel.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/MuPrism/Bodies/IBody.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Armada/LightFleet.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Colonies/OutpostColony.cs" />

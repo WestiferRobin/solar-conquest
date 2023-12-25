@@ -23,8 +23,8 @@ public class PrismID
 
     private T AssignRandomProperty<T>(Random rand)
     {
-        int maxSize = Enum.GetValues(typeof(BirthSign)).Length;
-        int randomIndex = rand.Next(maxSize);
+        int maxSize = Enum.GetValues(typeof(T)).Length;
+        int randomIndex = rand.Next(maxSize - 1);
         return (T)Enum.GetValues(typeof(T)).GetValue(randomIndex);
     }
 

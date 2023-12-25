@@ -17,6 +17,7 @@ public class UnityModelManager : MonoBehaviour
     public TileBase highlightTile; // The highlight Tile to use
     public TileBase wallTile;
     public TileBase waterTile;
+
     private Tilemap tilemap; // Reference to your Tilemap
 
 
