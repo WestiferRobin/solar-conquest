@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SolarConquestGameModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class ParticlePolygon : IPolygon
+public interface ISystem
 {
-    public ParticlePolygon() { }
+    User Owner { get; }
 }

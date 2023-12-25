@@ -29,9 +29,24 @@ namespace SoverignParticles
         public static Particle GetRandom()
         {
             var rand = new Random();
-            var particles = Enum.GetValues(typeof(Particle)).Cast<Particle>().ToList();
+            var particles = GetList();
             int index = rand.Next(0, particles.Count);
             return particles[index];
+        }
+
+        public static List<Particle> GetList()
+        {
+            var particles = Enum.GetValues(typeof(Particle)).Cast<Particle>().ToList();
+            return particles;
+        }
+
+        public static Particle FindParticle(int particleIndex)
+        {
+            foreach (var particle in GetList())
+            {
+                if ((int)particle == particleIndex) return particle;
+            }
+            throw new Exception($"PARTICLE NOT FOUND FOR INDEX {particleIndex}");
         }
 
         Particle ParticleID { get; }

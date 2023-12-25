@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class ParticlePolygon : IPolygon
+internal interface IPolygon
 {
-    public ParticlePolygon() { }
 }

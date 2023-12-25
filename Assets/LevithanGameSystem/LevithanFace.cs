@@ -1,15 +1,32 @@
-﻿using SolarConquestGameModels;
-using SoverignParticles;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
+﻿using SoverignParticles;
 
 namespace SolarConquestGameModels
 {
+    public interface IFace { }
+    public class LevithanFace: IFace
+    {
+        public IComponent FaceComponent { get; set; }
+        public IEngine Engine {  get; set; }
+
+        public LevithanFace() { }
+    }
+
+    public class ParticleFace: IParticle, IFace
+    {
+        public IComponent Component { get; }
+        public ParticleFace(Particle pid) { 
+            ParticleID = pid;
+            this.Component = new ParticleApp(pid);
+        }
+
+        public Particle ParticleID { get; }
+    }
+
+    public class LevithanFaceComponent: ParticleFace
+    {
+        public LevithanFaceComponent(): base(Particle.Omega) { }
+    }
+
     /*
         So were back in buisness cause my Particles are being used for SolarConquest
         God/Soverign Particles with one being a joke and other being official
@@ -72,85 +89,4 @@ namespace SolarConquestGameModels
         SO THIS MEANS THAT ============> LevithanGameEngine with UnityLevithanGameManager for ParticleApp in UnityApp for ParticlePlatform on PlatformNetwork
 
     */
-    public interface IFace { }
-    public class LevithanFace: IFace
-    {
-        public IComponent FaceComponent { get; set; }
-        public EngineComponent Engine {  get; set; }
-
-        public LevithanFace() { }
-    }
-
-    public class FaceModel : IComponentModel
-    {
-        public ViewModel ModelView => throw new NotImplementedException();
-
-        public ModelController ModelController => throw new NotImplementedException();
-
-        public FaceModel() { }
-    }
-
-    public class FaceView : IComponentView
-    {
-        public List<ViewModel> ViewModels => throw new NotImplementedException();
-
-        public List<ViewController> ViewControllers => throw new NotImplementedException();
-
-        public ViewModel ModelView => throw new NotImplementedException();
-
-        public ViewModel GetViewModel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public FaceView() { }
-    }
-
-    public class FaceController: IComponentController
-    {
-        public FaceController() { }
-
-        public ModelController ModelController => throw new NotImplementedException();
-    }
-
-    public interface IFaceComponent : IComponent, IFace
-    {
-        public FaceModel Face { get; }
-
-        public FaceView View { get; set; }
-
-        public FaceController Controller { get; set; }
-    }
-
-    public class ParticleFaceComponent: IFaceComponent
-    {
-        public ParticleFaceComponent(Particle pid) { }
-
-        public FaceModel Face => throw new NotImplementedException();
-
-        public FaceView View { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public FaceController Controller { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public IComponentModel ComponentModel => throw new NotImplementedException();
-
-        public IComponentView ComponentView => throw new NotImplementedException();
-
-        public IComponentController ComponentController => throw new NotImplementedException();
-    }
-
-    public class ParticleFace: IParticle, IFace
-    {
-        public IComponent Component { get; }
-        public ParticleFace(Particle pid) { 
-            ParticleID = pid;
-            this.Component = new ParticleFaceComponent(pid);
-        }
-
-        public Particle ParticleID { get; }
-    }
-
-    public class LevithanFaceComponent: ParticleFace
-    {
-        public LevithanFaceComponent(): base(Particle.Omega) { }
-    }
 }
