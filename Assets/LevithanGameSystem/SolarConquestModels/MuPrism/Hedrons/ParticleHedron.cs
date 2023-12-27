@@ -59,7 +59,21 @@ public class ParticleHedron : IModel, IHedron
         ConfigureHedron(leader, prisms);
     }
 
-    private void ConfigureHedron(IPrism leader, List<ParticlePrism> prisms)
+    private void ConfigureHedron(IPrism leader, List<IPrism> prisms)
+    {
+        var particleLeader = new ParticlePrism(leader, leader.Hid);
+        var particlePrisms = new List<ParticlePrism>();
+        var rawRegistry = IParticle.GetDictionary(prisms);
+        foreach (var pid in rawRegistry.Keys)
+        {
+            var prism = rawRegistry[pid];
+            var particlePrism = new ParticlePrism(prism, pid);
+            particlePrisms.Add(particlePrism);
+        }
+        ConfigureHedron(particleLeader, particlePrisms);
+    }
+
+    private void ConfigureHedron(ParticlePrism leader, List<ParticlePrism> prisms)
     {
         this.Registry.Add(leader.Hid, leader);
 
@@ -142,6 +156,17 @@ public class ParticleHedron : IModel, IHedron
     {
         if (this.Registry.ContainsKey(pid)) return this.Registry[pid];
         return null;
+    }
+
+    public void SetLeadPrism(IPrism newLead)
+    {
+        var lead = this.GetLeadPrism();
+        var members = this.Prisms.Where(
+            member => lead.Pid != member.Pid
+        ).ToList();
+        this.Registry.Clear();
+
+        ConfigureHedron(newLead, members);
     }
 
     public IPrism GetLeadPrism()

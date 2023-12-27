@@ -34,10 +34,83 @@ namespace SoverignParticles
             return particles[index];
         }
 
-        public static List<Particle> GetList()
+        public static Dictionary<Particle, T> GetDictionary<T>(Stack<T> stack)
         {
-            var particles = Enum.GetValues(typeof(Particle)).Cast<Particle>().ToList();
-            return particles;
+            var dict = new Dictionary<Particle, T>();
+            if (stack.Count <= 0) return dict;
+
+            var particles = GetList();
+            foreach (var particle in particles)
+            {
+                if (stack.Count <= 0) break;
+                var item = stack.Pop();
+                dict.Add(particle, item);
+            }
+
+            return dict;
+        }
+
+        public static Dictionary<Particle, T> GetDictionary<T>(Queue<T> queue)
+        {
+            var itemStack = new Stack<T>();
+
+            while (queue.Count > 0)
+            {
+                var item = queue.Dequeue();
+                itemStack.Push(item);
+            }
+
+            return GetDictionary(itemStack);
+        }
+
+        public static Dictionary<Particle, T> GetDictionary<T>(List<T> list)
+        {
+            var itemStack = new Stack<T>();
+            foreach (var item in list) itemStack.Push(item);
+            return GetDictionary(itemStack);
+        }
+
+        public static Stack<Particle> GetStack(bool isRandom = true)
+        {
+            var stack = new Stack<Particle>();
+            var list = GetList(isRandom);
+            foreach (var particle in list)
+            {
+                stack.Push(particle);
+            }
+
+            return stack;
+        }
+
+        public static Queue<Particle> GetQueue(bool isRandom = true)
+        {
+            var queue = new Queue<Particle>();
+            var list = GetList(isRandom);
+            foreach (var particle in list)
+            {
+                queue.Enqueue(particle);
+            }
+            return queue;
+        }
+
+        public static List<Particle> GetList(bool isRandom = true)
+        {
+            var particles = Enum.GetValues(typeof(Particle))
+                                .Cast<Particle>().ToList();
+
+            if (!isRandom) return particles;
+
+            var rand = new Random();
+            var list = new List<Particle>();
+
+            while (particles.Count > 0)
+            {
+                int index = rand.Next(0, particles.Count);
+                var particle = particles[index];
+                list.Add(particle);
+            }
+
+            return list;
         }
 
         public static Particle FindParticle(int particleIndex)

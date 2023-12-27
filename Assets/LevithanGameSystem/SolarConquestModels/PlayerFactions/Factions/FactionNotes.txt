@@ -1,0 +1,31 @@
+﻿
+Admin Factions:
+    Federation: Delta Lambda, Alpha, Gamma, Beta
+    Empire: Omega, Psi, Theta, Phi, Sigma
+
+    Exchange: Mu, Psi, Theta, Gamma, Beta
+    Pirates: Epsilon, Lambda, Alpha, Phi, Sigma
+
+Admin Faction: Core Faction
+    - Admin
+    - Admin Magi
+    - ArchOrder
+    - MagiOrder
+
+
+Arch Faction: Race Faction
+    - Arch
+        - Arch Family
+        - Arch Squadron
+        - Arch Citadel
+        - Arch Elite Fleet
+    - Magi
+        - Magi Squadron
+        - Heavy Fleet
+    - Population
+        - 4 Colonies
+
+
+
+
+

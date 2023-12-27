@@ -11,11 +11,11 @@ namespace SolarConquestGameModels
 {
     public class WesPlayer: UserPlayer
     {
-        private static PrismID wesID = new PrismID(
+        private static readonly PrismID guardianID = new(
                     Particle.Lambda,
                     Particle.Delta,
                     FamilyName.Electron,
-                    CombatRank.Lance,
+                    CombatRank.Arch,
                     CombatClass.Magi,
                     Gender.Male,
                     BirthSign.Pisces,
@@ -23,28 +23,34 @@ namespace SolarConquestGameModels
                     "Webb"
                 );
 
-        private static PrismID evilID = new PrismID(
-                    Particle.Lambda,
-                    Particle.Delta,
-                    FamilyName.Electron,
-                    CombatRank.Lance,
+        private static readonly PrismID templarID = new(
+                    Particle.Omega,
+                    Particle.Omega,
+                    FamilyName.Quazar,
+                    CombatRank.Admin,
                     CombatClass.Magi,
                     Gender.Male,
-                    BirthSign.Pisces,
+                    BirthSign.Scorpio,
                     "Jod",
                     "Tyranus"
                 );
+
         public IPrism Avatar { get; }
 
-        public WesPlayer(bool isEvil = false): base(new User("Wes", "Webb"))
+        public WesPlayer(bool isEvil = false) : base(
+            new UserPrism(
+                new User("Wes", "Webb"),
+                isEvil ? templarID : guardianID
+            )
+        )
         {
             if (isEvil)
             {
-                this.Avatar = new EmpirePrism(evilID);
+                this.Avatar = new EmpirePrism(base.AvatarPrism);
             }
             else
             {
-                this.Avatar = new FederationPrism(wesID);
+                this.Avatar = new FederationPrism(base.AvatarPrism);
             }
         }
     }
@@ -53,23 +59,4 @@ namespace SolarConquestGameModels
     {
         public EvilWesPlayer() : base(true) { }
     }
-
-    //public class EvilWesPlayer : UserPlayer
-    //{
-    //    public EvilWesPlayer() : base(
-    //        new PrismID(
-    //            Gender.Male,
-    //            BirthSign.Scorpio,
-    //            "Zod",
-    //            "Omega",
-    //            FamilyName.Admin,
-    //            Particle.Omega,
-    //            Particle.Omega,
-    //            CombatRank.Admin,
-    //            CombatClass.Guardian
-    //        )
-    //    )
-    //    {
-    //    }
-    //}
 }

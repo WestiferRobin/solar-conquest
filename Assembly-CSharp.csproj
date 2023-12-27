@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/PlanetComponents/SpaceSides/SpaceChunk.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/IBoard.cs" />
+    <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Weapons/IWeapon.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/PlanetComponents/PlanetSides/PlanetSide.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Families/Family.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/PlanetComponents/LandSides/LandGrid.cs" />
@@ -159,12 +160,16 @@
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/PlayerFactions/Factions/IFaction.cs" />
     <Compile Include="Assets/SoverignParticles/Sides/IGrid.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Vehicles/Craft/Land/LandMecha.cs" />
+    <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Weapons/VehicleWeapon.cs" />
     <Compile Include="Assets/LevithanGameSystem/ParticleSystem/Users/ParticleUser.cs" />
     <Compile Include="Assets/SoverignParticles/Sides/IChunk.cs" />
+    <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Weapons/ParticleWeapon.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Vehicles/Craft/ICraft.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Vehicles/Ships/IShip.cs" />
+    <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Players/ParticlePlayer.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/PlanetComponents/SpaceSides/SpaceGrid.cs" />
     <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/SolarSystems/FactionSystems/ArchSolarSystem.cs" />
+    <Compile Include="Assets/LevithanGameSystem/SolarConquestModels/Weapons/PrismWeapons/PrismWeapon.cs" />
     <Compile Include="Assets/LevithanGameSystem/Components/IView.cs" />
     <Compile Include="Assets/SoverignParticles/Models/ParticlePrismID.cs" />
     <Compile Include="Assets/UnityScripts/UnityManagers/InputManagers/KeyboardManager.cs" />
@@ -198,7 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/SoverignParticles/PolygonNotes.txt" />
+    <None Include="Assets/LevithanGameSystem/SolarConquestModels/PlayerFactions/Factions/FactionNotes.txt" />
     <None Include="Assets/LevithanSchematic.txt" />
+    <None Include="Assets/LevithanGameSystem/SolarConquestModels/Boards/BoardNotes.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,14 +1,14 @@
 using SoverignParticles;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using UnityEngine;
 
 namespace SolarConquestGameModels
 {
     public class PrismSkill
     {
         public PrismSkillID ID { get; }
-        public int Score { get; }
+        public int Score { get; set; }
 
         public PrismSkill(PrismSkillID id, int skillScore)
         {
@@ -23,20 +23,30 @@ namespace SolarConquestGameModels
         }
     }
 
-    public class ParticlePrism: IModel, IPrism
+    public class ParticlePrism: IModel, IPrism, IParticle
     {
         public PrismID ID { get; private set; }
-        public Particle Pid => IParticle.FindParticle((int)ID.RaceID);
+        public Particle Pid { get; set; }
         public Particle Hid { get; set; }
 
+        public Vector3 Position { get; }
+        public PrismBody Body { get; private set; }
+        public Dictionary<Particle, IHedron> HedronNetwork { get; private set; }
+        public Dictionary<PrismSkillID, PrismSkill> Skills { get; private set; }
+
+        public Particle ParticleID => this.Pid;
         public string FirstName => this.ID.FirstName;
         public string LastName => this.ID.LastName;
         public string Name => this.ID.Name;
+        public FamilyName FactionName => this.ID.FamilyID;
 
-        public PrismBody Body { get; private set; }
 
-        public Dictionary<Particle, IHedron> HedronNetwork { get; private set; }
-        public Dictionary<PrismSkillID, PrismSkill> Skills { get; private set; }
+        public PrismWeapon PrimaryWeapon { get; }
+        public PrismWeapon SecondaryWeapon { get; }
+        //public PrismItem PackItem { get; }
+        //public PrismItem GrenadeItem { get; }
+
+        //public PrismArmor Armor { get; }
 
         /*
 
@@ -50,18 +60,35 @@ namespace SolarConquestGameModels
             
         */
 
+        private void Clone(ParticlePrism prism)
+        {
+            this.ID = prism.ID;
+            this.Pid = prism.Pid;
+            this.Hid = prism.Hid;
+            this.Body = prism.Body;
+            this.HedronNetwork = prism.HedronNetwork;
+            this.Skills = prism.Skills;
+        }
+
+        public void Clone(IPrism prism, Particle hid)
+        {
+            var particlePrism = new ParticlePrism(prism, hid);
+            Clone(particlePrism);
+        }
+
         public ParticlePrism()
         {
             InitPrism(new ParticlePrismID());
         }
 
+        public ParticlePrism(ParticlePrism prism)
+        {
+            Clone(prism);
+        }
+
         public ParticlePrism(IPrism prism, Particle hid)
         {
-            this.ID = prism.ID;
-            this.Hid = hid;
-            this.Body = prism.Body;
-            this.HedronNetwork = prism.HedronNetwork;
-            this.Skills = prism.Skills;
+            Clone(prism, hid);
         }
 
         public ParticlePrism(Particle pid)
@@ -74,17 +101,7 @@ namespace SolarConquestGameModels
             InitPrism(new ParticlePrismID(pid, hid));
         }
 
-        public ParticlePrism(ParticlePrism prism)
-        {
-            this.ID = prism.ID;
-            this.Body = prism.Body;
-            this.HedronNetwork = prism.HedronNetwork;
-            this.Skills = prism.Skills;
-        }
-
-        public ParticlePrism(
-            PrismID id
-        )
+        public ParticlePrism(PrismID id)
         {
             InitPrism(id);
         }
@@ -109,11 +126,79 @@ namespace SolarConquestGameModels
             return true;
         }
 
+        public int UseWeapon()
+        {
+            return 1;
+        }
+
+        public void UseArmor(int attackScore)
+        {
+            var asdf = attackScore;
+        }
+
+        public bool InRange(IPrism target)
+        {
+            return true;
+        }
+
+        public void Attack(IPrism target)
+        {
+            // TODO: Need to implement if prism is in range.
+            if (target.Dodge())
+            {
+                var attackScore = this.UseWeapon();
+                target.Defend(attackScore);
+                if (!target.IsAlive())
+                {
+                    this.Skills[PrismSkillID.Combat].Score += 1;
+                }
+            }
+            /*
+
+            if not target.dodge():
+                fire_score = self.fire_weapon()
+                print(f"{self} fires weapon: {fire_score}")
+                target.defend(fire_score)
+                if not target.is_alive():
+                    self.skills[PrismSkillID.Combat].add_point()
+                    print(f'{target} is dead')
+                else:
+                    print(f'{target} is still alive')
+            else:
+                print(f"{target} not in range")
+            
+            */
+        }
+
+        public void Defend(int attackScore)
+        {
+            throw new NotImplementedException();
+            /*
+                if body_part is None:
+                    body_part = choice(list(self.body.keys()))
+
+                damage_remain = self.armor.defend(damage_score, body_part.name)
+                if damage_remain > 0:
+                    self.body[body_part] -= damage_remain
+                    if self.body[body_part] <= 0:
+                        self.body[body_part] = 0
+            */
+        }
+
+        public bool Dodge()
+        {
+            if (IsAlive())
+            {
+                return new System.Random().Next(0, 100) % 2 == 0;
+            }
+            else return false;
+        }
+
         public IPrism Breed(IPrism partner, bool isRandom=true)
         {
             if (this.ID.GenderID != partner.ID.GenderID)
             {
-                var rand = new Random();
+                var rand = new System.Random();
                 if (isRandom && rand.Next() % 2 == 0) return null;
 
                 var gender = (Gender) rand.Next(0, 2);
@@ -156,7 +241,7 @@ namespace SolarConquestGameModels
             if (Knows(target) && target.Knows(this))
             {
                 var socialLimits = CalculateSocialLimits(this, target);
-                var socialScore = new Random().Next(socialLimits.Item1, socialLimits.Item2 + 1);
+                var socialScore = new System.Random().Next(socialLimits.Item1, socialLimits.Item2 + 1);
 
                 //HedronNetwork[target.Pid] += social_score;
                 //if (HedronNetwork[target.Pid] <= -100)
@@ -201,6 +286,11 @@ namespace SolarConquestGameModels
         {
             // Implement your logic for social limits calculation here
             return Tuple.Create(0, 100);
+        }
+
+        public void Move(UnityEngine.Vector3 position)
+        {
+            throw new NotImplementedException();
         }
     }
 }

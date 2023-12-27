@@ -44,19 +44,6 @@ namespace SolarConquestGameModels
         }
     }
 
-    public interface IWeapon
-    {
-
-    }
-
-    public abstract class VehicleWeapon: IWeapon
-    {
-        public VehicleWeapon()
-        {
-
-        }
-    }
-
     public interface IShields
     {
 

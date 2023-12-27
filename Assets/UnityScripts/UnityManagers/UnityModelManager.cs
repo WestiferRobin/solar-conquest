@@ -27,7 +27,7 @@ public class UnityModelManager : MonoBehaviour
         if (gameObject.TryGetComponent<SolarConquestGameManager>(out var manager))
         {
             this.GameManager = manager;
-            ConfigureTilemap();
+            //ConfigureTilemap();
         }
         else throw new Exception("UNITY MODEL MANAGER IS BROKEN!");
     }
@@ -81,9 +81,9 @@ public class UnityModelManager : MonoBehaviour
 
     void Update()
     {
-        var status = this.GameManager.SolarConquest.IsRunning() ? "ALIVE" : "DEAD";
-        var message = $"Solar Conquest Game is: {status}";
-        Debug.Log(message);
+        //var status = this.GameManager.SolarConquest.IsRunning() ? "ALIVE" : "DEAD";
+        //var message = $"Solar Conquest Game is: {status}";
+        //Debug.Log(message);
         // Read from the data model of SolarConquest
         // Will need to do this for tiles and other shit
         // Anyways main idea is that Unity visualise our data

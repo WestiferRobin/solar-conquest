@@ -1,0 +1,320 @@
+﻿
+Galaxy Board: 5 x 5 with 4 arch factions per line
+
+    d l a g b
+    o p t h s
+    x x x x x
+    m p t g b
+    e l a h s
+
+    QUESTION => how do we make this into a 3 cube by 3 cube
+
+    ANSWER is doing identiy to edge
+
+   +---------------+
+   | x           x |
+   |   x       x   |
+   |     a g b     |
+   |     s m l     |
+   |     t h p     |
+   |   x       x   |
+   | x           x |
+   +---------------+
+
+    or
+
+t h p  t h p  p h t
+l m s  s m l  l m s
+b g a  a g b  b g a
+   
+b g a  a g b  b g a
+l m s  s m l  l m s
+p h t  t h p  p h t
+
+p h t  t h p  p h t
+l m s  s m l  l m s
+b g a  a g b  b g a
+
+
+
+ a g b s m l t h p | o e d
+
+    +-----------------------+-----------------------+
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    |-------+-------+-------|-------+-------+-------|
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    |-------+-------+-------|-------+-------+-------|
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    +-----------------------+-----------------------+
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    |-------+-------+-------|-------+-------+-------|
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    |-------+-------+-------|-------+-------+-------|
+    | a b c | a b c | a b c | a b c | a b c | a b c |
+    | d e f | d e f | d e f | d e f | d e f | d e f |
+    | g h i | g h i | g h i | g h i | g h i | g h i |
+    +-----------------------+-----------------------+
+
+    
+
+
+Solar Board: Earth Configuration: Life Planet Matrix
+
+venu earth mars jupiter saturn neptune
+0    1     2    3-2=5   2-1=3  1-0=1
+
+v0 e1 m2 => 0-3 life planets with 0-2 death moons
+
+j0 j1 j2 => 1 gas giant with 1-3 life moons and 0-2 death moons
+
+s1 s2 n1 => 0-2 gas giants with 1-2 life moons and 0-1 death moons
+
+    Federation Example:
+        d l a g b
+
+        ArchFactionSystem(
+            archAlly // Venus in City
+            archLeader // Earth in ArchCitadel
+            archAlly // Mars in City
+            archMagi // Jupiter with fleet
+            archAlly // Saturn in Town
+            archAlly // Neptune in Townd
+        )
+
+        g l a
+        g l a
+        b d b
+
+Planet Board: Earth Configuration
+need to define types:   https://www.alanzucconi.com/2022/06/05/minecraft-world-generation/
+    Atmosphere = Temperature and 
+    Planets:
+        - Moons: Orbit in Planet
+            - Moons are great at building bases for:
+                - Storage
+                - Defenses
+                - Checkpoints
+            - LifeMoon: Orbits GasGiants
+                - Moon size with atmosphere
+            - DeadMoon: Orbits GasGiants and LifePlanets
+                - Moon size with atmosphere Desert
+        - LifePlanets: Inner Planet
+            - Can only have DeadMoons
+            - Has atmosphere for RimWorld: SolarConquest
+        - GasPlanent: Outer Planet
+            - Can have LifeMoons
+            - Can be used for Gas Energy => Needs EnergySystem
+        - DeadPlanets: Inner Planet
+            - Can only have LifeMoons
+            - Different DeathHazard:
+                - Can have only Atmosphere Desert => Like Mars Today
+                - Can have violent storms => Like Venus Today
+                - Can have only Ice Desert => Like Europa Today
+                - Is an apolocypse planet => Like Mustifar
+            - Terrible of living but great for resources
+
+Side Layers:
+    Space Layer: 
+    Land Layer:
+
+    PLANET GRID SIDE
+    0 0 0
+    0 0 0
+    0 0 0
+
+
+Galaxy => i x j Solars
+Solar => x Planets
+Planet: Moons => 6 Sides
+Side => 1 Grid
+Grid => 256 Tiles
+Area => 12 x 12 Chunks
+Chunk -> Hedron => 12 x 12 Tile
+Tile -> Prism
+
+A planet has a Side/Face on a cube 6 times => Can layout the six tiles as a 2 x 3 face map
+    - A SideGrid has 9 GridAreas
+    - A GridArea has 3 x 3 ChunkAreas
+    - A ChunkArea has 6 x 6 TileChunks
+    - A TileChunk has 12 x 12 Tiles
+    - A Tile holds a Prism and Items
+
+SideGrid of GridAreas => Where Colonies, Events/Quests, Resource Deposits
++-----------------------+
+| a b c | a b c | a b c |
+| d e f | d e f | d e f |
+| g h i | g h i | g h i |
+|-------+-------+-------|
+| a b c | a b c | a b c |
+| d e f | d e f | d e f |
+| g h i | g h i | g h i |
+|-------+-------+-------|
+| a b c | a b c | a b c |
+| d e f | d e f | d e f |
+| g h i | g h i | g h i |
++-----------------------+
+
+
+GridArea to ChunkArea
+a b c
+d e f
+g h i
+
+now mapped to with example => ChunkArea
+ex.) a =>   a b c d e f
+          z 0 0 0 0 0 0  
+          y 0 0 0 0 0 0
+          x 0 0 0 0 0 0
+          w 0 0 0 0 0 0
+          v 0 0 0 0 0 0
+          u 0 0 0 0 0 0
+
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
+| 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 | 0 0 0 0 0 0 |
++-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+now map ChunkArea to TileChunks
+
+0 =>   a b c d e f g h i j k l
+     a 0 0 0 0 0 0 0 0 0 0 0 0
+     b 0 0 0 0 0 0 0 0 0 0 0 0
+     c 0 0 0 0 0 0 0 0 0 0 0 0
+     d 0 0 0 0 0 0 0 0 0 0 0 0
+     e 0 0 0 0 0 0 0 0 0 0 0 0
+     f 0 0 0 0 0 0 0 0 0 0 0 0
+     g 0 0 0 0 0 0 0 0 0 0 0 0
+     h 0 0 0 0 0 0 0 0 0 0 0 0
+     i 0 0 0 0 0 0 0 0 0 0 0 0
+     j 0 0 0 0 0 0 0 0 0 0 0 0
+     k 0 0 0 0 0 0 0 0 0 0 0 0
+     l 0 0 0 0 0 0 0 0 0 0 0 0
+
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0

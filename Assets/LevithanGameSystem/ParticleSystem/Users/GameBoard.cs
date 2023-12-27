@@ -62,7 +62,7 @@ namespace SolarConquestGameModels
                 var boardLine = new GameBoardLine();
                 for (int y = 0; y < height; y++)
                 {
-                    boardLine.GameBoardItems.Add(new GameBoardItem(new GameBoard()));
+                    boardLine.GameBoardItems.Add(new GameBoardItem(this));
                 }
             }
         }
