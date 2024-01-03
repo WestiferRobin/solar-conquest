@@ -227,12 +227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7969bf1b0436b4829a70481129dd097a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTile: {fileID: 11400000, guid: 5a4e3abee8d5149d6b47c971e2cdc0a7, type: 2}
-  eventTile: {fileID: 11400000, guid: ece3a9f7114914092953dc22a7c5e7d9, type: 2}
-  grassTile: {fileID: 11400000, guid: 05631b5adb3b248f78d8cff487ae6070, type: 2}
-  highlightTile: {fileID: 11400000, guid: 7303e51cf52884e71bdfe35f7920e2dd, type: 2}
-  wallTile: {fileID: 11400000, guid: 5f237c84e16494fd682652bce33a47df, type: 2}
-  waterTile: {fileID: 11400000, guid: 44e59df5cbe6b4cce8f8a521020f1f85, type: 2}
+  whiteTile: {fileID: 11400000, guid: 9a37625cbb91847d2b17bd4ca9d0de30, type: 2}
+  yellowTile: {fileID: 11400000, guid: a7955d353cfe04e75bb308b6692d034b, type: 2}
+  redTile: {fileID: 11400000, guid: e2fc9101d5e4e4f2fbd7b080931fb71e, type: 2}
+  greenTile: {fileID: 11400000, guid: 05631b5adb3b248f78d8cff487ae6070, type: 2}
+  blueTile: {fileID: 11400000, guid: ece3a9f7114914092953dc22a7c5e7d9, type: 2}
+  blackTile: {fileID: 11400000, guid: 5f237c84e16494fd682652bce33a47df, type: 2}
+  purpleTile: {fileID: 11400000, guid: cb1e48e62b1c84fd9b06f65146262773, type: 2}
+  cyanTile: {fileID: 11400000, guid: 44e59df5cbe6b4cce8f8a521020f1f85, type: 2}
+  magentaTile: {fileID: 11400000, guid: 51884610a5cf74014a753b4d712f5c1e, type: 2}
+  orangeTile: {fileID: 11400000, guid: 7939d56003db8497486d80bbfc0e6960, type: 2}
+  greyTile: {fileID: 11400000, guid: 5a4e3abee8d5149d6b47c971e2cdc0a7, type: 2}
+  pinkTile: {fileID: 11400000, guid: 7303e51cf52884e71bdfe35f7920e2dd, type: 2}
 --- !u!1 &862431289
 GameObject:
   m_ObjectHideFlags: 0

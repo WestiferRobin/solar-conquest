@@ -2,7 +2,7 @@
 using SoverignParticles;
 using System;
 
-public interface IApp: IComponent
+public interface IApp: IModel
 {
     public AppModel AppModel { get; }
     public AppView AppView { get; }
@@ -15,11 +15,12 @@ public interface IApp: IComponent
 
 public class AppModel: IModel
 {
-    public IApp App { get; }
-
-    public AppModel(IApp app)
+    public AppModel()
     {
-        this.App = app;
+    }
+
+    public void Update()
+    {
     }
 }
 
@@ -61,16 +62,7 @@ public class ParticleApp : IParticle, IApp
 
     public ParticleApp(Particle pid)
     {
-        this.AppModel = new AppModel(this);
-        this.AppView = new AppView(this.AppModel);
-        this.AppController = new AppController(this.AppModel);
-
-        this.ParticleID = pid;
-    }
-
-    public ParticleApp(Particle pid, AppModel model)
-    {
-        this.AppModel = model;
+        this.AppModel = new AppModel();
         this.AppView = new AppView(this.AppModel);
         this.AppController = new AppController(this.AppModel);
 
@@ -88,7 +80,7 @@ public class ParticleApp : IParticle, IApp
         {
             try
             {
-                Tick();
+                Update();
             }
             catch
             {
@@ -107,8 +99,8 @@ public class ParticleApp : IParticle, IApp
         IsAppRunning = true;
     }
 
-    public virtual void Tick()
+    public virtual void Update()
     {
-        throw new NotImplementedException("NEED TO MAKE A TICK FOR THIS!");
+        this.AppModel.Update();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SolarConquestGameModels;
+using SoverignParticles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,22 @@ using System.Threading.Tasks;
 namespace SolarConquestGameModels
 {
 
-    public class LifePlanet : DeadPlanet
+    public class LifePlanet : Planet
     {
-        public LifePlanet(string name, int moonSize = 1) : base(name, moonSize)
+        public LifePlanet(Particle particle, string name, int moonSize = 1) : base(particle, name, moonSize)
+        {
+            Build();
+        }
+
+        public override void Build()
         {
             var updatedSides = new List<PlanetSide>();
-            foreach (var side in Sides)
+            foreach (var side in PlanetSides)
             {
                 var planetSide = new LifePlanetSide(side);
                 updatedSides.Add(planetSide);
             }
-            this.Sides = updatedSides;
+            this.PlanetSides = updatedSides;
         }
     }
 }

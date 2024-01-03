@@ -8,6 +8,22 @@ namespace SoverignParticles
 {
     public enum Particle
     {
+        Delta = 0xFFF, // 
+        Theta = 0x0FF, //
+        Phi = 0xF0F,
+        Lambda = 0xFF0,
+
+        Sigma = 0xF80,
+        Epsilon = 0xF08,
+        Mu = 0x888,
+        Psi = 0x80F,
+
+        Alpha = 0xF00,
+        Gamma = 0x0F0,
+        Beta = 0x00F,
+        Omega = 0x000
+
+        /*
         Delta = 0xFFF,
         Theta = 0x0FF,
         Phi = 0xF0F,
@@ -21,11 +37,34 @@ namespace SoverignParticles
         Alpha = 0xF00,
         Gamma = 0x0F0,
         Beta = 0x00F,
-        Omega = 0x000
+        Omega = 0x000 
+        */
     }
 
     public interface IParticle
     {
+        public static List<Particle> GetRandomList(List<Particle> list)
+        {
+            var randomList = new List<Particle>();
+            var compareList = GetList(true);
+
+            foreach (var particle in compareList)
+            {
+                if (list.Contains(particle))
+                {
+                    randomList.Add(particle);
+                }
+            }
+
+            return randomList;
+        }
+
+        public static List<Particle> GetRandomList()
+        {
+            var list = GetList();
+            return GetRandomList(list);
+        }
+
         public static Particle GetRandom()
         {
             var rand = new Random();
@@ -103,10 +142,16 @@ namespace SoverignParticles
             var rand = new Random();
             var list = new List<Particle>();
 
-            while (particles.Count > 0)
+            while (list.Count < particles.Count)
             {
                 int index = rand.Next(0, particles.Count);
                 var particle = particles[index];
+                while (list.Contains(particle))
+                {
+                    index = rand.Next(0, particles.Count);
+                    particle = particles[index];
+                }
+                //if (list.Contains(particle)) continue;
                 list.Add(particle);
             }
 

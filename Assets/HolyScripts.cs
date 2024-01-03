@@ -19,7 +19,7 @@ namespace Levithan
         {
             var system = new LevithanGameSystem();
             var game = system.EjectGame();
-            system.LaunchGame(game);
+            IAmTheAlphaAndTheOmega(game, system);
         }
     }
 }

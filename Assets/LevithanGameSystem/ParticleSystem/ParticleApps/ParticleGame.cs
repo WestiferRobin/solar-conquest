@@ -1,10 +1,5 @@
 ﻿using SolarConquestGameModels;
 using SoverignParticles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class ParticleGame : ParticleApp, IGame
 {
@@ -13,9 +8,9 @@ public class ParticleGame : ParticleApp, IGame
 
     public GamePlayer OpponentPlayer { get; }
 
-    public GameBoard Board { get; }
+    public IBoard Board { get; }
 
-    public ParticleGame(GamePlayer main, GamePlayer opponent, GameBoard board, Particle particleID): base(particleID)
+    public ParticleGame(GamePlayer main, GamePlayer opponent, IBoard board, Particle particleID): base(particleID)
     {
         this.MainPlayer = main;
         this.OpponentPlayer = opponent;
@@ -29,7 +24,7 @@ public class ParticleGame : ParticleApp, IGame
             base.IsRunning();
     }
 
-    public override void Tick()
+    public override void Update()
     {
         this.Board.Update();
 

@@ -37,12 +37,6 @@ public class ParticleEngine : IParticle, IEngine
         this.App.Stop();
     }
 
-    public void Tick()
-    {
-        if (this.App == null) return;
-        this.Tick();
-    }
-
     public bool IsRunning()
     {
         if (this.App == null) return false;
@@ -54,5 +48,10 @@ public class ParticleEngine : IParticle, IEngine
         var app = this.App;
         this.App = null;
         return app;
+    }
+
+    public void Update()
+    {
+        throw new System.NotImplementedException();
     }
 }

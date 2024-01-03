@@ -1,31 +1,874 @@
 ﻿
 Admin Factions:
-    Federation: Delta Lambda, Alpha, Gamma, Beta
+    Federation: Delta, Lambda, Alpha, Gamma, Beta
     Empire: Omega, Psi, Theta, Phi, Sigma
+    
+    Exchange: Mu, Lambda, Theta, Gamma, Sigma
+    Pirates: Epsilon, Psi, Alpha, Phi, Beta
 
-    Exchange: Mu, Psi, Theta, Gamma, Beta
-    Pirates: Epsilon, Lambda, Alpha, Phi, Sigma
 
-Admin Faction: Core Faction
-    - Admin
-    - Admin Magi
-    - ArchOrder
-    - MagiOrder
+- Planet Biomes: Planets and Moons => PlanetSide has a BiomeGrid, OrbitGrid, EarthGrid
+    - PlanetSide Idea: ParticlePolygon
+        - so 3 to 4 OrbitSide to SideGrid => SpaceGrid with LandGrid(0, 0)
+        - and 3 to 4 BiomeSide to SideGrid => LandGrid(humidity, temperature)
+        - and 3 to 4 EarthSide to SideGrid => EarthGrid(humidity, temperature)
+        - Minecraft as an Example
+            - SeaLevel is tile 0
+            - MaxOverworld is 256 tiles
+            - MaxUnderworld is -256 tiles
+            - Thus Space should be 257+
+        - SolarConquest Should be for PlanetSide
+            - PlanetSide: SpaceOrbit: SpaceGrid 12 x 12
+            - PlanetSide: LandBiome: LandGrid 12 x 12
+                - Colonies
+                    - Animal Resources:
+                        - Ranch Animals
+                        - Labor Animals
+                        - War Animals
+                    - Food
+            - PlanetSide: PlanetCrust: EarthGrid 12 x 12
+    - Planet Types
+        - OuterPlanet
+            - Gas Planet: LifeMoon, 
+        - InnerPlanet
+            - Life Planet: DeadMoon
+    - Planet Dimension
+        - Gas Planet: Fortress, City, Town, Outpost
+        - Life Planet: Citadel, City, Town, Outpost
+        - Life Moon: City, Town, Outpost
+
+
+    - MoonConfiguration: 
+        - PlanetOwner
+        - PlanetSideOrbit
+    - PlanetConfiguration
+        - Moons => Moons based on MoonConfiguration and PlanetConfiguration
+        - PlanetSideTypes per PlanetSide => Sphere to Cube with Plane Grids (Polygon)
+            - North, South, East, West, Front, Back
+        - PlanetSide
+            - SpaceGrid
+                - Orbit Layer => Fleets
+            - LandGrid
+                - Biome Layer => Colonies
+                - Earth Layer => EarthChunks => Metals and Gems
+
+    - SideOrbit Level
+        - Safe:
+            - 
+        - Hazard:
+            - Pirate Fleet
+            - Exchange Fleet
+        - Danger:
+    - SideBiome Level
+        - Safe:
+            - Tropical
+            - Costal
+            - Savanah
+            - Forest
+        - Hazard: 
+            - Desert
+            - Swamp
+            - Jungle
+            - Tundra
+        - Danger:
+            - Apoco
+            - Gas
+            - Artic
+            - Dead
 
 
 Arch Faction: Race Faction
-    - Arch
-        - Arch Family
-        - Arch Squadron
-        - Arch Citadel
-        - Arch Elite Fleet
-    - Magi
-        - Magi Squadron
-        - Heavy Fleet
-    - Population
-        - 4 Colonies
+    - Arch Squadron
+        - Arch Leader: AdminArchLeader
+        - Arch Lady => Arch Leader's Wife
+        - Arch Order: ran by Arch Leader and 
+            - Vice Leader: QuazarPrism => Vice Leader, First Leader, Second Leader, Third Leader
+            - Electron Prime => CraftingVehicleSkills, CraftingCombatItemSkills, CraftingStructureSkills, CraftingRobotSkills
+            - Proton Prime => LandCombatSkills, SpaceCombatSkills, LandVehicleSkills, LandLaborSkills
+            - Photon Prime => TradeLaborSkills, HarvestingLaborSkills, MedicineLaborSkills, ResearchLaborSkills
+            - Neutron Prime => SpaceCombatSkills, SpaceShipSkills, SpaceFighterSkills, SpaceUpgradeSkills
+        - Arch Military Leaders: 
+            - Quazar Prime: AdminArchMagi
+            - Electron Admiral: ArchPrime
+            - Proton General: ArchPrime
+            - Photon General: ArchPrime
+            - Neutron Admiral: ArchPrime
+    - Arch Citadel => Arch Family Capital City
+        - Arch Leader Family: Quazar Prime Family
+            - Arch Citadel
+                - Arch Leader Family
+                - 12 Hedrons
+            - Arch Elite Fleet
+                - Lead Capital Ship
+                - First Capital Ship
+                - Second Capital Ship
+        - Prime Families
+            - Vice Leader Family: Quazar Prime Family
+                - Arch City: Vice Family
+                    - Arch Vice Family => Arch City
+                    - Major Family
+                    - First Colonel Family
+                    - Second Colonel Family
+                - Quazar Armada: Arch Elite Fleet: Magi Fleet
+                    - Lead Frigate Ship => Vice Leader: MagiArch
+                    - First Capital Ship
+                    - Second Capital Ship
+            - Electron Prime Family
+                - City: Standard Fleet
+                    - Electron Prime Major Family
+                    - Arch Frigate Ship => Electron Prime
+                    - Arch Corvette Ship
+                    - Arch Corvette Ship
+                - Electron Armada: Heavy Fleet
+                    - Arch Capital Ship
+                    - Arch Frigate Ship
+                    - Arch Frigate Ship
+            - Proton Prime Family
+                - Town: Standard Fleet
+                    - Proton Prime Colonel Family => Town
+                    - Arch Frigate Ship => Proton Prime
+                    - Arch Corvette Ship
+                    - Arch Corvette Ship
+                - Proton Armada: Heavy Fleet
+                    - Arch Capital Ship
+                    - Arch Frigate Ship
+                    - Arch Frigate Ship
+            - Photon Prime Family
+                - Town: Light Fleet
+                    - Photon Prime Colonel Family => Town
+                    - Arch Corvette Ship => Photon Prime
+                    - Arch Freighter Ship
+                    - Arch Freighter Ship 
+                - Photon Armada: Standard Fleet
+                    - Arch Frigate Ship
+                    - Arch Corvette Ship
+                    - Arch Corvette Ship
+            - Neutron Prime Family
+                - Town: Standard Fleet
+                    - Neutron Prime Colonel Family => Town
+                    - Arch Frigate Ship => Neutron Prime
+                    - Arch Corvette Ship
+                    - Arch Corvette Ship
+                - Neutron Armada: Light Fleet
+                    - Arch Corvette Ship
+                    - Arch Freighter Ship
+                    - Arch Freighter Ship
+
+
+    - Faction Resources:
+        - Family Population by ArchFamily Name
+        - Arch State by ArchFamily Name
+            - Colonies
+            - Planets
+            - Moons
+            - Systems
+        - Arch Military: Arch Armada => Fleet per Family Name
+        - Faction Order:
+        - Ores
+            - Stone => Stone Bricks
+            - Sand => Sandstone Bricks
+            - Clay => Brickstone Bricks
+            - Obsidion => Alloy Steel
+            - Metal Ore: => TradeExchange for FactionBanks
+                - Copper => Alloy Steel
+                - Iron => Alloy Steel
+                - Silver => Alloy Steel
+                - Gold => Alloy Steel
+                - Cobolt => Alloy Steel
+                - Tungsten => Alloy Steel
+                - Uranium => Alloy Steel
+                - Titanum => Alloy Steel
+        - RawMaterials
+            - Stone and Alloy Steel Bricks: => TradeExchange for TradeBanks
+                - Crafting Structures and Furniture
+                - CraftingVehicles
+                - CraftingCircuitry
+                - CraftingHydronics
+                - CraftingThermonics
+            - Food => Meals: => TradeExchange for FactionBanks
+                - Meat
+                    - BiomeAnimals:
+                        - AnimalProduces: Wool, Milk, Egg, and Hides -> Leather, Fur
+                    - Animal Meat per Biome:
+                        - Carnivor Meat: Basic, Common, Luxury and Royal Meat
+                        - Herbivor Meat: Primitve, Basic, Common, and Luxury Meat
+                        - Omnivor Meat: Primitve, Basic, Common, and Royal Meat
+                - Plant => Crops to Cook
+                    - Crops
+                        Primitive
+                            - Fruits
+                            - Vegitibles
+                        Basic
+                            - Fruits
+                            - Vegitibles
+                        Common
+                            - Fruits
+                            - Vegitibles
+                        Luxury
+                            - Fruits
+                            - Vegitibles
+                        Royal
+                            - Fruits
+                            - Vegitibles
+                    - Fruits
+                    - Vegitibles
+                - Sythetic
+                - Processed
+            - Wood => CraftMatrial by Biome: => TradeExchange for FactionBanks
+                - Crafting Structure and Furniture
+                - CraftPrimitiveWeapons
+                - CraftPrimitiveArmor
+                - CraftPrimitiveTools
+                - CraftPrimitiveSkillStation
+            - Hide => Leather => CraftMatrial by Biome: => TradeExchange for FactionBanks
+                - Crafting Armor for Prism
+                - Crafting Furniture
+                - Crafting Items
+            - Wool => Cloth => CraftMaterial by Biome: => TradeExchange for FactionBanks
+                - Crafting Cloths for Prism
+                - Crafting Furniture
+                - Crafting Items 
+        - Chemicals => CraftMaterials
+            - Safe: Planets, Moons
+                - Dead: Planets, Moons
+                    - Helium
+                    - Silicon
+                    - Carbon
+                - Life: Planets, Moons => Inherites Dead Properties
+                    - Hydrogen
+                    - Oxygen
+                    - Nitrogen
+            - Hazard: Planets, Moons
+                - Apoco, Artic
+                - Bismuth
+                - Sulfer
+                - Chlorine
+                - Sodium
+            - Danger: Gas Planets
+                - Helium
+                - Argon
+                - Xenon
+        - Gems => CraftMaterials
+            - PrimitiveGems:
+                - Quarts => Pink Gems for EarthCrust
+            - BasicGems:
+                - Topaz => Yellow Gems for EarthCrust
+                - Opal => Pink Gems for EarthCrust
+                - Granet => Gems for EarthCrust
+            - RareGems:
+                - Ruby => Red Gems for Highest Heat
+                - Sapphire => Blue Gems for Lowest Heat
+                - Emereld => Green Gems for Highest Humidity
+                - Amythyst => Purple Gems for Lowest Humdity
+            - LuxeryGems: 
+                - Diamond => White Gems from Danger Planets
+                - Obsidium => Black Gems from Apoco Planet
+                - Cytherold => Cyan Gems from Artic Planet
+
+
+        - Faction Resources
+            - Food
+            - Chemicals
+                - BiomeChemicals
+                    - PrismGenes
+                        - RaceID
+                        - SkillID
+                        - MemoryID
+                        - AbilityID
+                        - SoulID
+                    - AnimalGenes
+                        - Water Animals per Biome
+                        - Land Animals per Biome
+                        - Hybrid Animals per Biome
+                    - PlanetGenes
+                        - Trees per Biome
+                        - Crops per Biome
+                            - Fruits
+                            - Veggies
+                            - Carbs
+                            - Spices
+                            - Herbs
+                            - Sugar => Sugar Cane
+                - EarthChemicals
+                    - Metal
+                    - Wood
+                    - Stone
+                    - Gas
+                    - Liquids
+                    - Gems => CraftMaterial
+                        - Ruby
+                        - Sapphire
+                        - Emereld
+                        - Diamond
+                        - Topaz
+                        - Amythyst
+                        - Cryton => Cyan Crystal
+                - LuxeryGoods => Arch Tax, Admin Tax, Magi Tax
+                    - LuxeryFood:
+                        - Tobacco => Cigar, Cigarette, Vape:[Mago, Mint, CBD, THC]
+                        - Alchol => Beer, Wine, Selzer, Cocktail:[Rum:Sugar, Whisky:Grain, Vodka:Potato, Gin:Barley]
+                        - 
+                    - LuxeryAppearl:
+                        - Admin Appearl: Gems, HazardBiomeLeather, Fur
+                            - Male:
+                                - Hat, Shirt, Jacket, Pants, Shoes
+                            - Female:
+                                - Hat, Shirt, Jacket, Pants, Shoes
+                    - LuxeryMaterials:
+                    - MagiArmory:
+                        - Weapons: MagiVehicleWeapons, MagiPrismWeapons
+                        - Armor: MagiVehicleArmor, MagiPrismArmor
+                    - AdminShipyard: VehicleParts
+                        - SpaceShip Parts =>
+                            - DreadnoughtShip Parts
+                            - CapitalShip Parts
+                            - FrigateShip Parts
+                            - CorvetteShip Parts
+                            - FreighterShip Parts
+                        - SpaceCraft Parts =>
+                            - SpaceCraftPart: SpaceCraftVehiclePart: SpaceCraft, IVehiclePart
+                            - FortressDestroyer: CargoCraft, FighterCraft
+                                - SpaceTransporter Parts
+                                - LandCraft Parts
+                                - CraftWeapons, ShipShields, CraftEngine, ShipTurrets
+                            - SpaceFighter: FighterCrafter
+                                - SpaceIntercepter
+                                    - SpaceIntercepterPart: SpaceFighterPart => SpaceIntercepterHyperGun
+                                - SpaceBomber
+                                    - SpaceBomberPart: SpaceFighterPart => SpaceBomberTorpedoLauncher
+                                - SpaceFighter
+                                    - SpaceFighterPart => SpaceFighterMissleLauncher
+                            - SpaceTransporter: CargoCraft
+                                - Shuttle
+                                    - SpaceShuttleParts => SpaceShuttleCrewCargo
+
+                        - LandCraftParts:
+                            - LandCraftPart: LandCraft, IVehiclePart
+                            - LightCycle:1 -> CycleDronePilot or SpeederCraftPilot
+                                - LightCycle:1 [
+                                    LightCycle:StandardCycle,
+                                    LaserCycle:AttackCycle,
+                                    PlasmaCycle:DefenseCycle,
+                                    HyperCycle:EnergyCycle
+                                ]
+                                - LightDrone -> LightCycle with Robot as Pilot
+                            - AtmoSpeeder:x -> SpeederDronePilot or SpeederCraftPilot
+                                - CombatSpeeder:1 [
+                                    AtmoFighter:StandardWeapons,
+                                    AtmoIntercepter:PlasmaWeapons,
+                                    AtmoStunner:IonWeapons,
+                                    AtmoScout:LaserWeapons,
+                                ]
+                                - TransportSpeeder:2 => [
+                                    Light:2 => Pilot, CoPilot, 1 CargoSpace
+                                    Elite:3 => Pilot, VIP Guard, VIP, 2 CargoSpace
+                                    Standard:4 => Pilot, CoPilot, FirstMate, SecondMate, 2 CargoSpace
+                                    Heavy:5 => Pilot, CoPilot, FirstMate, SecondMate, ThirdMate , 3 CargoSpace
+                                ]
+                                - BiomeSpeeder: HarvesterTransportSpeeder => [
+                                    BiomeMaterials Tasks,
+                                    Food Tasks,
+                                    BiomeResource Tasks,
+                                    Cleaner Tasks
+                                ]
+                            - LandRover:4 -> Robot or Prism Pilot
+                                - TankRover:2 [
+                                    TankStunner:IonWeapons,
+                                    TankFighter:StandardWeapons,
+                                    TankBomber:TorpedoLauncher,
+                                    TankLauncer:MissleLauncher
+                                ]
+                                - TransportRover:2 => [
+                                    Light:2 => Pilot, CoPilot, 2 CargoSpace
+                                    Elite:3 => Pilot, VIP Guard, VIP, 3 CargoSpace
+                                    Standard:4 => Pilot, CoPilot, FirstMate, SecondMate, 2 CargoSpace
+                                    Heavy:5 => Pilot, CoPilot, FirstMate, SecondMate, ThirdMate , 4 CargoSpace
+                                ]
+                                - EarthRover: HarvesterTransportRover => [
+                                    EarthMaterials Tasks,
+                                    Construct Tasks,
+                                    EarthResource Tasks,
+                                    Hauler Tasks
+                                ]
+                            - LandMecha:1 Parts => ArchMecha is Robot: RobotParts, AdminMecha is MagiPilot: MagiMecha Parts
+                                
+                - Common Goods => Arch Tax, Admin Tax, Magi Tax
+                    - Food
+                        - Spice => Adds Damage Boost
+                        - Sugar => Adds Agility Boost [RUM]
+                        - Caffine => Adds Productivity Boost
+                    - ArchArmory:
+                        - Weapons: ArchWeapons, Arch
+                    - Matrials:
+                    - 
+                - Basic Goods => Arch Tax, Admin Tax, Magi Tax
+                    - Food
+                        - FoodIngredients:
+                            - Crops => Primitive Meal
+                                - Veggis:
+                                    - Carrot, Potato, Onion, Tomatto
+                                - Fruit:
+                                    - Trees: Apple, Orange, Lemon, Mango
+                                    - Shrubs: Grapes, Raspberry, Blueberry, Blackberry
+                                - Carbs:
+                                    - Wheat, Rice 
+                            - Meat => Creates Hide for Leather, Ivory, and Fur
+                                - Animal Possible Produces: 
+                                    - Eggs
+                                    - Milk
+                                    - Wool
+                                - Carnivore Meat
+                                - Omnivore Meat
+                                - Herbivore Meat
+                        - Meal => Crops + Meat
+                            - Primitive Meals => 2 FoodIngredients
+                            - Standard Meals => 1 Crop 1 Meat
+                            - Fine Meals
+                    - Matrials
+                        - Wood/Stone: per Biome
+                        - Stone/Metal: per BiomeSide
+                        - Hide/Leather: PrismTools, PrismWeapons, PrismArmor
+                        - Wool/Cloth: PrismClothes
+
+
+- FactionFamily
+    - AdminFamily: RoyalFamily
+        - Admin Leader -> FactionFather
+        - Vice Admin -> FactionMother
+        - Children
+            - First Son of Admin as AdminCitizen
+            - First Daughter of Admin
+            - Second Son of Admin
+            - Second Daughter Admin
+    - PrimeOrder: AdminNobelFamily
+        - Admin Prime -> FactionProtector
+        - Prime Elders
+            - Vice Prime
+            - Arch Prime
+            - Arch Prime
+    - ArchFamily: AdminNobelFamily
+        - Father: Arch Leader: Male Quazar
+        - Mother: Arch Lady: Female Photon
+        - Children
+            - Son of ArchLeader: Quazar Family as AdminCitizen
+            - Daughter of ArchLeader: Photon Family as AdminCitizen
+            - Son of ArchLady: Proton Family as AdminCitizen
+            - Daughter of ArchLady: Photon Family as AdminCitizen
+
+Faction Civilian Class:
+- RoyalClass
+    - AdminClass
+    - PrimeClass
+- LuxeryClass
+    - ViceClass
+    - ArchClass
+- CommonClass
+    - CitadelClass
+    - CityClass
+- BasicClass
+    - CityClass
+    - TownClass
+- PrimitveClass
+    - TownClass
+    - OutpostClass
 
 
 
+- Goods
+    - Items
+        - Trade Goods
+            - Trade Good made out of TradeMaterials as a Buy => ImportGood or Sell => ExportGood
+                - RoyalGoods
+                    - AdminGoods
+                    - PrimeGoods
+                - LuxeryGoods
+                    - ViceGoods
+                    - ArchGoods
+                - CommonGoods
+                    - CitadelGoods
+                    - CityGoods
+                - BasicGoods
+                    - CityGoods
+                    - TownGoods
+                - PrimitveGoods
+                    - TownGoods
+                    - OutpostGoods
+            - TradeMaterials
+                - Materials:
+                    - QuantumMaterials => For Money and RoyalMaterials
+                    - GemMaterials => For Money and LuxeryMaterials
+                    - ChemicalMaterials => For Money and CommonMaterials
+                    - MetalMaterials => For Money and BasicMaterials
+                    - MealMaterials => For Money and 
+                - OrganicMaterials => For Money and Materials
+                    - FoodMaterials: Crops, Meat
+                    - AnimalMaterials: Meat, Fur, Leather -> Hide
+                    - PlantMaterials: Trees, Crops, 
+                - SyntheticMaterials => For Money and Materials
+                    - Metal
+                - PrimitiveMaterials => For Money and Materials
+                    - StoneMatrials
+                    - WoodMatrials
+            - LaborContracts => For Money and Labor Services
+                - VisaContract
+                - PrisonerContract
+                - MercenaryContract
+                    - Squadrons: PrimSquadron: PrismHedron => Rank and Class per Arch Admin Faction
+                        - SpaceCraftSquadron: SpaceShuttle, SpaceFighter, SpaceInterceptor, SpaceBomber, SpaceDestroyer:[SpaceShuttleSquadron, LandCraftSquadron]
+                        - LandCraftSquadron: LightCycle, LandSpeeder, HeavyRover, HeavyWalker, StandardMecha
+                    - Ships
+                        - RoyalClass
+                            - AdminClass
+                            - ArchCapitalClass
+                        - LuxeryClass
+                            - ViceCapitalClass
+                            - ArchClass
+                        - CommonClass
+                            - CitadelClass
+                            - CityClass
+                        - BasicClass
+                            - CityClass
+                            - TownClass
+                        - PrimitveClass
+                            - CorvetteClass
+                            - FreighterClass
+
+                        - Luxery Class => Shuttle and LandSquadron is Destroyer
+                            - DreadnoughtShip: MechaDestroyer
+                            - AdminCapitalShip: AdminDestroyer
+                            - ArchCapitalShip: ArchDestroyer
+                        - Common Class => with Shuttle and FighterSquadrons
+                            - CapitalShip: ArchShuttle, Arch Fighters, Arch Interceptors, Arch Bombers
+                            - FrigateShip: ArchShuttle, Arch Fighters, Arch Interceptors, Arch Bombers
+                            - CorvetteShip: ArchShuttle, Arch Fighters
+                        - Basic Class => with Shuttle or ArchFighterSquadron
+                            - FreighterShip:
+                    - Fleets
+                        - EliteFleet:
+                            - AdminFleet
+                            - PrimeFleet
+                            - ArchFleet
+                        - HeavyFleet
+                            - 1 CapitalShip
+                            - 1 FrigateShip
+                            - 1 CorvetteShip
+                        - StandardFleet
+                            - 1 CapitalShip
+                            - 2 FrigateShips
+                        - LightFleet
+                            - 1 CorvetteShip
+                            - 2 FreighterShips
+                - ConstructContract
+                    - Colony
+                    - Fleet
+            - TradeExchange => Money on Gem, Chemical, Ore Materials and 
+        - Harvest Items
+            - PrismTools => PixAxe, LumberAxe, ShovelHoe, ForgeHammer
+            - RepairPacks => Armor, Weapons, Tools, Robots
+            - Robotics: Robots => Bots:Android, Droids:HK-Battle, Cyborgs:Borgs, Drones:Terminator
+            - Food
+                - Food Ingredients
+                    - Basic Ingredients
+                    - Common Ingredients
+                    - Luxery Ingredients
+                - Meals
+                    - Primitive Meals
+                    - Standard Meals
+                    - Fine Meals
+        - Medical Items
+            - MedPacks
+            - StimPacks
+            - Genetics => Clones, Hybrids, Mutants
+        - Legion Items => Squadron Items
+            - PrismGrenades
+            - PrismWeapons
+            - PrismArmor
+    - Materials
+        - Construction
+            - Colony
+                - ColonyHomes
+                - LandCraft
+            - Fleet
+                - SpaceShips
+                - SpaceCraft
+        - Armor
+            - VehicleArmor
+            - PrismArmor
+            - StructureArmor
+        - Tools
+            - Construction
+            - VehicleTools
+            - PrismTools
+        - Clothes
+
+- AEO2 Resources: Wood, Food, Gold, Stone
+    - CraftMatrials: Wood, Stone
+    - Meal
+
+Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
+
+- GalaxyEpoch =>
+    - GalaxyChart
+        - Aztec Chart for GalaxyEpoch
+            - 1 Solar Period => 14 SolarCycle
+            - 20 Solar Period => 1 GalaxyEpoch
+    - Solar Chart
+        - SolarCycles Counted
+        - SolarProgressReport
+            - FactionProgressReport
+                - IsAdminOrderAlive
+                    - IsAdminLeaderAlive
+                - IsPrimeOrderAlive
+                    - IsVicePrimeAlive
+                    - Is
+- SolarCycle =>
+    - GameTime
+        - 1 PlanetSecond => 1 real milli seconds
+        - 1 PlanetMinutes = 1 real seconds
+        - 1 PlanetHour => 1 real mins CAUSE OF 1h has 60m and 1m has 60s
+        - 1 PlanetDay => 24 PlanetHour => 24 real mins
+        - 1 PlanetWeek => 7 PlanetDays => 168 real mins
+        - 1 PlanetMonth -> 2 PlanetWeeks => 
+        - Planet Chart:
+            - Aztec Chart for PlanetYears to Sun which maps Sol in MilkywayGalaxy
+                - 1 Planet Period => 14 Planet Days -> 2 Planet Weeks -> 1 Planet Month
+                - 20 Planet Periods => 1 SolarCycle
+            - Zodiac Chart:
+                - CardinalGene: MonoHybrid  DiHybrid[] => ParticleGene
+                    - Dominate: Lambda Delta Psi
+                    - Recessive
+                    - Alpha Mu Theta
+                    - Gamma Epsilon Phi
+                    - Beta Omega Sigma
+                - Element: [Earth, Fire
+            - Chinese Chart: PlanetaryGenerations
+                - Mascot for Population Planet Year
+                - PlanetGeneration of 10 Stages of life
+            
+        - 
+    - 4 Quarters: Seasons per 3 Weeks
+        - Admin Quarter Performance
+        - Prime Quarter Performance
+        - Arch Quarter Performance
+            - Lea
+    - Holiday
+        - Admin:Annual
+            - Royal Family Birthdays
+            - Prime Order Birthdays
+            - Arch Leader Birthdays
+            - NEW CYCLE => Admin Inauguration Day
+                - Default => Admin Annual Performance Review
+                - If Admin killed then Admin Election for Inauguration Day
+                    - Winner by Performance and Vote
+        - Arch:Quarter
+            - XMAS Winter
+            - WEEN Autum
+            - WARM Summer
+            - RAIN Spring
 
 
+- Faction Order:
+    - Faction Council
+        - Admin Leader => Father of Faction
+        - Prime Elder => Elder of Faction
+        - Admin Lady => Mother of Faction
+        - Vice Leader => Arch FactionChapmpion of SolarYear
+        - Vice Prime => Prime FactionChapmpion of SolarYear
+            
+    - Admin Order: AdminFlag
+        - Admin Leader => Leader of Order
+        - Royale Family => AdminFlag
+            - Admin Lady => Vice Leader of Admin Order
+            - Children:
+                - FirstChild: Admin Nobel
+                - SecondChild: Admin Nobel
+                - ThirdChild: Admin Nobel
+                - FourthChild: Admin Nobel
+        - 
+    - Prime Order: MagiFlag
+        - Prime Council
+            - Prime Elder: Admin Prime
+            - Prime Masters:
+                - Vice Prime: Arch Prime
+                - First Prime: Arch Prime
+                - Second Prime: Arch Prime
+                - Third Prime: Arch Prime
+                - Fourth Prime: Arch Prime
+        - Prime School per Arch Race with Quazar Gene
+            - Master => Enforce Prime Rule
+                - 1 Prime Elder: Arch Magi
+            - Disciple => Enforce Master Rule
+                - x Magi Captain-Major
+            - Journeymen => Enforce Disciple Rule
+                - y Magi Ensign-Commander
+            - Apprenctice => Enforce Apprenctice Rule
+                - z Magi Private-Sergeant
+            - Recruit => Found Quazar Gene before 20 years old
+    - Arch Order: ViceFlag with Arch Flags
+        - Vice Arch Family => Arch Leader and Arch Prime
+            - Arch Leader: Admin Nobel => ArchEliteFleet
+            - Vice Lady: Admin Nobel => ArchCitadelColony
+            - Vice Children: Admin Nobels
+                - 
+                - Vice Major => CityColony, Capital
+                - Vice Colonel => TownColony
+                - Vice Captin => OutpostColony, HeavyFleet
+        - Arch Trade Family => Trade Executive and Trade Managers
+            - Trade Leader: Arch Nobel
+            - Trade Lady: Arch Nobel
+            - Trade Children: Arch Nobels
+                - First Trade Son AB
+                - First Trade Daughter Ab
+                - Second Trade Son aB
+                - Second Trade Daughter ab
+            - Trade Families
+                - Trade Quazar Manager
+                - Trade Electron
+                - Trade Proton
+                - Trade Proton
+                - Trade Neutron
+        - Arch Military Family => LegionFamily
+            - Legion Leader: Arch Nobel => Legion General
+            - Legion Lady: Arch Nobel
+            - Legion Children: Legion Admiral
+        - Arch Harvest Family => Trade Executive and Farm Manager
+            - Harvest Lady: Arch Nobel
+            - Harvest Children: Arch Nobels
+        - Arch Medicine Family => Legion Doctor and Trade Doctor
+            - Doctor Lady: Arch Nobel
+            - Doctor Children: Arch Nobels
+
+
+
+- BodyConfiguration: BodyParts
+    - PrismBodyConfiguration: PrismBodyParts
+        - Bone:Mechanics, Flesh:Matrials, Skin:Matrials, Veins:Mechanics
+    - OrganicBodyConfiguration
+        - PrismBodyParts:[
+            BoneParts: StructureMatrials => IvoryChunk, 1 GeneChunk, 1 MeatChunk
+            MussleParts: MeatMatrial => 1 GeneChunk 2 MeatChunks
+            SkinParts: HideMatrieal => 1 GeneChunk 1 Leather, 1 MeatChunk
+            VeinParts: MeatMatrials => 1 GeneChunk, 1 
+        ]
+        - AnimalBodyParts: PrismBodyParts
+    - SynthicBodyConfiguration
+        - RobotBodyParts:[
+            MechanicPart: Fluids and Thermo BoneDevice out of MetalMatrials and ChemicalMaterials
+            ComputerPart: ComputerDevice out of MetalMatrials and ChemicalMaterials
+            SkinParts: MetalMatrial => MetalOres
+            ElectricalPart: Circuit and Power Device out of MetalMatrials and ChemicalMaterials
+        ]
+        - CyborgBodyParts:[
+        ]
+        - AndroidBodyParts:[
+        ]
+    - MutantBodyConfiguration
+        - ZombieBodyParts: PrismBodyParts
+        - VampireBodyParts: PrismBodyParts
+        - VampireBodyParts: PrismBodyParts
+    
+
+- MechaPartConfiguration
+    - EvaParts: PrismBodyParts with PrismBodyConfiguration
+    - DroneParts: RobotBodyParts with RobotBodyConfiguration
+    - HunterParts: CyborgBodyParts:[
+        MechanicPart: Fluids and Thermo Device out of StructureMatrials,
+        MussleParts: BioMatrial,
+        SkinParts: HideMatrieal,
+    ]
+
+- MechaBodyParts[]: MechaConfiguration
+    - Head:[Brain, Eyes, Ears, Mouth] 
+    - Arms:[UpperArm, LowerArm, Hand, Fingers], => 
+    - Legs:Left and Right:[UpperLeg, LowerLeg, Foot, Toes], 
+    - Torso:MechaConfigurationBody
+    - BodyFunctionParts => PrismBodyFunctrions
+        - CriticalParts:[
+            Brain => AI and LifeSpan {
+                - PrismBasic => PrismCommunication on HedronNetwork
+                - PrismMood => PrismNeed are met per Mood
+                    - Hunger: Eating Meals
+                    - Energy: Sleep in Structured Beds
+                    - Social: Prism Communication in HedronNetwork
+                    - Stress:
+                - PrismSkills => Prism Abilities in SolarConquest
+                    - Harvest, Combat, Pilot, Leader, Trade
+            }, 
+            Torso:Ribcage => LifeSpan [
+                Heart:Beating,
+                Lungs:Breathing
+                {
+                    RightLung,
+                    LeftLung,
+                }
+                Kidney:ProcessFood:Do BodyFunctrions, Stomach:EatenFood
+            ] 
+        ]
+        - WarningParts:[
+            Head => [
+                Hair=>Identify to PrismID.Race
+                Eyes=>See InRange => Right and Left,
+                Ears=>Hear InRange => Right and Left,
+                Mouth=>Communicate to PrismAI -> Speak
+                    - Speak Configuration: PrismSocialScore
+                    - PrismSocialBasic: Scores 
+                        - AllyScore => 75:100 => If FlirtChartScore fails
+                        - FriendScore => 25:75 => Detirmine if Prism is Friend
+                        - NeutralScore => -25:0:25 => Detirmine if Prism is 
+                        - EnemyScore => -75:-25
+                        - FlirtScore => 75-100 => FlirtChartScore for Partnet
+                        - FamilyScore => Positive Family Hedron Score
+                            - ParentRelationScore
+                                - FatherMoodScore
+                                - MotherMoodScore
+                            - ParentChildrelationScore
+                                - Dominate Child
+                                - Carier Male Child
+                                - Carier Male Child
+                                - Recessive Child
+            ], => PrismBreedSkills, PrismSocialSkills, FactionSkills
+            Arms => Right and Left:[
+                Use Tools => [
+                    LightPick:EarthMaterials,
+                    LightAxe:BiomeMatrials,
+                    LightDrill:Earth and Biome Materials
+                    Use LightModelBMIComputer => PrismNetwork "Hedron.com View"
+                ],
+                Use Weapons => [
+                    PrimaryRangeWeapon:LightRifle, => Both Hands
+                    SecondaryRangeWeapon:LightPistol, => Single Hand
+                    MeleeWeapon:LightDagger, => Both Arms
+                    FistWeapon => No Hands? => Single Arm No Hands or No Weapon
+                ]
+                Use Items => [
+                    Item Actions: [AttackItem => Grenades, DefenseItem => Pack]
+                    Grenades:[Frag, Flame, Freeze, Poisin, Shock]
+                    Packs: [
+                        MedPacks:[
+                            HealthPack, FoamPack, WarmPack,
+                            AntidotePack, GroundPack 
+                        ] 
+                        RepairPacks:[
+                            ArmorParts,
+                            RobotParts,
+                            WeaponParts,
+                            ShieldParts,
+                            VehicleParts
+                        ],
+                        StimPacks:[
+                            DamageStim, 
+                            DefenseStim, 
+                            AgilityStim, 
+                            RangeStim, 
+                            MagiStim
+                        ]
+                    ]
+                ]
+                Can Move => Right and Left
+                Use Hands => [UseGrenades:Arm, UsePack:Fingers, UseWeapon:Hands, UseTool:Hands]
+            ],
+            Legs => [
+                Can Move => Right and Left
+                Use Feet => [CanRun:Toes, CanWalk:Feet, CanCrawl:Legs, CanDodge:Feet]
+            ]
+        ]

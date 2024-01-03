@@ -16,7 +16,7 @@ namespace SolarConquestGameModels
         public IComponent Component { get; }
         public ParticleFace(Particle pid) { 
             ParticleID = pid;
-            this.Component = new ParticleApp(pid);
+            //this.Component = new ParticleApp(pid);
         }
 
         public Particle ParticleID { get; }

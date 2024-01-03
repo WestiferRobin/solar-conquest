@@ -17,13 +17,13 @@ public class SolarConquestGameManager : MonoBehaviour
     void Start()
     {
         LevithanSystem = new LevithanGameSystem();
-        //SolarConquest = LevithanSystem.Game;
+        SolarConquest = LevithanSystem.Game;
         //LevithanSystem.StartGame();
     }
 
     void Update()
     {
         // This is where our controller affects the game model
-        //if (Input.GetKeyDown(KeyCode.Tab)) Debug.Log($"Using Prism: {PrismID}");
+        if (Input.GetKeyDown(KeyCode.Tab)) Debug.Log($"Using Prism: {PrismID}");
     }
 }

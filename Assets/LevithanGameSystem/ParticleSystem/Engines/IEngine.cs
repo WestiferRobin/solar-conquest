@@ -9,7 +9,6 @@ public interface IEngine : IModel
 {
     IApp App { get; }
 
-    void Tick();
     void Start();
     void Stop();
     bool IsRunning();

@@ -2,12 +2,12 @@
 
 namespace SolarConquestGameModels
 {
-    public interface IBoardItem
+    public interface IBoardItem: IModel
     {
-        public IModel BoardModel { get; }
+        public IModel ItemModel { get; }
     }
 
-    public interface IBoardLine
+    public interface IBoardLine: IModel
     {
         public List<IBoardItem> GetLineItems();
     }
@@ -15,6 +15,5 @@ namespace SolarConquestGameModels
     public interface IBoard: IModel
     {
         List<IBoardLine> GetLines();
-        void Update();
     }
 }

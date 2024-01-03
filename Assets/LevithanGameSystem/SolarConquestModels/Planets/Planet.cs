@@ -4,52 +4,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using SoverignParticles;
 
 namespace SolarConquestGameModels
 {
-    public abstract class Planet
+    public abstract class Planet: IParticle
     {
-
+        public Particle ParticleID { get; private set; }
         public static int MaxSides = 6;
 
         public string Name { get; protected set; }
-        public List<PlanetSide> Sides { get; protected set; }
+        public List<PlanetSide> PlanetSides { get; protected set; }
+        public List<ISide> AllSides => GetAllSides();
         public List<Moon> Moons { get; protected set; }
 
-        protected Planet(Planet moon)
+        private List<ISide> GetAllSides()
         {
+            var sides = new List<ISide>();
+
+            foreach (var planetSide in PlanetSides)
+            {
+                sides.Add(planetSide);
+            }
+
+            foreach (var moon in Moons)
+            {
+                foreach (var moonSide in moon.Sides)
+                {
+                    sides.Add(moonSide);
+                }
+            }
+
+            return sides;
+        }
+
+        protected Planet(Particle particle, Moon moon)
+        {
+            this.ParticleID = particle;
             this.Name = moon.Name;
-            this.Sides = moon.Sides;
-            this.Moons = moon.Moons;
+            this.PlanetSides = new();
+            this.Moons = new();
         }
 
-        public Planet(string name) 
+        public Planet(Particle particle, string name) 
         { 
-            InitPlanet(name, moonSize: 0);
+            InitPlanet(particle, name, moonSize: 0);
         }
 
-        public Planet(string name, int moonSize)
+        public Planet(Particle particle, string name, int moonSize)
         {
-            InitPlanet(name, moonSize);
+            InitPlanet(particle, name, moonSize);
         }
 
-        public Planet(string name, List<Moon> moons) 
+        public Planet(Particle particle, string name, List<Moon> moons) 
         {
-            InitPlanet(name, moons);
+            InitPlanet(particle, name, moons);
         }
 
-        private void InitPlanet(string name, int moonSize)
+        private void InitPlanet(Particle particle, string name, int moonSize)
         {
             var moons = new List<Moon>();
             for (int moonIndex = 0; moonIndex < moonSize; moonIndex++)
             {
-                this.Moons.Add(new DeadMoon($"{name}'s Dead Moon #{moonIndex += 1}"));
+                var deadMoon = new DeadMoon($"{name}'s Dead Moon #{moonIndex += 1}");
+                moons.Add(deadMoon);
             }
-            InitPlanet(name, moons);
+            InitPlanet(particle, name, moons);
         }
-
-        private void InitPlanet(string name, List<Moon> moons)
+         
+        private void InitPlanet(Particle particle, string name, List<Moon> moons)
         {
+            this.ParticleID = particle;
+
             this.Name = name;
 
             this.Moons = moons;
@@ -59,16 +85,16 @@ namespace SolarConquestGameModels
 
         private void InitSides()
         {
-            this.Sides = new List<PlanetSide>();
+            this.PlanetSides = new List<PlanetSide>();
             for (int planetIndex = 0; planetIndex < MaxSides; planetIndex++)
             {
-                this.Sides.Add(new PlanetSide(planetIndex));
+                this.PlanetSides.Add(new PlanetSide(planetIndex));
             }
         }
 
         public void Update()
         {
-            foreach (var side in Sides)
+            foreach (var side in PlanetSides)
             {
                 side.Update();
             }
@@ -78,5 +104,7 @@ namespace SolarConquestGameModels
                 moon.Update();
             }
         }
+
+        public abstract void Build();
     }
 }

@@ -11,5 +11,5 @@ public interface IGame : IApp
     GamePlayer MainPlayer { get; }
     GamePlayer OpponentPlayer { get; }
 
-    GameBoard Board { get; }
+    IBoard Board { get; }
 }

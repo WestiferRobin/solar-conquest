@@ -9,6 +9,7 @@ namespace SolarPlayground
         public static void Main()
         {
             HolyScripts.IAmTheAlphaAndTheOmega();
+            Console.WriteLine("READY FOR UNITY AND AI");
         }
     }
 }

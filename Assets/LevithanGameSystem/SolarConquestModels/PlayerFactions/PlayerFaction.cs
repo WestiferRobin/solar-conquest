@@ -16,11 +16,11 @@ namespace SolarConquestGameModels
         public IHedron AvatarHedron { get; }
         public IPrism Avatar { get => AvatarHedron.GetLeadPrism(); }
 
-        public IPrism Admin => throw new NotImplementedException();
+        public IPrism Admin { get; }
 
         public IPrism AdminGuardian => Avatar;
 
-        public IArchFaction AdminFaction => throw new NotImplementedException();
+        public IArchFaction AdminFaction { get; }
 
         public readonly Particle AdminFlag;
         public readonly List<Particle> ArchFlags;
@@ -76,7 +76,7 @@ namespace SolarConquestGameModels
             }
         }
 
-        public IPrism GetLeader(Particle particle)
+        public IPrism GetArchLeader(Particle particle)
         {
             if (Factions.ContainsKey(particle))
             {
@@ -88,7 +88,7 @@ namespace SolarConquestGameModels
             }
         }
 
-        public IPrism GetGuardian(Particle particle)
+        public IPrism GetArchGuardian(Particle particle)
         {
             if (Factions.ContainsKey(particle))
             {
@@ -106,6 +106,39 @@ namespace SolarConquestGameModels
             {
                 raceFaction.Update();
             }
+        }
+
+        public void ApplyToBoard(GalaxyBoard galaxy, int index)
+        {
+            int boardLength = galaxy.Board.Count;
+            var factionLine = new GameBoardLine<SolarSystem>();
+            var adminSystem = new AdminSolarSystem(this.AdminFlag, this.ArchFlags);
+
+            factionLine.AddItem(adminSystem);
+
+            foreach (var archLeaderflag in this.GetFlags())
+            {
+                var factionFlags = this.GetFlags();
+                var archFlags = IParticle.GetRandomList(factionFlags);
+
+                var archSystem = new ArchSolarSystem(archLeaderflag, archFlags);
+
+                factionLine.AddItem(archSystem);
+            }
+
+            var factionSystems = new List<SolarSystem>();
+            var list = IParticle.GetRandomList();
+            foreach (var particle in list)
+            {
+                if (factionLine.BoardItems.Where(t => t.Model.ParticleID == particle).Any())
+                {
+                    SolarSystem system = factionLine.BoardItems
+                        .Where(t => t.Model.ParticleID == particle)
+                        .First().Model;
+                }
+            }
+
+            galaxy.Board[index % boardLength] = factionLine;
         }
     }
 }

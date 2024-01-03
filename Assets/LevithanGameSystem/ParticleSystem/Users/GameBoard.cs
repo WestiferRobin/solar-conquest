@@ -6,68 +6,90 @@ using System.Threading.Tasks;
 
 namespace SolarConquestGameModels
 {
-    public class GameBoardItem : IBoardItem
+    public class GameBoardItem<T> : IBoardItem
     {
-        public GameBoard Model;
-        public GameBoardItem(GameBoard board)
-        {
+        public IModel ItemModel { get; }
 
+        public T Model => (T) ItemModel;
+
+        public GameBoardItem(T item)
+        {
+            this.ItemModel = item as IModel;
         }
 
-        public IModel BoardModel => Model;
+        public GameBoardItem(IModel item)
+        {
+            this.ItemModel = item;
+        }
+
+        public GameBoardItem()
+        {
+            this.ItemModel = null;
+        }
 
         public void Update()
         {
-            Model.Update();
+            if (this.ItemModel == null) throw new Exception("ASDF");
+            this.ItemModel.Update();
         }
     }
 
-    public class GameBoardLine : IBoardLine
+    public class GameBoardLine<T> : IBoardLine
     {
-        public List<GameBoardItem> GameBoardItems { get; }
+        public List<GameBoardItem<T>> BoardItems { get; }
 
         public GameBoardLine()
         {
-            this.GameBoardItems = new();
+            this.BoardItems = new();
         }
 
         public List<IBoardItem> GetLineItems()
         {
             List<IBoardItem> boardItems = new();
-            foreach (var item in GameBoardItems)
+            foreach (var item in BoardItems)
             {
                 boardItems.Add(item);
             }
             return boardItems;
         }
 
+        public void AddItem(T item)
+        {
+            var gameItem = new GameBoardItem<T>(item);
+            BoardItems.Add(gameItem);
+        }
+
         public void Update()
         {
-            foreach (var item in GameBoardItems)
+            foreach (var item in BoardItems)
             {
                 item.Update();
             }
         }
     }
 
-    public class GameBoard : IBoard
+    public class GameBoard<T> : IBoard
     {
-        public List<GameBoardLine> Board { get; }
+        public List<GameBoardLine<T>> Board { get; protected set; }
 
+        public GameBoard()
+        {
+            this.Board = new();
+        }
 
-        public GameBoard(int width = 5, int height = 5) { 
+        public GameBoard(int width, int height) { 
             this.Board = new();
             for (int x = 0; x < width; x++)
             {
-                var boardLine = new GameBoardLine();
+                var boardLine = new GameBoardLine<T>();
                 for (int y = 0; y < height; y++)
                 {
-                    boardLine.GameBoardItems.Add(new GameBoardItem(this));
+                    boardLine.BoardItems.Add(new GameBoardItem<T>());
                 }
             }
         }
 
-        public GameBoard(List<GameBoardLine> board)
+        public GameBoard(List<GameBoardLine<T>> board)
         {
             this.Board = board;
         }

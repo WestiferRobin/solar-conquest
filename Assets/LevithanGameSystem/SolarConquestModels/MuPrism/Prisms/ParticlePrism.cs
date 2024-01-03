@@ -26,10 +26,10 @@ namespace SolarConquestGameModels
     public class ParticlePrism: IModel, IPrism, IParticle
     {
         public PrismID ID { get; private set; }
-        public Particle Pid { get; set; }
-        public Particle Hid { get; set; }
+        public Particle Pid { get => ID.Pid; set => ID.Pid = value; }
+        public Particle Hid { get => ID.Hid; set => ID.Hid = value; }
 
-        public Vector3 Position { get; }
+        public UnityVector Position { get; set; }
         public PrismBody Body { get; private set; }
         public Dictionary<Particle, IHedron> HedronNetwork { get; private set; }
         public Dictionary<PrismSkillID, PrismSkill> Skills { get; private set; }
@@ -63,17 +63,9 @@ namespace SolarConquestGameModels
         private void Clone(ParticlePrism prism)
         {
             this.ID = prism.ID;
-            this.Pid = prism.Pid;
-            this.Hid = prism.Hid;
             this.Body = prism.Body;
             this.HedronNetwork = prism.HedronNetwork;
             this.Skills = prism.Skills;
-        }
-
-        public void Clone(IPrism prism, Particle hid)
-        {
-            var particlePrism = new ParticlePrism(prism, hid);
-            Clone(particlePrism);
         }
 
         public ParticlePrism()
@@ -86,23 +78,41 @@ namespace SolarConquestGameModels
             Clone(prism);
         }
 
-        public ParticlePrism(IPrism prism, Particle hid)
+        public ParticlePrism(IPrism prism, Particle pid, Particle hid, UnityVector vector = null)
         {
-            Clone(prism, hid);
+            this.Position = vector ?? new();
+            InitPrism(prism.ID);
+            this.Pid = pid;
+            this.Hid = hid;
         }
 
-        public ParticlePrism(Particle pid)
+        public ParticlePrism(IPrism prism, Particle pid, UnityVector vector = null)
         {
-            InitPrism(new ParticlePrismID(pid, pid));
+            this.Position = vector ?? new();
+            InitPrism(prism.ID);
+            this.Pid = pid;
+            this.Hid = pid;
         }
 
-        public ParticlePrism(Particle pid, Particle hid)
+        public ParticlePrism(Particle pid, Particle hid, UnityVector vector = null)
         {
+            this.Position = vector ?? new();
             InitPrism(new ParticlePrismID(pid, hid));
+            this.Pid = pid;
+            this.Hid = hid;
         }
 
-        public ParticlePrism(PrismID id)
+        public ParticlePrism(Particle pid, UnityVector vector = null)
         {
+            this.Position = vector ?? new();
+            InitPrism(new ParticlePrismID(pid, pid));
+            this.Pid = pid;
+            this.Hid = pid;
+        }
+
+        public ParticlePrism(PrismID id, UnityVector vector = null)
+        {
+            this.Position = vector ?? new();
             InitPrism(id);
         }
 
@@ -138,6 +148,13 @@ namespace SolarConquestGameModels
 
         public bool InRange(IPrism target)
         {
+            return InRange(target.Position);
+        }
+
+        public bool InRange(UnityVector position)
+        {
+            var asdf = this.Position.CalculateMagnitude(position);
+
             return true;
         }
 
@@ -274,13 +291,11 @@ namespace SolarConquestGameModels
         };
         }
 
-
         public void Update()
         {
             // Do some fucking action when updating
             throw new NotImplementedException();
         }
-
 
         private static Tuple<int, int> CalculateSocialLimits(IPrism prism1, IPrism prism2)
         {
@@ -288,9 +303,12 @@ namespace SolarConquestGameModels
             return Tuple.Create(0, 100);
         }
 
-        public void Move(UnityEngine.Vector3 position)
+        public void Move(UnityVector position)
         {
-            throw new NotImplementedException();
+            if (InRange(position))
+            {
+                this.Position = position;
+            }
         }
     }
 }

@@ -14,5 +14,10 @@ namespace SolarConquestGameModels
         {
             this.Prism = prism;
         }
+
+        public void Update()
+        {
+            this.Prism.Update();
+        }
     }
 }

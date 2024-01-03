@@ -6,7 +6,7 @@ using System.Linq;
 
 public class ParticleHedron : IModel, IHedron
 {
-    public Dictionary<Particle, IPrism> Registry { get; set; }
+    public Dictionary<Particle, IPrism> Registry { get; set; } = new();
 
     public List<IPrism> Prisms => Registry.Values.ToList();
 
@@ -17,6 +17,13 @@ public class ParticleHedron : IModel, IHedron
         this.ParticleID = hedron.ParticleID;
         this.Registry = hedron.Registry;
     }
+
+    public ParticleHedron(IHedron hedron, Particle hid)
+    {
+        this.ParticleID = hid;
+        this.Registry = hedron.Registry;
+    }
+
 
     public ParticleHedron(Particle hid = Particle.Delta, bool isFull = false)
     {
@@ -145,7 +152,7 @@ public class ParticleHedron : IModel, IHedron
     public IPrism GetPrism()
     {
         var pid = IParticle.GetRandom();
-        while (this.Registry.ContainsKey(pid))
+        while (!this.Registry.ContainsKey(pid))
         {
             pid = IParticle.GetRandom();
         }

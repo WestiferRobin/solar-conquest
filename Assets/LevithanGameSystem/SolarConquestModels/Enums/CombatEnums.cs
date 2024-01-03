@@ -8,7 +8,7 @@ public enum CombatClass
     Specialist = 2,
     Commando = 3,
     Officer = 4,
-    Magi = 5
+    Prime = 5
 }
 
 

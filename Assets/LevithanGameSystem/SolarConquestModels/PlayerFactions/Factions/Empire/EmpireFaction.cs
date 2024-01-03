@@ -10,29 +10,51 @@ namespace SolarConquestGameModels
 {
     public class EmpireFaction : PlayerFaction
     {
-        public EmpireFaction(ParticleHedron avatarHedron) : base(
-            avatarHedron,
-            Particle.Delta,
+        public static Particle EmpireFlag = Particle.Omega;
+
+        public EmpireFaction(IHedron hedron) : base(
+            new EmpireHedron(hedron),
+            EmpireFlag,
             new List<Particle>()
             {
-                Particle.Lambda,
-                Particle.Alpha,
-                Particle.Gamma,
-                Particle.Beta
+                Particle.Psi,
+                Particle.Theta,
+                Particle.Phi,
+                Particle.Sigma
             }
         )
         {
-            foreach (var EmpireFlag in this.GetFlags())
-            {
-                var EmpireHedron = new EmpireHedron();
-                var leader = EmpireHedron.GetPrism(EmpireFlag);
-                var guardian = EmpireHedron.GetPrism();
+            Init();
+        }
 
-                var EmpireFaction = new EmpireArchFaction(
+        public EmpireFaction(ParticleHedron avatarHedron) : base(
+            avatarHedron,
+            Particle.Omega,
+            new List<Particle>()
+            {
+                Particle.Psi,
+                Particle.Theta,
+                Particle.Phi,
+                Particle.Sigma
+            }
+        )
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            foreach (var empireFlag in this.GetFlags())
+            {
+                var empireHedron = new EmpireHedron();
+                var leader = empireHedron.GetPrism(empireFlag);
+                var guardian = empireHedron.GetPrism();
+
+                var empireFaction = new EmpireArchFaction(
                     new EmpirePrism(leader),
                     new EmpirePrism(guardian)
                 );
-                this.Factions[EmpireFlag] = EmpireFaction;
+                this.Factions[empireFlag] = empireFaction;
             }
         }
     }
@@ -79,7 +101,7 @@ namespace SolarConquestGameModels
         { }
         public EmpireHedron(EmpirePrism leader, bool isFull = true) : base(leader, isFull) { }
         public EmpireHedron(IHedron hedron) : base(hedron) { }
-        public EmpireHedron() : base(Particle.Delta) { }
+        public EmpireHedron(bool isFull = true) : base(Particle.Delta, isFull) { }
     }
 
     public class EmpireSquadron : EmpireHedron

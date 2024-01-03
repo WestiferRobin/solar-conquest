@@ -14,5 +14,10 @@ namespace SolarConquestGameModels
         public HedronModel(IHedron hedron) { 
             Hedron = hedron;
         }
+
+        public void Update()
+        {
+            Hedron.Update();
+        }
     }
 }

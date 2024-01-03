@@ -2,16 +2,21 @@
 
 namespace SolarConquestGameModels
 {
-    public interface IAdminFaction
+    public interface IFaction
     {
         bool IsOperational();
+        void ApplyToBoard(GalaxyBoard galaxy, int index);
+    }
+
+    public interface IAdminFaction: IFaction
+    {
         IPrism Admin { get; }
         IPrism AdminGuardian { get; }
 
-        IPrism GetLeader(Particle pid);
-        IPrism GetGuardian(Particle pid);
+        IPrism GetArchLeader(Particle pid);
+        IPrism GetArchGuardian(Particle pid);
 
-        IArchFaction AdminFaction { get; } // All Arch Factions
+        IArchFaction AdminFaction => GetArchFaction(Admin.Hid);
         IArchFaction GetArchFaction(Particle pid);
 
         void Update();
@@ -38,13 +43,14 @@ namespace SolarConquestGameModels
         // Admin Population => All Faction Hedron and types
     }
 
-    public interface IArchFaction
+    public interface IArchFaction: IFaction
     {
-        bool IsOperational();
-
         IPrism Leader { get; }
         IPrism Guardian { get; }
+
         void Update();
+
+
 
         // Royale Family
         // Magi Armada
