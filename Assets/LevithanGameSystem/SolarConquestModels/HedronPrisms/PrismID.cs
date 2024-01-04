@@ -15,9 +15,9 @@ public class PrismID
     public RaceID RaceID { get; set; }
     public Particle FactionID { get; set; }
 
-    public FamilyName FamilyID { get; set; }
+    public QuantumName FamilyID { get; set; }
     public Gender GenderID { get; set; }
-    public BirthSign BirthID { get; private set; }
+    public ZodiacSign BirthID { get; private set; }
     public CombatRank RankID { get; set; }
     public CombatClass CombatClassID { get; set; }
 
@@ -38,9 +38,9 @@ public class PrismID
 
         var rand = new Random();
         this.GenderID = AssignRandomProperty<Gender>(rand);
-        this.BirthID = AssignRandomProperty<BirthSign>(rand);
+        this.BirthID = AssignRandomProperty<ZodiacSign>(rand);
         this.NameID = new ParticleNameID(pid, hid);
-        this.FamilyID = AssignRandomProperty<FamilyName>(rand);
+        this.FamilyID = AssignRandomProperty<QuantumName>(rand);
         this.RaceID = ConfigureRace(pid);
         this.FactionID = hid;
         this.RankID = AssignRandomProperty<CombatRank>(rand);
@@ -62,7 +62,7 @@ public class PrismID
         Particle pid,
         Particle hid,
 
-        FamilyName familyName,
+        QuantumName familyName,
         CombatRank rank,
         CombatClass combatClass
     )
@@ -72,7 +72,7 @@ public class PrismID
 
         var rand = new Random();
         this.GenderID = AssignRandomProperty<Gender>(rand);
-        this.BirthID = AssignRandomProperty<BirthSign>(rand);
+        this.BirthID = AssignRandomProperty<ZodiacSign>(rand);
         this.NameID = new ParticleNameID(pid, hid);
         this.FamilyID = familyName;
         this.RaceID = ConfigureRace(pid);
@@ -85,12 +85,12 @@ public class PrismID
         Particle pid,
         Particle hid,
 
-        FamilyName familyId,
+        QuantumName familyId,
         CombatRank rankId,
         CombatClass combatClassId,
 
         Gender genderId,
-        BirthSign birthId,
+        ZodiacSign birthId,
 
         string firstName = null,
         string lastName = null

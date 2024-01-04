@@ -5,7 +5,7 @@ namespace SolarConquestGameModels
     public interface IFaction
     {
         bool IsOperational();
-        void ApplyToBoard(GalaxyBoard galaxy, int index);
+        //void ApplyToBoard(GalaxyBoard galaxy, int index);
     }
 
     public interface IAdminFaction: IFaction

@@ -1,0 +1,246 @@
+﻿
+GAME INSPIRATIONS:
+- Rimworld
+    - Game Resources: https://rimworldwiki.com/wiki/Resources
+    - Animals: https://rimworldwiki.com/wiki/Animals
+- Minecraft:
+    - Terrian Generation: https://www.alanzucconi.com/2022/06/05/minecraft-world-generation/
+- KotorWeapons: https://www.ign.com/wikis/star-wars-knights-of-the-old-republic/Weapons_and_Items
+    - CraftWeapons with WeaponComponets made with WeaponMaterials
+    - CraftArmor with ArmorComponents made with ArmorMaterials
+
+EARTH MAP:
+- For mapping Sphere to Cube for PlanetGrid => https://i.pinimg.com/originals/6d/a6/bf/6da6bf9688aa77a7af83bf5d67e0c216.jpg
+
+Prism Speech: https://upload.wikimedia.org/wikipedia/commons/b/b5/International_Morse_Code.svg
+- Has Score on Compatibility
+- We need Particles with Ascii for Hedron Terminal Keyboard
+- Ascii gets .-
+- If we can get:
+    - prism.Interact(prism)
+    - where InteractionActionResult is Positve, Neutral, Negative
+    - and prism runs InteractionHistory to AI and history
+        - SocialTalk::InteractionHistory
+                - Wes talks with LambdaAgent
+                - Conversation: DirectMessageSingle
+                    - Mapped with LexiconCodeIndex of Wes's SocialSessionView
+                    - Reason is to map Prism and AutomateSelfAvatar
+                    - Wes: 0 1 -1 2 3 4 -2
+                        - "Hey Lambda, how are you?"
+                    - Lambda: 5 6 -1 7 8 9 10 11 12 13 -3 => top example
+                        - "Hello Wes, I'm feeling happy due to our victory!"
+                        - "I have Completed the FactionConquestMission."
+                        - "I also have the report sent to you now."
+                    - Wes: follow code convention with previous messages
+                        - "Thats Great! I'm happy you did that."
+            - Wes: <Gives Request Command>
+                - Get Text into ParticleEncoder to Particles
+                    - Morse Code
+                    - Lexicon Code
+                        - Notation: alphanum +1, symbol -1, space 0
+                        - Dictionary<Words, Memories>
+                        - Dictionary<Words, Index>
+                    - Grammer Code => Maps Lexicon Word indicies
+                        - List<Index> lexIndexes;
+                - Store and deliver Particles
+                - PrismAI reads Particles to respond output Particles
+                - ParticleDecoder used for response
+                    - Particle to LexIndex
+                    - LexIndex to Morse and Text
+                    - Morse for Voice Communication
+                    - Text for ASCII Communication => HumanLanguage
+            - Lambda: <Returns Response Commands>
+Important Charts: Seed Generation
+- Zodiac Sign: https://c8.alamy.com/comp/2G668JD/twelve-zodiac-constellations-horoscope-circle-vector-illustration-fortune-determination-map-on-starry-night-sky-background-future-prediction-2G668JD.jpg
+    - Is Prism info for PlanetYear, SolarCycle, GalaticEpoch
+    - PrismNadelChart https://i.pinimg.com/originals/9a/ef/c0/9aefc08025adec7e024c564574207ae8.jpg
+        - ZodiacSigns:
+            Capricorn = 0,
+            Aquarius = 1,
+            Pisces = 2,
+            Ares = 3,
+            Taurus = 4,
+            Gemini = 5,
+            Cancer = 6,
+            Leo = 7,
+            Virgo = 8,
+            Libra = 9,
+            Scorpio = 10,
+            Sagittarius = 11
+        - 
+- Aztec Calander: https://s.calendarr.com/upload/articles/ca/le/calendario-maya1_c.jpg?auto_optimize=low&width=640
+    - Calculates PlanetYear, SolarCycle, GalaticEpoch for SolarConquestGame
+    
+- Chinese Chart: https://cdn.statcdn.com/Infographic/images/normal/16907.jpeg
+    - Measuring Generations per Faction
+- Kabbalah (Jewish Mystics) Chart: https://www.orderofthewhitelion.com/wp-content/uploads/2018/10/Qabalah_Treev4a.jpg
+    - It's a hypercube and perfect candidate for PrismAI => https://en.wikipedia.org/wiki/Tree_of_life_(Kabbalah)
+        - The Sephiroth are the ten spheres on the Tree of Life.
+        - Each Sephirah (singular of Sephiroth) represents a different aspect of the Divine, as well as aspects of human consciousness and existence.
+        - These are, from top to bottom
+- Myres Briggs: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Ftqq9c8x84bz41.jpg
+    - Great for PrismSocial
+
+Science Sources:
+- Bilogy:
+    - General Chemistry:
+        - Reaction Equations https://slideplayer.com/slide/6429772/22/images/2/All+Types+of+Reactions+There+are+six+types+of+chemical+reactions%3A.jpg
+            - Idea is that equations will map to particles to ZodiacElement
+            - with elecrisity
+        - Organic Biome Atoms: https://www.thoughtco.com/thmb/-7nz1rS7DH8-xhEdqsNVvJJanco=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/human-body-infographics-465321784-57ab54755f9b58974a07fa9f.jpg
+            - Use to test reactions in general chemistry
+            - All Humans are Carbon Based Atom
+    - Organic Chemistry:
+        - Base only reactions from DNA Codes
+    - Genetic Code: https://www.genome.gov/sites/default/files/media/images/tg/Genetic-code_dyn.jpg
+        - Great for BiomeLifeDNA
+    - Genetic Dihybrid Punette Matrix: https://opengenetics.pressbooks.tru.ca/wp-content/uploads/sites/42/2020/12/ki.png
+        - Use Text Notation: AB Ab aB ab
+    - BiomeBound: https://wou.edu/chemistry/files/2018/11/EMS.png
+        - BiomeResources
+            - NaturalResources
+                - NaturalEnergy => Processing NaturalMatierals into FactionResources 
+                - OrganicResources => NaturalOrganicMaterials 
+                - EarthResources => NaturalEarthMatierals
+            - NaturalOrganisms:
+                - Macro Ecosystem
+                - Micro Ecosystem
+- Biome Source: Soverign Particle Map to Quantum https://www.symmetrymagazine.org/standard-model/images/standard_model_ai.png
+    - PlanetSideGrid:
+        - Space: Orbit Plane
+            - Space OrbitPlane
+            - 
+        - Earth:
+            - BiomeType Plane
+            - CrustType Plane
+            - 
+        
+- Pokemon BattleTypes: https://pokemondb.net/type/old
+    - Using Generation 2-5 type chart
+    - Used as Prime Abilities for Faction PrimeOrder
+        - GuardianOrder => White
+            - Master Guardian: Psychic(Psychic/Light) => Admin Prime of Faction
+            - GuardianCouncil:
+                - Vice Guardian: Psychic => Leader of Guardian Armada
+                - Yellow Guardian: Nuclear(Electric/Gas)
+                - Red Guardian: Flame(Fire/Ghost)
+                - Green Guardian: Earth(Grass/Ground)
+                - Blue Guardian: Liquid(Water/Ice)
+        - WraithOrder => Black
+            - Master Wraith: Specter(Ghost/Dark) => Admin Prime of Faction
+            - WraithCouncil
+                - Vice Wraith: Specter
+                - Purple Wraith: Crystal(Electric/Ice)
+                - Cyan Wraith: Plasma(Eletric/Atomic)
+                - Magenta Wraith: Celestial(Psychic/Dark)
+                - Orange Wraith: Mantle(Fire/Rock)
+        - HunterOrder => Grey
+            - Master Hunter: Fighting(Fighting/Steel) => Admin Prime of Faction
+            - HunterCouncil:
+                - Quazar Hunter: Fighting
+                - Electron Huner: Fighting
+                - Proton Hunter: Fighting
+                - Photon Hunter: Fighting
+                - Neutron Hunter: Fighting
+        - PirateOrder => Pink => Rename PirateFaction to RaiderFaction
+            - Master Pirate: Mutant(Poisin/Atomic) => Admin Prime of Faction
+            - PirateCouncil:
+                - Quazar Pirate: Mutant
+                - Electron Pirate: Mutant
+                - Proton Pirate: Mutant
+                - Photon Pirate: Mutant
+                - Neutron Pirate: Mutant
+
+CosmicEpoch: GalaxyCycle:SolarCycle:PlanetCycle:MoonCycle
+- 1 PlanetDay
+            - PlanetClock: EarthClock => Unity uses Realtime componets and RimWorld is TurnBase like and so is KOTOR
+                - AM/PM => Sun/Moon => PlanetRotation
+                - Eclipse: Moon rotation is 1 PlanetMonth
+                    - New Moon, Full Moon
+                - 1 game second => 1 real milli seconds
+                - 1 game minute => 1 real second
+                - 1 game hour => 1 real minute
+                - 1 game 
+        - 1 Planet Week
+            - ColonyPassiveSchedule:
+                - Work
+                    - Quazar Family Work
+                    - Electron Family Work
+                    - Proton Family Work
+                    - Photon Family Work
+                    - Neutron Family Work
+                - Recreation
+                    - Blackjack
+                    - Chess
+                    - Watch Holopad Show:
+                        - Sports:
+                            - Vice Wars: Gladiador Olympics World Cup
+                                - Grid Valorant: 5 v 5 first one
+                                - BMI ESport Game
+                                    - Cassual: Tournement Practice
+                                    - Tournement: Ranked Game
+                                        - Bronze, Silver, Gold, Obsidion, Emerald, Sapphire, Ruby, Star
+                                    - HighScoreRankLeaderBoard => Ticket to Audition
+                                - ESportLeague:
+                                    - Admin Sport Event => Faction Olympics
+                                    - Quazar Team
+                                    - Electron Team
+                                    - Proton Team
+                                    - Photon Team
+                                    - Neutron Teamd
+                        - News:
+                            - Updates based on FactionView info
+                            - FactionWeather
+                                - GalaxyWeather
+                                - SolarWeather
+                                - PlanetWeather
+                            - FactionOrder: AdminOrder => Announcements
+                                - TradeExchange
+                                - Admin Leader Speeches
+                                - Colony Arch Leader Speeches
+                        - Entertainment => Reads Script like ComplexChildBook
+                            - Comedy
+                            - Drama => Harry Potter, 
+                - SocialEvent
+                    - WorkSocial
+                    - FamilySocial
+                    - PartySocial
+                    - CommunitySocial
+            - Weekday:
+                - Monday => Work, Recreation
+                - Tuesday => Work, WorkSocial
+                - Wednesday => Work, Recreation
+                - Thursday => Work, FamilySocial
+            - Weekend:
+                - Friday => Errands, Recreation
+                - Saturday => Recreation, PartySocial
+                - Sunday => CommunitySocial, Recreation
+        - 1 Planet Month
+            - 2 PlanetWeeks
+        - 1 Planet Year
+            - Winter Season => Chrismas on New Year's Eve
+                - Admin's Day => Faction 4-Day Holiday Break of Jobs
+
+
+
+                - Christmas Eve
+                - Christmas Day: New Years Eve
+                - New Years Day: => Admin Day
+                    - Admin Day is Celebration of New Year and Admin Leader 
+            - Spring Season => Easter, Mothers Day, Fools Day
+                - Easter
+                - Ladys Day: Mothers Day
+                - Fools Day: April Fools
+            - Summer Season =>
+                - Leader's Day
+                - Faction Celebration,
+                - Vice Wars Championship  
+            - Autumn Season => Halloween => HallowsDay, FamilyDay,
+                - Vice Wars Championship
+                - Election Day => Vote for FactionOfficals
+                    - Admin Leader
+                    - Arch Leader: has to achieve 
+                        - Trade Leader
+                        - Legion General
+                - Tax Day => Admin Tax, Arch Tax,
+                - Family Day 

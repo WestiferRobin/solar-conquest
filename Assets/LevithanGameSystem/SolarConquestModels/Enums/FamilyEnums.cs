@@ -25,9 +25,9 @@ Archs:
     Gamma => Specialist Ranger Family => Gamma Electron Family => Venatoan => Green Guardian
     Beta => Officer Ranger Family => Beta Neutron Family => Neptonian => Blue Guardian
 */
-public enum FamilyName
+public enum QuantumName
 {
-    Admin = Particle.Delta,
+    Arch = Particle.Delta,
     Quazar = Particle.Mu,
     Photon = Particle.Lambda,
     Electron = Particle.Gamma,

@@ -148,7 +148,7 @@ namespace SolarConquestGameModels
 
         public List<IPrism> Children { get; }
 
-        public FamilyName Name { get; }
+        public QuantumName Name { get; }
 
 
         public void InitFamily(EmpirePrism parent1, EmpirePrism parent2, bool isFull)

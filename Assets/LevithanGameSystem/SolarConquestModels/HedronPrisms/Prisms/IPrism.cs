@@ -92,10 +92,27 @@ namespace SolarConquestGameModels
         Particle Pid { get; }
         Particle Hid { get; set; }
 
-        FamilyName FactionName { get; }
+        QuantumName FactionName { get; }
 
+        // TODO: RE-DESIGN THESE TWO BELOW!
         Dictionary<Particle, IHedron> HedronNetwork { get; }
         Dictionary<PrismSkillID, PrismSkill> Skills { get; }
+        /*
+
+        HedronNetwork Network { get; }
+        PrisSkillCard Skills { get; }
+
+        HedronNetwork:
+            - Connects on Hedron Frequency => Signal across GalaxyBoard
+                - String Theory and AstroPhysics the Universe is Strings
+                - Strings are vibration, energy, frequency
+
+        ASDF:
+            - vibration, energy, frequency
+            - HyperEnergy, Hz:[Sound, Volts, :Heat
+
+        */
+
 
         void InitPrism(PrismID id);
 

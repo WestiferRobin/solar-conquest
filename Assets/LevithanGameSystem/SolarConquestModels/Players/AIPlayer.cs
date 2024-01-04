@@ -32,12 +32,12 @@ public class AIPlayer : IPlayer
         );
     }
 
-    private BirthSign GetBirthSign(Random rand)
+    private ZodiacSign GetBirthSign(Random rand)
     {
-        var signIndex = rand.Next(0, Enum.GetValues(typeof(BirthSign)).Length);
+        var signIndex = rand.Next(0, Enum.GetValues(typeof(ZodiacSign)).Length);
 
-        var asdf = Enum.GetValues(typeof(BirthSign)).GetValue(signIndex);
-        return (BirthSign)asdf;
+        var asdf = Enum.GetValues(typeof(ZodiacSign)).GetValue(signIndex);
+        return (ZodiacSign)asdf;
     }
 
     private CombatClass GetCombatClass(Random rand)

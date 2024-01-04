@@ -666,6 +666,60 @@ Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
             - WARM Summer
             - RAIN Spring
 
+- Admin Research Scores mapped to AdminResearchScoreCard
+    - Arch School of Admin Leader Skills
+    - Quazar School of Order Prime Skills (Magic, Force, Super)
+    - Electron School of Harvester Skills
+    - Proton School of Legion Combat Skills
+    - Photon School of Trade Buisness Skills
+    - Neutron School of Medicine Science Skills
+- FactionScoreCard: => PlayerGameView of AdminReasearchCard: ControllerModelView
+    - Admin: PrismLeader: Leader of FactionOrder
+    - Vice Admin: PrimeOrderMaster: PrismLeader: Leader of PrimeOrder
+    - Admin Consort: Partner of Admin
+    - Vice Arch: Next in line for Arch Leader Spot in FactionOrder
+    - Vice Prime: ArchPrime: 
+    - FactionResources:
+        - GuardianOrderResources
+        - ArchOrderResources
+    - AdminScores:
+        - Population
+        - Colonies
+        - Resources:
+            - Primitive RawMaterials
+            - Basic RawMaterials
+            - Common RawMaterials
+            - Luxury RawMaterials
+            - Elite RawMaterials
+            - Money => Trade Sales
+                - Goods: Import(Buy) -1, Export(Sell) +1
+                    - CraftedGoods
+                        - PrismItems
+                            - Appearal,
+                            - Armor,
+                            - Weapon,
+                            - Pack,
+                            - Grenade
+                        - VehicleParts
+                            - RobotParts
+                            - ShipParts
+                            - SpaceCraftParts
+                            - BiomeCraftParts
+                            - ColonyParts => Walls, Floors, Furniture, SkillStations
+                    - MaterialGoods
+                    - ContractGoods
+                        - Hunters for hire
+                        - Raiders for hire
+                        - Slaves for hire
+                        - Laborers for hire
+                    - AdminGoods
+                        - Anything with Admin Resources
+                - FactionTaxes to FactionOrder
+                    - AdminOrder => Royale Family Faction Resources
+                    - PrimeOrder => Prime Council Legion Protection
+                    - ArchOrder => Noble Family Faction Resources
+
+
 
 - Faction Order:
     - Faction Council
@@ -677,24 +731,37 @@ Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
             
     - Admin Order: AdminFlag
         - Admin Leader => Leader of Order
+        - Prime Elder: Admin Prime => Vice Leader of Admin Order
         - Royale Family => AdminFlag
-            - Admin Lady => Vice Leader of Admin Order
+            - Admin Leader: Father
+            - Admin Lady: Mother
             - Children:
-                - FirstChild: Admin Nobel
-                - SecondChild: Admin Nobel
-                - ThirdChild: Admin Nobel
-                - FourthChild: Admin Nobel
-        - 
+                - FirstSon: AB Male Admin Elite 
+                - FirstDaughter: Ab Admin Elite
+                - SecondDaughter: aB Admin Elite
+                - SecondSon: ab Male Admin Elite
+        - Admin University
+            - Arch Dead: Master of University
+            - Arch Professors: Arch Researcher
+            - Admin Research Scores mapped to AdminResearchScoreCard
+                - Arch School of Admin Leader Skills
+                - Quazar School of Order Prime Skills (Magic, Force, Super)
+                - Electron School of Harvester Skills
+                - Proton School of Legion Combat Skills
+                - Photon School of Trade Buisness Skills
+                - Neutron School of Medicine Science Skills
     - Prime Order: MagiFlag
         - Prime Council
-            - Prime Elder: Admin Prime
+            - Prime Elder: Admin Prime => Vice Leader of Admin Order
             - Prime Masters:
                 - Vice Prime: Arch Prime
                 - First Prime: Arch Prime
                 - Second Prime: Arch Prime
                 - Third Prime: Arch Prime
                 - Fourth Prime: Arch Prime
-        - Prime School per Arch Race with Quazar Gene
+        - Prime School per Arch Flag with Quazar Gene
+            - Faction Prime Academy
+                - Arch Prime Studies
             - Master => Enforce Prime Rule
                 - 1 Prime Elder: Arch Magi
             - Disciple => Enforce Master Rule
@@ -704,6 +771,7 @@ Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
             - Apprenctice => Enforce Apprenctice Rule
                 - z Magi Private-Sergeant
             - Recruit => Found Quazar Gene before 20 years old
+        - 
     - Arch Order: ViceFlag with Arch Flags
         - Vice Arch Family => Arch Leader and Arch Prime
             - Arch Leader: Admin Nobel => ArchEliteFleet
@@ -721,16 +789,26 @@ Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
                 - First Trade Daughter Ab
                 - Second Trade Son aB
                 - Second Trade Daughter ab
-            - Trade Families
+            - Trade Family Population(Gen0)
                 - Trade Quazar Manager
-                - Trade Electron
-                - Trade Proton
-                - Trade Proton
-                - Trade Neutron
+                - Trade Electron Manager
+                - Trade Proton Manager
+                - Trade Proton Manager
+                - Trade Neutron Manager
         - Arch Military Family => LegionFamily
-            - Legion Leader: Arch Nobel => Legion General
-            - Legion Lady: Arch Nobel
-            - Legion Children: Legion Admiral
+            - Legion Leader: Arch Nobel => Legion Master General Delta
+            - Legion Lady: Arch Nobel => LegionLady
+            - Legion Children: Arch Nobels
+                - First Legion Son AB => LegionEliteDivision
+                - First Legion Daughter Ab => LegionIntelDivision Agent
+                - Second Legion Son aB => LegionArmyDivision
+                - Second Legion Daughter ab => LegionNavyDivision
+            - Legion Military
+                - Legion General Delta
+                - Legion Admiral Lambda
+                - Legion Admiral Alpha
+                - Legion Admiral Gamma
+                - Legion Admiral Beta
         - Arch Harvest Family => Trade Executive and Farm Manager
             - Harvest Lady: Arch Nobel
             - Harvest Children: Arch Nobels

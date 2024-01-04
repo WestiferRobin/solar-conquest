@@ -1,0 +1,182 @@
+﻿GenisisVerse: In the universe, there is a sovereign
+
+HedronPrism -> CRUD Service
+
+SolarPrism -> SolarConquestGamePrism
+
+MuPrism generates AI datasets from OpenAI
+Transformer based on datasets
+
+
+Iso Robot
+    - PrismID => UUID x UUID Dimension Matrix
+        - 4-2-2-2-6 Digital Bytes mapped to Ascii Hex Bytes
+        - 4-2-2-2-6 Ascii Hex Bytes
+
+HexByte HexNibble  Bit
+00      0          0
+01      1          1
+02      2
+03      3
+04      4
+05      5
+06      6
+07      7
+08      8
+09      9
+0A      A
+0B      B
+0C      C
+0D      D
+0E      E
+0F      F
+
+SOLUTION: using my Soverign Theroms
+    Use alternating vertex index line bound by complex plane => Square:Circle => 
+
+SoverignParticles
+    - A Soverign is mean unit vector in any dimension
+    - Used to map hyperCoordinates to a hyperGrid on 4D particlePolygon => 4 hyperGrids
+        - Obey ParticleCoordinates to a particleGrid
+        - 
+    - ScientificHypothesises: Can create SoverignDataSet
+        - What Does the Universe Look like in
+        - Is PartileHedron => ParticleModel
+            - Particle pid
+            - Particle
+            - PrismHedorn => ViewController
+            - FamilyHedron
+            - LegionSquadron
+            - BatallionSquadron
+            - ArmadaSquadron
+            - PilotSquadron
+            - FactionOrder: ran by ParticleLeader
+        - Does PartileHedronModel solve AGI?
+            - Why? Cause ChatGPT:GPT:OpenAI broke industry like internet
+                - AGI
+                    - ParticleGrid index off GPT
+                    - Inforceses Tensor
+
+
+- Quatum Energy: Enstien's framework of Realitivity
+    - Enstine Start: E=mc2 => Light Density: average of Quanitative Equations
+    - Neuton Start: F=mg => Neutonian Density: average of Classical Equations
+        - EarthToSol
+        - Gravitional Energy => Gravity Density 
+    - Atomic Energy => Radiation Density
+        - Radiation Particle waves for every reaction
+        - Use indexed soluition to calculate with any
+        - 
+    - Earth Energy => Solid Density
+        - Crystal
+        - Metallic
+        - Smooth
+    - Wind Energy => Gas Density
+    - Fire Energy => Heat Density
+    - Water Energy => Fluid Density
+    - Soul Energy => Biology Vector -> Enforces 
+    -
+
+
+theorm 1: Imaginary Dimensions
+    bound by true solutions for SoverignParticle Set
+
+    mu is the density of VoidTransparency 
+    sigma is the density unit for mean => mu
+     
+    e^iz = ( cos(x) + i * sin(y) ) * mu
+    i^2 = -1
+    1 = cos(x) ^ 2 + sin(y) ^ 2
+
+
+Particle
+
+
+For SoverignVertex which is a point on HyperGrid
+    A 
+
+A HyperPlane is a HyperPolygon mapped with SoverignVertexs
+A HyperPlane is seen as
+        
+    
+
+
+Alpha Gamma   Beta   Delta
+Sigma Epsilon Lambda Mu
+Theta Phi     Psi    Omega
+
+Red    Green    Blue   White
+Orange Pink     Yellow Grey
+Cyan   Magentta Purple Black
+
+X Z Y W
+
+
+
+Dimensions Rules
+
+D0 there is a point (dot or hole) per calc proof
+D1 there is length
+D2 there is area
+D3 there is volume
+D4 there is 
+
+
+2D Vertix <distance, time> for 1Dim and 2Dim problems
+distance/time => speed
+(distance/time)2 => acceleration
+
+
+Linear Coordinates => y = mx + b or 0 = mx + b or 0 = 0x + 0
+Rectangular Coordinates => x2 + y2 = r2
+Polar Coordinates => cos2t + sin2t = r2 and x=rcost, y=rsint
+Cyndrical Coordinates => cos2t + sin2t = r2 and z=z
+Spherical Coordinates => cos2h + sin2h = p2 and z=pcosh, x=psinhcost, y=
+
+so if N-D has coordinates above and with particles
+
+a g b W
+s i y G
+t h p B
+
+0-D Coordinates => Points : Vertex(<x, 0|1>) -> PointShape (transparency)
+    0 = x
+    1 = x
+
+1-D Coorodinates => Lines : VertexEdge(source, target) -> LineShape
+    0 = mx + b
+    1 = mx + b
+
+2-D Coordinates => Area : VertexFace(edges) -> FaceShape
+    y = mx + b
+    r2 = x2 + y2 => r2 = cos2t + sin2t
+
+3-D Coordinates => Volume : VertexShadow(faces, edges, vetexs)
+    z2 = x2 + y2
+    p2 = z2 + x2 + y2
+
+3-D Particle Coordinates
+    g2 = a2 + b2
+    l2 = g2 + a2 + b2
+
+4+D Coordinates => HyperVolume : VertexMesh(faces, edges, vetexs, shadows
+    a2 + g2 + b2 + l2 = W2
+    t2 + h2 + o2 + p2 = B2
+    G2 = W2 + iB2 => Complex Equation 
+
+    
+
+
+
+
+
+SovereignConstant = Dim(I)*Dim(I’)
+D-0: Point:Vertex = <i>
+D-1: Length:Edge = m<i> + b
+D-2: Area:Polygon = EdgeXEdge
+D-3: Volume:Cell 
+SoverignCube:Soverign delta
+HyperCube:HyperSphere lambda
+Cube:Sphere alpha
+Square:Circle beta
+Vertex:Void omega

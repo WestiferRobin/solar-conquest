@@ -6,38 +6,88 @@ using System.Threading.Tasks;
 
 namespace SoverignParticles
 {
+    /*
+    Particle Vertex 
+        Note: Dimension Notation is Particle:D:?
+
+    Delta-D:0 Particle:Vertex:Point
+        - Reality Density: % as Z when 0 <= Z <= 1
+            - e*iZ = cosX + i*sinY
+            - when X and Y has valid solutions for e*iZ
+        - VertexPoint Types
+            - Particle <p>
+            - Numeric <x>
+            - Void <0>
+            - Tile <a, g, b>
+    Lambda-D:1 Vector:VertexEdge:Length
+        - LineAxisGrid => VertexPointGrid
+        - VertexEdge:
+            - SourcePoint: VertexPoint
+            - TargetPoint: VertexPoint
+    Alpha-D:2 Square:VertexFace:Area
+        - AreaAxisGrid => LineGrid
+        - VertexArea:
+            - LineLength:VertexEdge
+            - LineWidth:VertexEdge
+    Gamma-D:3 Cube:VertexPolygon:Volume
+        - VolumeAxisGrid => AreaAxisGrid
+        - VertexVolume
+            - SourceArea: VertexArea
+                - Height:VertexEdge
+            - TargetArea: VertexArea
+                - Length:VertexEdge
+                - Width:VertexEdge
+    Beta-D:4 HyperCube:HyperPolygon:HyperVolume
+        - HyperAxisGrid => Volumes, Areas, Lines, Verticies
+        - HyperVolume:
+            - VolumeSource: VertexPolygon
+            - VolumeTarget: VertexPolygon
+    Mu-D:5 SovereignMesh:SovereignPolygon:SovereignVolume
+    Epsilon-D:6 ParticleMesh:VertexPolygon:
+    Sigma-D:7
+    Phi-D:8
+    Theta-D:9 
+    Psi-D:10
+    Omega-D:11 Circle on ComplexPlane of D:0 transparency density
+
+
+
+    */
+
+    // Order Particle density vertex
     public enum Particle
     {
-        Delta = 0xFFF, // 
-        Theta = 0x0FF, //
-        Phi = 0xF0F,
-        Lambda = 0xFF0,
-
-        Sigma = 0xF80,
-        Epsilon = 0xF08,
-        Mu = 0x888,
-        Psi = 0x80F,
-
-        Alpha = 0xF00,
-        Gamma = 0x0F0,
-        Beta = 0x00F,
-        Omega = 0x000
-
-        /*
         Delta = 0xFFF,
-        Theta = 0x0FF,
-        Phi = 0xF0F,
-        Lambda = 0xFF0,
 
+        Lambda = 0xFF0,
         Sigma = 0xF80,
         Epsilon = 0xF08,
-        Mu = 0x888,
-        Psi = 0x80F,
-
         Alpha = 0xF00,
+        Phi = 0xF0F,
+
+        Mu = 0x888,
+
+        Psi = 0x80F,
+        Theta = 0x0FF,
         Gamma = 0x0F0,
         Beta = 0x00F,
-        Omega = 0x000 
+
+        Omega = 0x000
+        /*
+        Delta = 0xFFF, ASDF
+        Theta = 0x0FF, ASDF
+        Phi = 0xF0F, ASDF
+        Lambda = 0xFF0, ASDF
+
+        Sigma = 0xF80, ASDF
+        Epsilon = 0xF08, ASDF
+        Mu = 0x888, ASDF
+        Psi = 0x80F, ASDF
+
+        Alpha = 0xF00, ASDF
+        Gamma = 0x0F0, ASDF
+        Beta = 0x00F, ASDF
+        Omega = 0x000 ASDF
         */
     }
 

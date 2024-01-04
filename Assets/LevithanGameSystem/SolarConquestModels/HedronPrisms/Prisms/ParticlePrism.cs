@@ -38,7 +38,7 @@ namespace SolarConquestGameModels
         public string FirstName => this.ID.FirstName;
         public string LastName => this.ID.LastName;
         public string Name => this.ID.Name;
-        public FamilyName FactionName => this.ID.FamilyID;
+        public QuantumName FactionName => this.ID.FamilyID;
 
 
         public PrismWeapon PrimaryWeapon { get; }
@@ -219,7 +219,7 @@ namespace SolarConquestGameModels
                 if (isRandom && rand.Next() % 2 == 0) return null;
 
                 var gender = (Gender) rand.Next(0, 2);
-                var birthSign = (BirthSign)rand.Next(0, 12);
+                var birthSign = (ZodiacSign)rand.Next(0, 12);
 
                 var firstName = gender == Gender.Male ? this.ID.FirstName : partner.ID.FirstName;
                 var lastName = gender == Gender.Female ? this.ID.LastName : partner.ID.LastName;

@@ -14,11 +14,11 @@ namespace SolarConquestGameModels
         private static readonly PrismID guardianID = new(
                     Particle.Lambda,
                     Particle.Delta,
-                    FamilyName.Electron,
+                    QuantumName.Electron,
                     CombatRank.Arch,
                     CombatClass.Prime,
                     Gender.Male,
-                    BirthSign.Pisces,
+                    ZodiacSign.Pisces,
                     "Wes",
                     "Webb"
                 );
@@ -26,11 +26,11 @@ namespace SolarConquestGameModels
         private static readonly PrismID templarID = new(
                     Particle.Omega,
                     Particle.Omega,
-                    FamilyName.Quazar,
+                    QuantumName.Quazar,
                     CombatRank.Admin,
                     CombatClass.Prime,
                     Gender.Male,
-                    BirthSign.Scorpio,
+                    ZodiacSign.Scorpio,
                     "Jod",
                     "Tyranus"
                 );

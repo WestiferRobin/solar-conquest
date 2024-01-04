@@ -12,7 +12,7 @@ namespace SolarConquestGameModels
         IPrism Mother { get; }
         List<IPrism> Children { get; }
 
-        FamilyName Name { get; }
+        QuantumName Name { get; }
 
         public virtual void InitFamily<T>(T father, T mother)
         {

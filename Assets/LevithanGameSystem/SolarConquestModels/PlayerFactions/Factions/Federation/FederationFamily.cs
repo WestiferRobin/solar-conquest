@@ -40,7 +40,7 @@ namespace SolarConquestGameModels
 
         public List<IPrism> Children { get; }
 
-        public FamilyName Name { get; }
+        public QuantumName Name { get; }
 
 
         public void InitFamily(FederationPrism parent1, FederationPrism parent2, bool isFull)
