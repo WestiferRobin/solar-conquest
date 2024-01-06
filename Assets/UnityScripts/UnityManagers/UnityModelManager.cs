@@ -40,6 +40,7 @@ public class UnityModelManager : MonoBehaviour
         if (gameObject.TryGetComponent<SolarConquestGameManager>(out var manager))
         {
             this.GameManager = manager;
+            this.GameManager.LevithanSystem = new LevithanGameSystem();
             ConfigureTilemap();
         }
         else throw new Exception("UNITY MODEL MANAGER IS BROKEN!");

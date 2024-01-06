@@ -561,7 +561,7 @@ Faction Civilian Class:
                 - ConstructContract
                     - Colony
                     - Fleet
-            - TradeExchange => Money on Gem, Chemical, Ore Materials and 
+            - TradeExchange => Money on Gems, Items, and Materials
         - Harvest Items
             - PrismTools => PixAxe, LumberAxe, ShovelHoe, ForgeHammer
             - RepairPacks => Armor, Weapons, Tools, Robots
@@ -774,7 +774,7 @@ Raw Chunks => Raw Matrials => Constructed Matrials => Parts, Items
         - 
     - Arch Order: ViceFlag with Arch Flags
         - Vice Arch Family => Arch Leader and Arch Prime
-            - Arch Leader: Admin Nobel => ArchEliteFleet
+            - Vice Leader: Admin Nobel => ArchEliteFleet
             - Vice Lady: Admin Nobel => ArchCitadelColony
             - Vice Children: Admin Nobels
                 - 

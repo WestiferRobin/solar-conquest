@@ -9,7 +9,7 @@ namespace SolarConquestGameModels
 {
     public class FederationFaction : PlayerFaction
     {
-        public static Particle FederationAdminFlag = Particle.Delta;
+        public static Particle FederationFlag = Particle.Delta;
         public static List<Particle> FederationArchFlags
         {
             get {
@@ -32,10 +32,7 @@ namespace SolarConquestGameModels
         };
 
         public static List<Particle> FederationFlags { get {
-                var archFlags = new List<Particle>
-                {
-                    FederationAdminFlag
-                };
+                var archFlags = new List<Particle>() { FederationFlag };
                 foreach (var archFlag in FederationArchFlags)
                 {
                     archFlags.Add(archFlag);
@@ -45,8 +42,8 @@ namespace SolarConquestGameModels
         }
 
         public FederationFaction(IHedron hedron) : base(
-            new ParticleHedron(hedron, FederationAdminFlag),
-            FederationAdminFlag,
+            new ParticleHedron(hedron, FederationFlag),
+            FederationFlag,
             FederationArchFlags
         )
         {
@@ -55,7 +52,7 @@ namespace SolarConquestGameModels
 
         public FederationFaction(ParticleHedron avatarHedron): base(
             avatarHedron,
-            FederationAdminFlag,
+            FederationFlag,
             FederationArchFlags
         )
         {

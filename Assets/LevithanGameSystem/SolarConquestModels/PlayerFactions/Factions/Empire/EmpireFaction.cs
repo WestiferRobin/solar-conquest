@@ -29,7 +29,7 @@ namespace SolarConquestGameModels
 
         public EmpireFaction(ParticleHedron avatarHedron) : base(
             avatarHedron,
-            Particle.Omega,
+            EmpireFlag,
             new List<Particle>()
             {
                 Particle.Psi,
@@ -102,13 +102,6 @@ namespace SolarConquestGameModels
         public EmpireHedron(EmpirePrism leader, bool isFull = true) : base(leader, isFull) { }
         public EmpireHedron(IHedron hedron) : base(hedron) { }
         public EmpireHedron(bool isFull = true) : base(Particle.Delta, isFull) { }
-    }
-
-    public class EmpireSquadron : EmpireHedron
-    {
-        public EmpireSquadron(EmpirePrism leader, bool isFull = true) : base(leader, isFull) { }
-        public EmpireSquadron(IHedron hedron) : base(hedron) { }
-        public EmpireSquadron() : base() { }
     }
 
     public class EmpireFamily : EmpireHedron, IFamily

@@ -10,15 +10,12 @@ using UnityEngine.Tilemaps;
 public class SolarConquestGameManager : MonoBehaviour
 {
     public GameSystem LevithanSystem;
-    public IGame SolarConquest;
+    public IGame SolarConquest => LevithanSystem.Game;
 
     public Particle PrismID = Particle.Omega;
 
     void Start()
     {
-        LevithanSystem = new LevithanGameSystem();
-        SolarConquest = LevithanSystem.Game;
-        //LevithanSystem.StartGame();
     }
 
     void Update()

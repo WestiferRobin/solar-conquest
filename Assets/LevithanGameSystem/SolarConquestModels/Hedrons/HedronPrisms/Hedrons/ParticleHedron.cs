@@ -24,6 +24,13 @@ public class ParticleHedron : IModel, IHedron
         this.Registry = hedron.Registry;
     }
 
+    public ParticleHedron(Particle pid, Dictionary<Particle, IPrism> registry)
+    {
+        this.ParticleID = pid;
+        registry ??= new Dictionary<Particle, IPrism>();
+        this.Registry = registry;
+    }
+
 
     public ParticleHedron(Particle hid = Particle.Delta, bool isFull = false)
     {

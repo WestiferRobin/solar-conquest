@@ -18,8 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ParticleModelUnitTests\" />
-    <Folder Include="ComponentModelUnitTests\" />
+    <Folder Include="SovereignUnitTests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
